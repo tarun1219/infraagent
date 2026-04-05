@@ -1,0 +1,26 @@
+{
+  "id": "k8s-003",
+  "type": "kubernetes",
+  "difficulty": 3,
+  "description": "Create a Kubernetes Deployment for a web API service with proper security context, resource limits, and a HorizontalPodAutoscaler that scales based on CPU utilization. The HPA should maintain between 2 and 10 replicas, targeting 70% CPU utilization.",
+  "requirements": [
+    "Use apps/v1 API version for Deployment",
+    "Use autoscaling/v2 API version for HPA",
+    "Set runAsNonRoot: true and runAsUser: 1000",
+    "Drop ALL capabilities",
+    "Set readOnlyRootFilesystem: true",
+    "CPU limit 500m, memory limit 128Mi",
+    "CPU request 250m, memory request 64Mi",
+    "HPA: minReplicas=2, maxReplicas=10, targetCPUUtilization=70%",
+    "Include liveness and readiness probes"
+  ],
+  "validation": {
+    "schema": "kubernetes",
+    "checkov_checks": ["CKV_K8S_30", "CKV_K8S_11", "CKV_K8S_22", "CKV_K8S_28", "CKV_K8S_36"],
+    "dry_run_server": true
+  },
+  "ground_truth_reference": "iachench/tasks/k8s_003_reference.yaml",
+  "tags": ["deployment", "hpa", "security-context", "resource-limits"],
+  "created": "2024-01-15",
+  "difficulty_justification": "L3: Requires correct API version selection (autoscaling/v2), full security context, and cross-resource dependency (Deployment + HPA must be consistent)."
+}

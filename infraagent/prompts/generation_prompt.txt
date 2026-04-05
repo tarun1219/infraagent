@@ -1,0 +1,8 @@
+Task: {task_description}
+
+Retrieved Documentation (authoritative reference):
+{rag_context}
+
+Generate the complete, production-ready IaC configuration for the above task.
+Apply all security best practices from the retrieved documentation.
+Output ONLY the configuration file content. No explanations.

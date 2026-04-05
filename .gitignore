@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# Raw results — large files, distribute separately
+results/raw/*.jsonl
+
+# Model weights
+*.gguf
+*.bin
+*.safetensors
+models/
+
+# ChromaDB vector store
+chroma_db/
+*.chroma
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*.ipynb.bak
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.key
+api_keys.txt
+
+# Generated figures (reproducible from scripts)
+paper_figures/

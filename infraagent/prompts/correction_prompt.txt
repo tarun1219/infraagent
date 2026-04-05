@@ -1,0 +1,18 @@
+The following IaC configuration failed validation. Fix ALL reported errors.
+
+Original Task: {task_description}
+
+Current Configuration (round {round_number}):
+{previous_code}
+
+Validation Errors:
+{error_report}
+
+Retrieved Documentation (relevant to the errors above):
+{rag_context}
+
+Instructions:
+1. Fix every error listed above
+2. Do NOT introduce new security regressions while fixing other errors
+3. Maintain all correctly-configured parts of the existing code
+4. Output ONLY the corrected configuration. No explanations.

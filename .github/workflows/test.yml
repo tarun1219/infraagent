@@ -1,0 +1,79 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: pip
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-cov
+
+    - name: Install package
+      run: pip install -e .
+
+    - name: Run tests
+      run: pytest tests/ -v --tb=short --cov=iachench --cov=infraagent --cov-report=xml
+
+    - name: Upload coverage
+      uses: codecov/codecov-action@v4
+      with:
+        file: coverage.xml
+        fail_ci_if_error: false
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+    - name: Install linters
+      run: pip install ruff
+    - name: Run ruff
+      run: ruff check iachench/ infraagent/ scripts/ --ignore E501
+
+  simulate:
+    name: Simulate Results
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        cache: pip
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install -e .
+    - name: Run simulation
+      run: python scripts/simulate_results.py
+    - name: Verify output
+      run: |
+        python -c "
+        import json
+        data = json.load(open('results/experiment_results.json'))
+        assert 'main_results' in data or len(data) > 5, 'Results file appears empty'
+        print(f'Results file OK: {len(data)} top-level keys')
+        "

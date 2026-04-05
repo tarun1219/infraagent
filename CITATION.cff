@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: "InfraAgent: Prevention Over Repair in LLM-Generated Infrastructure-as-Code"
+authors:
+  - name: "Anonymous"
+message: "If you use this software or benchmark, please cite it as below."
+preferred-citation:
+  type: conference-paper
+  authors:
+    - name: "Anonymous"
+  title: "Prevention Over Repair: Quantifying the RAG-vs-Self-Correction Asymmetry in LLM-Generated Infrastructure-as-Code"
+  conference:
+    name: "ICSE 2026"
+  year: 2026
+repository-code: "https://github.com/tarun1219/infraagent"
+license: Apache-2.0
+keywords:
+  - infrastructure-as-code
+  - llm
+  - code-generation
+  - retrieval-augmented-generation
+  - self-correction
+  - kubernetes
+  - terraform
+  - dockerfile
+  - benchmark
+  - empirical-study

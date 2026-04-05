@@ -3,7 +3,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Tests](https://github.com/tarun1219/infraagent/workflows/Tests/badge.svg)](https://github.com/tarun1219/infraagent/actions)
-[![Paper](https://img.shields.io/badge/Paper-ICSE%202026-brightgreen.svg)](#citation)
+[![Paper](https://img.shields.io/badge/Paper-Preprint-brightgreen.svg)](#citation)
 
 **Paper:** *"Prevention Over Repair: Quantifying the RAG-vs-Self-Correction Asymmetry in LLM-Generated Infrastructure-as-Code"*
 
@@ -78,12 +78,11 @@ security failures more effectively than SC (which only signals *what is wrong*).
 ## Citation
 
 ```bibtex
-@inproceedings{infraagent2026,
-  title     = {Prevention Over Repair: Quantifying the RAG-vs-Self-Correction
-               Asymmetry in LLM-Generated Infrastructure-as-Code},
-  author    = {Anonymous},
-  booktitle = {Proceedings of ICSE 2026},
-  year      = {2026}
+@misc{infraagent2026,
+  title  = {Prevention Over Repair: Quantifying the RAG-vs-Self-Correction
+            Asymmetry in LLM-Generated Infrastructure-as-Code},
+  author = {Anonymous},
+  year   = {2026}
 }
 ```
 

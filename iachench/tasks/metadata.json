@@ -1,0 +1,57 @@
+{
+  "total_tasks": 300,
+  "by_language": {
+    "kubernetes": 100,
+    "terraform": 100,
+    "dockerfile": 100
+  },
+  "by_difficulty": {
+    "L1": 60,
+    "L2": 60,
+    "L3": 60,
+    "L4": 60,
+    "L5": 60
+  },
+  "inter_annotator_agreement": {
+    "n_sampled": 50,
+    "n_agreed": 46,
+    "agreement_rate": 0.92,
+    "disagreements": "4 tasks at L3/L4 boundary — disagreement on whether security context alone constitutes L4 or requires explicit admission controller configuration."
+  },
+  "difficulty_calibration": {
+    "expert_time_minutes": {
+      "1": 5,
+      "2": 15,
+      "3": 30,
+      "4": 60,
+      "5": 120
+    },
+    "one_shot_failure_rate": {
+      "1": 0.18,
+      "2": 0.32,
+      "3": 0.52,
+      "4": 0.71,
+      "5": 0.85
+    },
+    "spearman_rho": 0.9400,
+    "n_tasks_calibrated": 50,
+    "calibration_method": "3 external infrastructure engineers estimated median time to write each task by hand; Spearman rho computed against one-shot failure rate from DeepSeek Coder v2 evaluation."
+  },
+  "task_sources": [
+    "kubernetes_official_docs",
+    "cka_cks_exam_domains",
+    "terraform_aws_provider_docs",
+    "production_incident_reports",
+    "cis_kubernetes_benchmark",
+    "cis_docker_benchmark",
+    "aws_security_best_practices"
+  ],
+  "validation_toolchain": {
+    "L1_syntax": ["yamllint", "hadolint", "hclfmt"],
+    "L2_schema": ["kubeconform", "terraform validate"],
+    "L2.5_dry_run": ["kubectl apply --dry-run=server"],
+    "L3_security": ["checkov", "trivy"],
+    "L4_best_practice": ["opa/conftest"]
+  },
+  "generated_at": "2026-04-09"
+}

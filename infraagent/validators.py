@@ -14,6 +14,7 @@ required.  Results are aggregated into a structured ValidationReport.
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -155,12 +156,16 @@ def _validate_hcl_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
     with tempfile.TemporaryDirectory() as tmpdir:
         tf_file = Path(tmpdir) / "main.tf"
         tf_file.write_text(content)
-        # Write a minimal provider stub so validate can run without auth
+        # Write a minimal provider stub so validate can run without auth.
+        # Credentials are read from environment variables; fall back to
+        # placeholder strings only for offline syntax validation (never real auth).
+        _mock_key = os.environ.get("TF_VALIDATE_ACCESS_KEY", "mock-access-key")
+        _mock_secret = os.environ.get("TF_VALIDATE_SECRET_KEY", "mock-secret-key")
         (Path(tmpdir) / "versions.tf").write_text(
             'terraform { required_providers { aws = { source = "hashicorp/aws" } } }\n'
             'provider "aws" { region = "us-east-1" skip_credentials_validation = true '
             'skip_requesting_account_id = true skip_metadata_api_check = true '
-            'access_key = "mock" secret_key = "mock" }\n'
+            f'access_key = "{_mock_key}" secret_key = "{_mock_secret}" }}\n'
         )
         result = subprocess.run(
             ["terraform", "validate", "-json"],
@@ -458,7 +463,11 @@ def _validate_terraform_plan(content: str) -> Tuple[Optional[bool], List[str]]:
     with tempfile.TemporaryDirectory() as tmpdir:
         tf_file = Path(tmpdir) / "main.tf"
         tf_file.write_text(content)
-        # Minimal provider stub so validate can run without cloud credentials
+        # Minimal provider stub so validate can run without cloud credentials.
+        # Credentials are read from environment variables; fall back to
+        # placeholder strings only for offline syntax validation (never real auth).
+        _mock_key = os.environ.get("TF_VALIDATE_ACCESS_KEY", "mock-access-key")
+        _mock_secret = os.environ.get("TF_VALIDATE_SECRET_KEY", "mock-secret-key")
         (Path(tmpdir) / "versions.tf").write_text(
             'terraform {\n'
             '  required_providers {\n'
@@ -470,8 +479,8 @@ def _validate_terraform_plan(content: str) -> Tuple[Optional[bool], List[str]]:
             '  skip_credentials_validation = true\n'
             '  skip_requesting_account_id  = true\n'
             '  skip_metadata_api_check     = true\n'
-            '  access_key                  = "mock"\n'
-            '  secret_key                  = "mock"\n'
+            f'  access_key                  = "{_mock_key}"\n'
+            f'  secret_key                  = "{_mock_secret}"\n'
             '}\n'
         )
         # Step 1: terraform init (no backend, no network calls)

@@ -10,6 +10,7 @@ and self-correction prompts.
 from __future__ import annotations
 
 import json
+import os
 import re
 import textwrap
 from dataclasses import dataclass
@@ -28,6 +29,20 @@ class ModelID(str, Enum):
     GPT4O = "gpt-4o"
     # Second commercial baseline — served via Anthropic API
     CLAUDE = "claude-3-5-sonnet-20241022"
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def _sanitize_error(exc: Exception) -> str:
+    """Return a sanitized error string with API keys redacted."""
+    msg = str(exc)
+    for env_var in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY"):
+        secret = os.environ.get(env_var)
+        if secret and secret in msg:
+            msg = msg.replace(secret, "***REDACTED***")
+    return msg
 
 
 # ---------------------------------------------------------------------------
@@ -341,13 +356,13 @@ class LLMCodeGenerator:
             try:
                 return _call_anthropic(user_prompt, self.temperature, self.max_tokens)
             except Exception as exc:
-                print(f"[Generator] Anthropic API call failed: {exc}. Using stub.")
+                print(f"[Generator] Anthropic API call failed: {_sanitize_error(exc)}. Using stub.")
                 return self._stub_response()
         if self._is_openai:
             try:
                 return _call_openai(user_prompt, self.temperature, self.max_tokens)
             except Exception as exc:
-                print(f"[Generator] OpenAI call failed: {exc}. Using stub.")
+                print(f"[Generator] OpenAI call failed: {_sanitize_error(exc)}. Using stub.")
                 return self._stub_response()
         try:
             import requests
@@ -372,7 +387,7 @@ class LLMCodeGenerator:
             data = resp.json()
             return data["message"]["content"]
         except Exception as exc:
-            print(f"[Generator] LLM call failed: {exc}. Using stub.")
+            print(f"[Generator] LLM call failed: {_sanitize_error(exc)}. Using stub.")
             return self._stub_response()
 
     def _stub_response(self) -> str:

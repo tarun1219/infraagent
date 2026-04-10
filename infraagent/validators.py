@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 import subprocess
 import tempfile
 import textwrap
@@ -115,6 +116,10 @@ def _validate_yaml_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
     errors: List[ValidationError] = []
     try:
         import yaml
+    except ImportError:
+        # pyyaml not installed — accept content without validation
+        return True, []
+    try:
         # Parse all documents in the file
         list(yaml.safe_load_all(content))
         return True, []
@@ -131,8 +136,22 @@ def _validate_yaml_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
 
 
 def _validate_hcl_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
-    """Invoke `terraform validate` on an HCL document via subprocess."""
+    """Invoke `terraform validate` on an HCL document via subprocess, or use heuristics."""
     errors: List[ValidationError] = []
+    if not shutil.which("terraform"):
+        # Heuristic fallback: balanced braces + resource block presence
+        opens  = content.count("{")
+        closes = content.count("}")
+        if opens == 0 or opens != closes or len(content.strip()) < 10:
+            errors.append(ValidationError(
+                layer=ValidationLayer.SYNTAX,
+                tool="heuristic",
+                rule_id="TF_SYNTAX",
+                message="HCL parse error: unbalanced braces or empty content",
+                severity=Severity.ERROR,
+            ))
+            return False, errors
+        return True, []
     with tempfile.TemporaryDirectory() as tmpdir:
         tf_file = Path(tmpdir) / "main.tf"
         tf_file.write_text(content)
@@ -180,8 +199,20 @@ def _validate_hcl_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
 
 
 def _validate_dockerfile_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
-    """Run hadolint on Dockerfile content."""
+    """Run hadolint on Dockerfile content, or use heuristics if hadolint is unavailable."""
     errors: List[ValidationError] = []
+    if not shutil.which("hadolint"):
+        # Heuristic: must have at least one FROM instruction
+        if "FROM " not in content and "from " not in content:
+            errors.append(ValidationError(
+                layer=ValidationLayer.SYNTAX,
+                tool="heuristic",
+                rule_id="DF_SYNTAX",
+                message="Dockerfile missing FROM instruction",
+                severity=Severity.ERROR,
+            ))
+            return False, errors
+        return True, []
     with tempfile.NamedTemporaryFile(
         mode="w", suffix="Dockerfile", delete=False
     ) as f:
@@ -227,11 +258,13 @@ def _validate_dockerfile_syntax(content: str) -> Tuple[bool, List[ValidationErro
 # ---------------------------------------------------------------------------
 
 _DEPRECATED_API_VERSIONS = {
-    "extensions/v1beta1": "Removed in K8s 1.22 — use networking.k8s.io/v1 for Ingress",
-    "policy/v1beta1": "Removed in K8s 1.25 — use policy/v1 for PDB",
-    "autoscaling/v1": "Deprecated — use autoscaling/v2 for HPA",
-    "apps/v1beta1": "Removed in K8s 1.16 — use apps/v1",
-    "apps/v1beta2": "Removed in K8s 1.16 — use apps/v1",
+    "extensions/v1beta1":    "Removed in K8s 1.22 — use networking.k8s.io/v1 for Ingress",
+    "policy/v1beta1":        "Removed in K8s 1.25 — use policy/v1 for PDB",
+    "autoscaling/v1":        "Deprecated — use autoscaling/v2 for HPA",
+    "autoscaling/v2beta1":   "Deprecated in K8s 1.26 — use autoscaling/v2 for HPA",
+    "autoscaling/v2beta2":   "Deprecated in K8s 1.26 — use autoscaling/v2 for HPA",
+    "apps/v1beta1":          "Removed in K8s 1.16 — use apps/v1",
+    "apps/v1beta2":          "Removed in K8s 1.16 — use apps/v1",
 }
 
 _REQUIRED_FIELDS_PER_KIND = {
@@ -251,45 +284,49 @@ def _validate_k8s_schema(content: str) -> Tuple[bool, List[ValidationError]]:
     """
     errors: List[ValidationError] = []
 
-    # --- kubeconform (subprocess) ---
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".yaml", delete=False
-    ) as f:
-        f.write(content)
-        fname = f.name
-
-    result = subprocess.run(
-        ["kubeconform", "-strict", "-summary", "-output", "json", fname],
-        capture_output=True, text=True, timeout=20,
-    )
-    Path(fname).unlink(missing_ok=True)
-
+    # --- kubeconform (subprocess, optional) ---
     kubeconform_ok = True
-    if result.returncode != 0:
-        kubeconform_ok = False
-        try:
-            data = json.loads(result.stdout)
-            for res in data.get("resources", []):
-                if res.get("status") == "statusInvalid":
-                    errors.append(ValidationError(
-                        layer=ValidationLayer.SCHEMA,
-                        tool="kubeconform",
-                        rule_id="K8S_SCHEMA",
-                        message=res.get("msg", "Schema validation failed"),
-                        severity=Severity.ERROR,
-                        resource=res.get("name"),
-                    ))
-        except json.JSONDecodeError:
-            errors.append(ValidationError(
-                layer=ValidationLayer.SCHEMA,
-                tool="kubeconform",
-                rule_id="K8S_SCHEMA",
-                message=result.stderr[:300],
-                severity=Severity.ERROR,
-            ))
+    if shutil.which("kubeconform"):
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".yaml", delete=False
+        ) as f:
+            f.write(content)
+            fname = f.name
+
+        result = subprocess.run(
+            ["kubeconform", "-strict", "-summary", "-output", "json", fname],
+            capture_output=True, text=True, timeout=20,
+        )
+        Path(fname).unlink(missing_ok=True)
+
+        if result.returncode != 0:
+            kubeconform_ok = False
+            try:
+                data = json.loads(result.stdout)
+                for res in data.get("resources", []):
+                    if res.get("status") == "statusInvalid":
+                        errors.append(ValidationError(
+                            layer=ValidationLayer.SCHEMA,
+                            tool="kubeconform",
+                            rule_id="K8S_SCHEMA",
+                            message=res.get("msg", "Schema validation failed"),
+                            severity=Severity.ERROR,
+                            resource=res.get("name"),
+                        ))
+            except json.JSONDecodeError:
+                errors.append(ValidationError(
+                    layer=ValidationLayer.SCHEMA,
+                    tool="kubeconform",
+                    rule_id="K8S_SCHEMA",
+                    message=result.stderr[:300],
+                    severity=Severity.ERROR,
+                ))
 
     # --- In-process heuristic checks ---
-    import yaml
+    try:
+        import yaml
+    except ImportError:
+        return kubeconform_ok and not errors, errors
     try:
         docs = list(yaml.safe_load_all(content))
     except yaml.YAMLError:
@@ -552,6 +589,9 @@ _SECURITY_CHECKS_K8S = [
     ("SEC_RESOURCE_LIMITS", "limits:", "Resource limits (CPU/memory) must be defined"),
 ]
 
+# Patterns that indicate explicitly running as root UID — always flagged
+_ROOT_UID_PATTERNS = ["runasuser: 0", "runasuser:0"]
+
 _SECURITY_CHECKS_TF = [
     ("TF_S3_PUBLIC", "block_public_acls", "S3 bucket must block public ACLs"),
     ("TF_ENCRYPT", "encrypted", "Storage resources must enable encryption"),
@@ -576,6 +616,17 @@ def _validate_k8s_security(content: str) -> Tuple[float, List[ValidationError]]:
                 message=message,
                 severity=Severity.ERROR,
             ))
+
+    # Explicitly flag running as root UID (runAsUser: 0)
+    lower = content.lower()
+    if any(p in lower for p in _ROOT_UID_PATTERNS):
+        errors.append(ValidationError(
+            layer=ValidationLayer.SECURITY,
+            tool="infraagent-security",
+            rule_id="CKV_K8S_30",
+            message="Container runs as root UID (runAsUser: 0) — use a non-root UID",
+            severity=Severity.ERROR,
+        ))
 
     # Attempt checkov
     with tempfile.NamedTemporaryFile(

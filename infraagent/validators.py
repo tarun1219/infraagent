@@ -153,6 +153,16 @@ def _validate_hcl_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
             ))
             return False, errors
         return True, []
+    _MAX_CONTENT_BYTES = 512 * 1024  # 512 KB — prevent resource exhaustion
+    if len(content.encode()) > _MAX_CONTENT_BYTES:
+        errors.append(ValidationError(
+            layer=ValidationLayer.SYNTAX,
+            tool="terraform-validate",
+            rule_id="TF_SIZE",
+            message=f"Content exceeds maximum allowed size ({_MAX_CONTENT_BYTES // 1024} KB)",
+            severity=Severity.ERROR,
+        ))
+        return False, errors
     with tempfile.TemporaryDirectory() as tmpdir:
         tf_file = Path(tmpdir) / "main.tf"
         tf_file.write_text(content)
@@ -176,9 +186,13 @@ def _validate_hcl_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
         )
         try:
             data = json.loads(result.stdout)
+            if not isinstance(data, dict) or "valid" not in data:
+                raise ValueError("Unexpected terraform validate output structure")
             if data.get("valid"):
                 return True, []
             for diag in data.get("diagnostics", []):
+                if not isinstance(diag, dict):
+                    continue
                 errors.append(ValidationError(
                     layer=ValidationLayer.SYNTAX,
                     tool="terraform-validate",
@@ -190,7 +204,7 @@ def _validate_hcl_syntax(content: str) -> Tuple[bool, List[ValidationError]]:
                     line=diag.get("range", {}).get("start", {}).get("line"),
                 ))
             return not any(e.severity == Severity.ERROR for e in errors), errors
-        except (json.JSONDecodeError, KeyError):
+        except (json.JSONDecodeError, KeyError, ValueError):
             if result.returncode != 0:
                 errors.append(ValidationError(
                     layer=ValidationLayer.SYNTAX,
@@ -460,6 +474,10 @@ def _validate_terraform_plan(content: str) -> Tuple[Optional[bool], List[str]]:
     except subprocess.TimeoutExpired:
         return None, ["terraform version check timed out"]
 
+    _MAX_CONTENT_BYTES = 512 * 1024  # 512 KB — prevent resource exhaustion
+    if len(content.encode()) > _MAX_CONTENT_BYTES:
+        return False, [f"Content exceeds maximum allowed size ({_MAX_CONTENT_BYTES // 1024} KB)"]
+
     with tempfile.TemporaryDirectory() as tmpdir:
         tf_file = Path(tmpdir) / "main.tf"
         tf_file.write_text(content)
@@ -504,14 +522,18 @@ def _validate_terraform_plan(content: str) -> Tuple[Optional[bool], List[str]]:
         )
         try:
             data = json.loads(val_result.stdout)
+            if not isinstance(data, dict) or "valid" not in data:
+                raise ValueError("Unexpected terraform validate output structure")
             if data.get("valid"):
                 return True, []
             for diag in data.get("diagnostics", []):
+                if not isinstance(diag, dict):
+                    continue
                 if diag.get("severity") == "error":
                     msg = diag.get("detail", diag.get("summary", "Terraform validate error"))
                     errors.append(msg)
             return False, errors
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, ValueError):
             if val_result.returncode != 0:
                 errors.append(val_result.stderr.strip()[:400] or "terraform validate failed")
                 return False, errors
@@ -544,6 +566,10 @@ def _validate_docker_build(content: str) -> Tuple[Optional[bool], List[str]]:
         return None, ["docker not installed"]
     except subprocess.TimeoutExpired:
         return None, ["docker version check timed out"]
+
+    _MAX_CONTENT_BYTES = 512 * 1024  # 512 KB — prevent resource exhaustion
+    if len(content.encode()) > _MAX_CONTENT_BYTES:
+        return None, [f"Content exceeds maximum allowed size ({_MAX_CONTENT_BYTES // 1024} KB)"]
 
     with tempfile.TemporaryDirectory() as tmpdir:
         dockerfile = Path(tmpdir) / "Dockerfile"

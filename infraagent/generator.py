@@ -259,6 +259,14 @@ class LLMCodeGenerator:
             ollama_base_url: Base URL of the local Ollama server (ignored for GPT-4o).
             use_stub: If True, return placeholder code (for testing without any backend).
         """
+        if not (
+            ollama_base_url.startswith("http://localhost")
+            or ollama_base_url.startswith("http://127.0.0.1")
+            or ollama_base_url.startswith("https://")
+        ):
+            raise ValueError(
+                f"Ollama URL must be localhost or use HTTPS: {ollama_base_url}"
+            )
         self.model = model
         self.temperature = temperature
         self.max_tokens = max_tokens
@@ -382,6 +390,7 @@ class LLMCodeGenerator:
                 f"{self.ollama_base_url}/api/chat",
                 json=payload,
                 timeout=120,
+                verify=True,
             )
             resp.raise_for_status()
             data = resp.json()

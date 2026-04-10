@@ -41,7 +41,6 @@ docker run -d \
     -p "4510-4559:4510-4559" \
     -e LOCALSTACK_SERVICES="s3,iam,ec2,lambda,dynamodb,cloudformation" \
     -e DEBUG=0 \
-    -v /var/run/docker.sock:/var/run/docker.sock \
     "localstack/localstack:${LOCALSTACK_VERSION}"
 
 # ── Wait for LocalStack to be ready ─────────────────────────────────────────

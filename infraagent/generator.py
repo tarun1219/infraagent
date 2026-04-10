@@ -13,6 +13,7 @@ import json
 import os
 import re
 import textwrap
+import warnings
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Dict, List, Optional
@@ -43,6 +44,26 @@ def _sanitize_error(exc: Exception) -> str:
         if secret and secret in msg:
             msg = msg.replace(secret, "***REDACTED***")
     return msg
+
+
+def _sanitize_prompt_field(value: str, max_len: int = 8192) -> str:
+    """Truncate and strip prompt injection markers from user-controlled fields."""
+    value = value[:max_len]
+    _INJECTION_PATTERNS = [
+        "ignore previous instructions",
+        "ignore all instructions",
+        "new instructions:",
+        "system prompt:",
+        "disregard the above",
+        "forget everything",
+    ]
+    lower = value.lower()
+    for pattern in _INJECTION_PATTERNS:
+        if pattern in lower:
+            idx = lower.find(pattern)
+            value = value[:idx].rstrip()
+            break
+    return value
 
 
 # ---------------------------------------------------------------------------
@@ -201,8 +222,12 @@ class GenerationResult:
 # Code extractor
 # ---------------------------------------------------------------------------
 
+_MAX_LLM_OUTPUT_CHARS = 200_000  # ~200 KB — guard against ReDoS on unbounded input
+
+
 def _extract_code(raw_output: str, language: IaCLanguage) -> str:
     """Strip markdown fences and prose, leaving only the IaC code."""
+    raw_output = raw_output[:_MAX_LLM_OUTPUT_CHARS]
     # Remove triple-backtick blocks if present
     fenced = re.findall(
         r"```(?:yaml|hcl|terraform|dockerfile|docker)?\s*\n(.*?)```",
@@ -225,7 +250,20 @@ def _extract_code(raw_output: str, language: IaCLanguage) -> str:
         if code_lines:
             return "\n".join(code_lines)
 
-    return raw_output.strip()
+    result = raw_output.strip()
+    _SECRET_PATTERNS = [
+        r'password\s*[:=]\s*["\']?[^\s"\']{4,}',
+        r'api[_-]?key\s*[:=]\s*["\']?[^\s"\']{4,}',
+        r'secret\s*[:=]\s*["\']?[^\s"\']{4,}',
+        r'private[_-]?key\s*[:=]',
+    ]
+    if any(re.search(p, result, re.IGNORECASE) for p in _SECRET_PATTERNS):
+        warnings.warn(
+            "Generated IaC code may contain hardcoded secrets. "
+            "Review before deploying.",
+            stacklevel=3,
+        )
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -296,12 +334,12 @@ class LLMCodeGenerator:
             A GenerationResult with the generated code.
         """
         prompt = _GENERATION_PROMPT.format(
-            description=task.original_intent,
-            resource_type=subtask.resource_type,
+            description=_sanitize_prompt_field(task.original_intent),
+            resource_type=_sanitize_prompt_field(subtask.resource_type),
             language=subtask.language.value,
             constraints=", ".join(subtask.constraints) if subtask.constraints else "none",
             context=rag_context,
-            integration_notes=task.integration_notes or "none",
+            integration_notes=_sanitize_prompt_field(task.integration_notes or "none"),
         )
         raw = self._call_llm(prompt)
         code = _extract_code(raw, task.language)
@@ -339,7 +377,7 @@ class LLMCodeGenerator:
         """
         error_text = self._format_errors(errors)
         prompt = _CORRECTION_PROMPT.format(
-            description=task.original_intent,
+            description=_sanitize_prompt_field(task.original_intent),
             previous_code=previous_code,
             errors=error_text,
             context=rag_context,

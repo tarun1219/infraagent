@@ -14,12 +14,15 @@ required.  Results are aggregated into a structured ValidationReport.
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
 import shutil
 import subprocess
 import tempfile
 import textwrap
+
+logger = logging.getLogger(__name__)
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
@@ -241,7 +244,10 @@ def _validate_dockerfile_syntax(content: str) -> Tuple[bool, List[ValidationErro
         ["hadolint", "--format", "json", fname],
         capture_output=True, text=True, timeout=10,
     )
-    Path(fname).unlink(missing_ok=True)
+    try:
+        Path(fname).unlink(missing_ok=True)
+    except OSError as _unlink_err:
+        logger.warning("Failed to clean up temp file %s: %s", fname, _unlink_err)
     if result.returncode == 0:
         return True, []
     try:
@@ -316,7 +322,10 @@ def _validate_k8s_schema(content: str) -> Tuple[bool, List[ValidationError]]:
             ["kubeconform", "-strict", "-summary", "-output", "json", fname],
             capture_output=True, text=True, timeout=20,
         )
+        try:
         Path(fname).unlink(missing_ok=True)
+    except OSError as _unlink_err:
+        logger.warning("Failed to clean up temp file %s: %s", fname, _unlink_err)
 
         if result.returncode != 0:
             kubeconform_ok = False
@@ -423,7 +432,10 @@ def _validate_k8s_dry_run_server(
             ],
             capture_output=True, text=True, timeout=30,
         )
+        try:
         Path(fname).unlink(missing_ok=True)
+    except OSError as _unlink_err:
+        logger.warning("Failed to clean up temp file %s: %s", fname, _unlink_err)
 
         if result.returncode == 0:
             return True, []
@@ -438,10 +450,16 @@ def _validate_k8s_dry_run_server(
         return False, errors
 
     except subprocess.TimeoutExpired:
+        try:
         Path(fname).unlink(missing_ok=True)
+    except OSError as _unlink_err:
+        logger.warning("Failed to clean up temp file %s: %s", fname, _unlink_err)
         return False, ["kubectl apply --dry-run=server timed out (>30s)"]
     except FileNotFoundError:
+        try:
         Path(fname).unlink(missing_ok=True)
+    except OSError as _unlink_err:
+        logger.warning("Failed to clean up temp file %s: %s", fname, _unlink_err)
         return True, []   # kubectl not installed — caller sets field to None
 
 
@@ -676,7 +694,10 @@ def _validate_k8s_security(content: str) -> Tuple[float, List[ValidationError]]:
              "--framework", "kubernetes"],
             capture_output=True, text=True, timeout=30,
         )
+        try:
         Path(fname).unlink(missing_ok=True)
+    except OSError as _unlink_err:
+        logger.warning("Failed to clean up temp file %s: %s", fname, _unlink_err)
         data = json.loads(result.stdout)
         results = data.get("results", {})
         passed_checks = len(results.get("passed_checks", []))
@@ -695,7 +716,10 @@ def _validate_k8s_security(content: str) -> Tuple[float, List[ValidationError]]:
                 resource=check.get("resource"),
             ))
     except (subprocess.TimeoutExpired, json.JSONDecodeError, FileNotFoundError, KeyError):
+        try:
         Path(fname).unlink(missing_ok=True)
+    except OSError as _unlink_err:
+        logger.warning("Failed to clean up temp file %s: %s", fname, _unlink_err)
 
     score = passed / total if total > 0 else 0.0
     return score, errors

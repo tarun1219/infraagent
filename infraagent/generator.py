@@ -10,10 +10,14 @@ and self-correction prompts.
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
 import textwrap
+import time
 import warnings
+
+logger = logging.getLogger(__name__)
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Dict, List, Optional
@@ -395,20 +399,31 @@ class LLMCodeGenerator:
             used_rag=bool(rag_context),
         )
 
+    # Minimum seconds between consecutive LLM API calls (rate limiting)
+    _MIN_CALL_INTERVAL: float = 1.0
+    _last_call_time: float = 0.0
+
     def _call_llm(self, user_prompt: str) -> str:
         if self.use_stub:
             return self._stub_response()
+
+        # Rate limiting: enforce minimum interval between calls
+        elapsed = time.monotonic() - LLMCodeGenerator._last_call_time
+        if elapsed < self._MIN_CALL_INTERVAL:
+            time.sleep(self._MIN_CALL_INTERVAL - elapsed)
+        LLMCodeGenerator._last_call_time = time.monotonic()
+
         if self._is_anthropic:
             try:
                 return _call_anthropic(user_prompt, self.temperature, self.max_tokens)
             except Exception as exc:
-                print(f"[Generator] Anthropic API call failed: {_sanitize_error(exc)}. Using stub.")
+                logger.warning("Anthropic API call failed: %s. Using stub.", _sanitize_error(exc))
                 return self._stub_response()
         if self._is_openai:
             try:
                 return _call_openai(user_prompt, self.temperature, self.max_tokens)
             except Exception as exc:
-                print(f"[Generator] OpenAI call failed: {_sanitize_error(exc)}. Using stub.")
+                logger.warning("OpenAI call failed: %s. Using stub.", _sanitize_error(exc))
                 return self._stub_response()
         try:
             import requests
@@ -434,7 +449,7 @@ class LLMCodeGenerator:
             data = resp.json()
             return data["message"]["content"]
         except Exception as exc:
-            print(f"[Generator] LLM call failed: {_sanitize_error(exc)}. Using stub.")
+            logger.warning("Ollama LLM call failed: %s. Using stub.", _sanitize_error(exc))
             return self._stub_response()
 
     def _stub_response(self) -> str:

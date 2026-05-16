@@ -1,0 +1,1002 @@
+[
+  {
+    "task_id": "tf-001",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create an S3 bucket named my-app-artifacts-prod in us-east-1 with tags Environment=production and Team=platform.",
+    "expected_resources": ["aws_s3_bucket"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_s3_bucket"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_s3_bucket", "my-app-artifacts-prod", "Environment"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing required_providers block", "Incorrect bucket name format"]
+  },
+  {
+    "task_id": "tf-002",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to launch an EC2 instance of type t3.micro using AMI ami-0c55b159cbfafe1f0 in us-east-1, with tag Name=web-server.",
+    "expected_resources": ["aws_instance"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_instance"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_instance", "t3.micro", "ami-0c55b159cbfafe1f0"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing AMI argument", "Using deprecated instance type"]
+  },
+  {
+    "task_id": "tf-003",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create an IAM role named lambda-execution-role with a trust policy allowing lambda.amazonaws.com to assume the role.",
+    "expected_resources": ["aws_iam_role"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_iam_role"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_iam_role", "lambda.amazonaws.com", "sts:AssumeRole"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Malformed assume_role_policy JSON", "Missing Principal in trust policy"]
+  },
+  {
+    "task_id": "tf-004",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create a VPC with CIDR 10.0.0.0/16 in us-west-2, with DNS support and DNS hostnames enabled. Tag it Name=main-vpc.",
+    "expected_resources": ["aws_vpc"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_vpc"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_vpc", "10.0.0.0/16", "enable_dns_hostnames"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing enable_dns_support = true", "Wrong CIDR notation"]
+  },
+  {
+    "task_id": "tf-005",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create a security group named web-sg in the default VPC allowing inbound HTTP (port 80) and HTTPS (port 443) from 0.0.0.0/0, and all outbound traffic.",
+    "expected_resources": ["aws_security_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_security_group"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_security_group", "80", "443", "0.0.0.0/0"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing egress rule", "Incorrect from_port/to_port for HTTPS"]
+  },
+  {
+    "task_id": "tf-006",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create an RDS MySQL 8.0 instance named app-db with instance class db.t3.micro, 20GB gp2 storage, username admin, and password from a variable. Set skip_final_snapshot=true.",
+    "expected_resources": ["aws_db_instance"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_db_instance"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_db_instance", "mysql", "db.t3.micro", "skip_final_snapshot"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Hardcoded password instead of variable", "Wrong engine_version format"]
+  },
+  {
+    "task_id": "tf-007",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create a Lambda function named image-processor using Python 3.12 runtime, sourcing code from a local zip file at ./lambda/image-processor.zip, with 256MB memory and 30 second timeout.",
+    "expected_resources": ["aws_lambda_function"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_lambda_function"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_lambda_function", "python3.12", "256", "timeout"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing handler argument", "Wrong runtime string format"]
+  },
+  {
+    "task_id": "tf-008",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create a DynamoDB table named user-sessions with hash key user_id (String) and sort key session_id (String), using PAY_PER_REQUEST billing mode.",
+    "expected_resources": ["aws_dynamodb_table"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_dynamodb_table"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_dynamodb_table", "user_id", "session_id", "PAY_PER_REQUEST"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing attribute definitions for non-key attributes", "Wrong billing_mode string"]
+  },
+  {
+    "task_id": "tf-009",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create an SNS topic named order-notifications with a display name Order Notifications and tag Environment=production.",
+    "expected_resources": ["aws_sns_topic"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_sns_topic"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_sns_topic", "order-notifications", "display_name"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing name argument", "Incorrect display_name attribute"]
+  },
+  {
+    "task_id": "tf-010",
+    "language": "terraform",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Write Terraform to create an SQS queue named task-queue with message retention of 86400 seconds (1 day), visibility timeout 60 seconds, and a dead-letter queue named task-queue-dlq with maxReceiveCount=3.",
+    "expected_resources": ["aws_sqs_queue"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["aws_sqs_queue"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_sqs_queue", "86400", "visibility_timeout_seconds", "redrive_policy"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing redrive_policy for DLQ", "Wrong attribute name for retention period"]
+  },
+  {
+    "task_id": "tf-011",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create an EC2 instance (t3.small, ami-0c55b159cbfafe1f0) and a security group allowing SSH (22) from 10.0.0.0/8 only and all egress. Associate the security group with the EC2 instance.",
+    "expected_resources": ["aws_instance", "aws_security_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_instance", "aws_security_group"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_instance", "aws_security_group", "10.0.0.0/8", "vpc_security_group_ids"],
+      "forbidden_patterns": ["0.0.0.0/0"],
+      "checkov_checks": []
+    },
+    "common_failures": ["SSH open to 0.0.0.0/0", "Security group not attached to instance via vpc_security_group_ids"]
+  },
+  {
+    "task_id": "tf-012",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create an S3 bucket named my-private-data and attach a bucket policy denying all s3:GetObject requests not coming from VPC endpoint vpce-0a1b2c3d4e5f.",
+    "expected_resources": ["aws_s3_bucket", "aws_s3_bucket_policy"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_s3_bucket", "aws_s3_bucket_policy"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_s3_bucket_policy", "vpce-0a1b2c3d4e5f", "Deny", "s3:GetObject"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Bucket policy JSON malformed", "Wrong condition key for VPC endpoint"]
+  },
+  {
+    "task_id": "tf-013",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create a VPC (10.10.0.0/16) with a public subnet (10.10.1.0/24) in us-east-1a and a private subnet (10.10.2.0/24) in us-east-1b. Enable map_public_ip_on_launch for the public subnet only.",
+    "expected_resources": ["aws_vpc", "aws_subnet"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_vpc", "aws_subnet"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_subnet", "10.10.1.0/24", "10.10.2.0/24", "map_public_ip_on_launch"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Both subnets with map_public_ip_on_launch=true", "Missing availability_zone argument"]
+  },
+  {
+    "task_id": "tf-014",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create an RDS PostgreSQL 15 instance (db.t3.small) named orders-db in a DB subnet group spanning two private subnets, with a security group allowing port 5432 from application security group only.",
+    "expected_resources": ["aws_db_instance", "aws_db_subnet_group", "aws_security_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_db_instance", "aws_db_subnet_group", "aws_security_group"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_db_subnet_group", "aws_db_instance", "5432", "postgres"],
+      "forbidden_patterns": ["0.0.0.0/0"],
+      "checkov_checks": []
+    },
+    "common_failures": ["RDS publicly_accessible=true", "Missing db_subnet_group_name"]
+  },
+  {
+    "task_id": "tf-015",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create a Lambda function named email-sender (Python 3.12, 128MB) and an IAM role with a policy allowing ses:SendEmail and ses:SendRawEmail on all resources. Attach the policy to the role.",
+    "expected_resources": ["aws_lambda_function", "aws_iam_role", "aws_iam_role_policy"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_lambda_function", "aws_iam_role", "aws_iam_role_policy"],
+      "required_api_versions": {},
+      "required_patterns": ["ses:SendEmail", "aws_iam_role_policy", "python3.12"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing aws_iam_role_policy_attachment", "Lambda not referencing the IAM role"]
+  },
+  {
+    "task_id": "tf-016",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform for an S3 bucket named logs-archive with a lifecycle policy: transition objects to STANDARD_IA after 30 days, to GLACIER after 90 days, and expire after 365 days.",
+    "expected_resources": ["aws_s3_bucket", "aws_s3_bucket_lifecycle_configuration"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_s3_bucket", "aws_s3_bucket_lifecycle_configuration"],
+      "required_api_versions": {},
+      "required_patterns": ["STANDARD_IA", "GLACIER", "expiration", "365"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using deprecated lifecycle_rule inline block", "Missing transition days for GLACIER"]
+  },
+  {
+    "task_id": "tf-017",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create an EC2 instance (t3.medium) with an additional 100GB gp3 EBS data volume encrypted with the default KMS key, mounted at /dev/xvdf.",
+    "expected_resources": ["aws_instance", "aws_ebs_volume", "aws_volume_attachment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_instance", "aws_ebs_volume", "aws_volume_attachment"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_ebs_volume", "aws_volume_attachment", "gp3", "encrypted = true"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing aws_volume_attachment resource", "EBS volume not encrypted"]
+  },
+  {
+    "task_id": "tf-018",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create a CloudWatch metric alarm named high-cpu-alarm that triggers when EC2 instance CPU utilization exceeds 80% for 2 consecutive 5-minute periods, and publishes to an SNS topic named ops-alerts.",
+    "expected_resources": ["aws_cloudwatch_metric_alarm", "aws_sns_topic"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_cloudwatch_metric_alarm", "aws_sns_topic"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_cloudwatch_metric_alarm", "CPUUtilization", "80", "alarm_actions"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing alarm_actions pointing to SNS ARN", "Wrong period or evaluation_periods"]
+  },
+  {
+    "task_id": "tf-019",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create an IAM user named ci-bot, an IAM policy named ci-bot-policy allowing s3:PutObject and s3:GetObject on bucket arn:aws:s3:::deploy-artifacts/*, and attach the policy to the user.",
+    "expected_resources": ["aws_iam_user", "aws_iam_policy", "aws_iam_user_policy_attachment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_iam_user", "aws_iam_policy", "aws_iam_user_policy_attachment"],
+      "required_api_versions": {},
+      "required_patterns": ["ci-bot", "s3:PutObject", "deploy-artifacts", "aws_iam_user_policy_attachment"],
+      "forbidden_patterns": ["\"*\""],
+      "checkov_checks": []
+    },
+    "common_failures": ["Wildcard resource in IAM policy", "Missing policy attachment resource"]
+  },
+  {
+    "task_id": "tf-020",
+    "language": "terraform",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Write Terraform to create a Route53 hosted zone for example-app.com and an A record named api.example-app.com pointing to IP 203.0.113.42 with TTL 300.",
+    "expected_resources": ["aws_route53_zone", "aws_route53_record"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["aws_route53_zone", "aws_route53_record"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_route53_zone", "aws_route53_record", "203.0.113.42", "300"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing zone_id reference in record", "Wrong record type (should be A)"]
+  },
+  {
+    "task_id": "tf-021",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create a full VPC networking stack in us-east-1: VPC (10.0.0.0/16), 2 public subnets (10.0.1.0/24, 10.0.2.0/24), 2 private subnets (10.0.3.0/24, 10.0.4.0/24), Internet Gateway, NAT Gateway with Elastic IP in first public subnet, and route tables for public and private subnets. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_vpc", "aws_subnet", "aws_internet_gateway", "aws_nat_gateway", "aws_eip", "aws_route_table", "aws_route_table_association"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_vpc", "aws_subnet", "aws_internet_gateway", "aws_nat_gateway", "aws_route_table"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_nat_gateway", "aws_internet_gateway", "aws_eip", "aws_route_table_association"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40"]
+    },
+    "common_failures": ["Private route table not pointing to NAT gateway", "Missing route table associations"]
+  },
+  {
+    "task_id": "tf-022",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create an RDS PostgreSQL 15 Multi-AZ instance named prod-db (db.r6g.large) with a custom parameter group setting max_connections=200 and log_statement=all. Include automated backups retained for 7 days. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_db_instance", "aws_db_parameter_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_db_instance", "aws_db_parameter_group"],
+      "required_api_versions": {},
+      "required_patterns": ["multi_az = true", "aws_db_parameter_group", "max_connections", "backup_retention_period"],
+      "forbidden_patterns": ["publicly_accessible = true"],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40"]
+    },
+    "common_failures": ["Missing parameter group family version", "backup_retention_period = 0 disables backups"]
+  },
+  {
+    "task_id": "tf-023",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create an Application Load Balancer (internal=false) in two public subnets, a target group for EC2 instances on port 8080 with health check path /health, and an HTTPS listener on port 443 using ACM certificate arn:aws:acm:us-east-1:123456789012:certificate/abc123. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_lb", "aws_lb_target_group", "aws_lb_listener"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_lb", "aws_lb_target_group", "aws_lb_listener"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_lb_listener", "443", "/health", "certificate_arn", "HTTPS"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40", "CKV_AWS_91"]
+    },
+    "common_failures": ["Missing HTTPS redirect from HTTP 80", "Health check path not set on target group"]
+  },
+  {
+    "task_id": "tf-024",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create an ECS cluster named api-cluster, a task definition for myregistry/api:v2.0 (Fargate, 512 CPU, 1024 memory), and an ECS service with 3 desired tasks in private subnets behind an ALB target group. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_ecs_cluster", "aws_ecs_task_definition", "aws_ecs_service"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_ecs_cluster", "aws_ecs_task_definition", "aws_ecs_service"],
+      "required_api_versions": {},
+      "required_patterns": ["FARGATE", "512", "1024", "aws_ecs_service", "desired_count = 3"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40", "CKV_AWS_97"]
+    },
+    "common_failures": ["Task definition CPU/memory mismatch for Fargate valid combinations", "Missing network_configuration for Fargate service"]
+  },
+  {
+    "task_id": "tf-025",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create an S3 bucket named data-lake-raw with versioning enabled, cross-region replication to bucket data-lake-raw-replica in eu-west-1, and access logging to bucket data-lake-access-logs. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_s3_bucket", "aws_s3_bucket_versioning", "aws_s3_bucket_replication_configuration"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_s3_bucket", "aws_s3_bucket_versioning", "aws_s3_bucket_replication_configuration"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_s3_bucket_versioning", "aws_s3_bucket_replication_configuration", "aws_s3_bucket_logging"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40", "CKV2_AWS_61"]
+    },
+    "common_failures": ["Versioning must be enabled before replication can be configured", "Replication IAM role missing s3:ReplicateObject permission"]
+  },
+  {
+    "task_id": "tf-026",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create a Lambda function named api-handler (Node.js 20), an API Gateway REST API with a GET /items endpoint proxied to the Lambda, and a DynamoDB table named items. Grant the Lambda read access to DynamoDB. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_lambda_function", "aws_api_gateway_rest_api", "aws_dynamodb_table"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_lambda_function", "aws_api_gateway_rest_api", "aws_dynamodb_table"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_api_gateway_integration", "nodejs20.x", "dynamodb:GetItem", "aws_lambda_permission"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40", "CKV_AWS_116"]
+    },
+    "common_failures": ["Missing aws_lambda_permission for API Gateway invoke", "API Gateway deployment not triggered after resource changes"]
+  },
+  {
+    "task_id": "tf-027",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create an ElastiCache Redis 7.x cluster named session-cache (cache.r7g.large, 2 nodes) in a subnet group spanning two private subnets, with a security group allowing port 6379 from the application security group only. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_elasticache_cluster", "aws_elasticache_subnet_group", "aws_security_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_elasticache_cluster", "aws_elasticache_subnet_group", "aws_security_group"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_elasticache_subnet_group", "6379", "redis", "at_rest_encryption_enabled"],
+      "forbidden_patterns": ["0.0.0.0/0"],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40"]
+    },
+    "common_failures": ["Missing at_rest_encryption_enabled", "ElastiCache subnet group not in private subnets"]
+  },
+  {
+    "task_id": "tf-028",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create a CloudFront distribution backed by an S3 bucket named cdn-assets using an Origin Access Identity (OAI) to restrict direct S3 access. Enable HTTPS-only viewer protocol and set default TTL to 86400 seconds. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_cloudfront_distribution", "aws_cloudfront_origin_access_identity", "aws_s3_bucket"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_cloudfront_distribution", "aws_cloudfront_origin_access_identity", "aws_s3_bucket"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_cloudfront_origin_access_identity", "https-only", "86400", "viewer_protocol_policy"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40", "CKV_AWS_86"]
+    },
+    "common_failures": ["S3 bucket policy not restricting to OAI only", "Missing viewer_certificate block"]
+  },
+  {
+    "task_id": "tf-029",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create an AWS Step Functions state machine named order-processing-workflow that orchestrates two Lambda functions: validate-order and process-payment. Include IAM role with least-privilege to invoke both Lambdas. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_sfn_state_machine", "aws_lambda_function", "aws_iam_role"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_sfn_state_machine", "aws_lambda_function", "aws_iam_role"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_sfn_state_machine", "lambda:InvokeFunction", "definition"],
+      "forbidden_patterns": ["\"*\""],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40"]
+    },
+    "common_failures": ["State machine definition not valid JSON/YAML", "Missing Lambda invoke permission in IAM role"]
+  },
+  {
+    "task_id": "tf-030",
+    "language": "terraform",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Write Terraform to create an EKS cluster named prod-cluster (Kubernetes 1.29) with a managed node group (t3.large, min 2, max 6, desired 3), cluster logging enabled for all log types, and endpoint private access enabled. Apply encryption at rest, least privilege IAM policies, and KMS key management.",
+    "expected_resources": ["aws_eks_cluster", "aws_eks_node_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["aws_eks_cluster", "aws_eks_node_group"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_eks_cluster", "aws_eks_node_group", "enabled_cluster_log_types", "endpoint_private_access = true"],
+      "forbidden_patterns": ["endpoint_public_access = true"],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40", "CKV_AWS_58"]
+    },
+    "common_failures": ["Missing cluster IAM role", "Node group not in private subnets", "endpoint_public_access not explicitly false"]
+  },
+  {
+    "task_id": "tf-031",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform for a security-hardened S3 bucket named secure-data: enable SSE-S3 encryption, block all public access (all four block_public_acls/policy/ignore/restrict settings), enable versioning, configure access logging to a separate logs bucket, and enforce TLS-only with a bucket policy.",
+    "expected_resources": ["aws_s3_bucket", "aws_s3_bucket_server_side_encryption_configuration", "aws_s3_bucket_public_access_block"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_s3_bucket", "aws_s3_bucket_server_side_encryption_configuration", "aws_s3_bucket_public_access_block"],
+      "required_api_versions": {},
+      "required_patterns": ["block_public_acls", "block_public_policy", "ignore_public_acls", "restrict_public_buckets", "aws:SecureTransport"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_20", "CKV_AWS_21", "CKV2_AWS_6"]
+    },
+    "common_failures": ["Missing restrict_public_buckets = true", "TLS enforcement condition using wrong key (use aws:SecureTransport)"]
+  },
+  {
+    "task_id": "tf-032",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to create an IAM role named app-role with a least-privilege policy: allow only ec2:DescribeInstances and s3:GetObject on specific ARNs (no wildcards), with a condition requiring MFA. Include a permission boundary named app-boundary.",
+    "expected_resources": ["aws_iam_role", "aws_iam_policy", "aws_iam_role_policy_attachment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_iam_role", "aws_iam_policy"],
+      "required_api_versions": {},
+      "required_patterns": ["ec2:DescribeInstances", "s3:GetObject", "aws:MultiFactorAuthPresent", "permissions_boundary"],
+      "forbidden_patterns": ["\"*\""],
+      "checkov_checks": ["CKV_AWS_40", "CKV_AWS_274", "CKV2_AWS_14"]
+    },
+    "common_failures": ["Using wildcard (*) in Resource or Action", "Missing Condition block for MFA", "permissions_boundary ARN incorrect"]
+  },
+  {
+    "task_id": "tf-033",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to create a VPC with flow logs enabled (publishing to CloudWatch Logs group /vpc/flowlogs with 30-day retention) and Network ACLs on private subnets denying inbound traffic on ports 22 and 3389.",
+    "expected_resources": ["aws_vpc", "aws_flow_log", "aws_cloudwatch_log_group", "aws_network_acl"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_vpc", "aws_flow_log", "aws_cloudwatch_log_group", "aws_network_acl"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_flow_log", "/vpc/flowlogs", "retention_in_days", "DENY"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_73", "CKV2_AWS_12"]
+    },
+    "common_failures": ["Flow log missing IAM role for CloudWatch delivery", "NACL rules with wrong rule_number precedence"]
+  },
+  {
+    "task_id": "tf-034",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to create an encrypted RDS PostgreSQL instance named secure-db: enable storage_encrypted=true with KMS key, set publicly_accessible=false, enable deletion_protection=true, enable enhanced monitoring (60 seconds), and set backup_retention_period=14.",
+    "expected_resources": ["aws_db_instance", "aws_kms_key"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_db_instance", "aws_kms_key"],
+      "required_api_versions": {},
+      "required_patterns": ["storage_encrypted = true", "publicly_accessible = false", "deletion_protection = true", "backup_retention_period = 14"],
+      "forbidden_patterns": ["publicly_accessible = true"],
+      "checkov_checks": ["CKV_AWS_17", "CKV_AWS_16", "CKV_AWS_133", "CKV_AWS_157"]
+    },
+    "common_failures": ["Missing KMS key ARN reference", "deletion_protection not set", "Enhanced monitoring requires IAM role"]
+  },
+  {
+    "task_id": "tf-035",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to create a customer-managed KMS key with rotation enabled, a key policy granting least-privilege access to role arn:aws:iam::123456789012:role/data-access, and use this key to encrypt an S3 bucket named kms-encrypted-data.",
+    "expected_resources": ["aws_kms_key", "aws_s3_bucket", "aws_s3_bucket_server_side_encryption_configuration"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_kms_key", "aws_s3_bucket", "aws_s3_bucket_server_side_encryption_configuration"],
+      "required_api_versions": {},
+      "required_patterns": ["enable_key_rotation = true", "aws_kms_key", "aws:kms", "kms_master_key_id"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_7", "CKV_AWS_18", "CKV_AWS_19"]
+    },
+    "common_failures": ["Missing enable_key_rotation", "S3 encryption not referencing KMS key ARN", "KMS key policy too permissive"]
+  },
+  {
+    "task_id": "tf-036",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to create an AWS WAF v2 WebACL named app-waf with AWS Managed Rules (AWSManagedRulesCommonRuleSet and AWSManagedRulesSQLiRuleSet), associate it with a CloudFront distribution, and enable WAF logging to an S3 bucket.",
+    "expected_resources": ["aws_wafv2_web_acl", "aws_wafv2_web_acl_association"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_wafv2_web_acl"],
+      "required_api_versions": {},
+      "required_patterns": ["AWSManagedRulesCommonRuleSet", "AWSManagedRulesSQLiRuleSet", "aws_wafv2_web_acl"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_192", "CKV2_AWS_31"]
+    },
+    "common_failures": ["WAF scope must be CLOUDFRONT for CloudFront associations", "Missing default action (allow/block)"]
+  },
+  {
+    "task_id": "tf-037",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to enable CloudTrail named org-trail with: S3 bucket and bucket policy, CloudWatch Logs integration, log file validation enabled, multi-region enabled, and SNS notification for trail events.",
+    "expected_resources": ["aws_cloudtrail", "aws_s3_bucket", "aws_cloudwatch_log_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_cloudtrail", "aws_s3_bucket"],
+      "required_api_versions": {},
+      "required_patterns": ["enable_log_file_validation = true", "is_multi_region_trail = true", "cloud_watch_logs_group_arn"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_36", "CKV_AWS_35", "CKV_AWS_67"]
+    },
+    "common_failures": ["Missing S3 bucket policy granting CloudTrail write access", "CloudWatch Logs integration missing IAM role"]
+  },
+  {
+    "task_id": "tf-038",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to create an AWS Secrets Manager secret named prod/db/credentials storing JSON with username and password fields, enable automatic rotation every 30 days using a Lambda rotation function, and encrypt with a KMS key.",
+    "expected_resources": ["aws_secretsmanager_secret", "aws_secretsmanager_secret_rotation"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_secretsmanager_secret", "aws_secretsmanager_secret_rotation"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_secretsmanager_secret", "rotation_rules", "automatically_after_days", "kms_key_id"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_149", "CKV2_AWS_57"]
+    },
+    "common_failures": ["Missing rotation Lambda ARN", "Secret value not separated from secret metadata"]
+  },
+  {
+    "task_id": "tf-039",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to create an EC2 instance with IMDSv2 enforced (http_tokens=required, http_put_response_hop_limit=1), encrypted EBS root volume (KMS), and an IAM instance profile with least-privilege SSM-only access for session manager.",
+    "expected_resources": ["aws_instance", "aws_iam_instance_profile", "aws_iam_role"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_instance", "aws_iam_instance_profile", "aws_iam_role"],
+      "required_api_versions": {},
+      "required_patterns": ["http_tokens = \"required\"", "http_put_response_hop_limit = 1", "encrypted = true", "AmazonSSMManagedInstanceCore"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_8", "CKV_AWS_28", "CKV_AWS_79"]
+    },
+    "common_failures": ["Missing metadata_options block", "Root volume encryption not specified", "http_tokens using optional instead of required"]
+  },
+  {
+    "task_id": "tf-040",
+    "language": "terraform",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Write Terraform to create an IAM role named cross-account-role with a trust policy that allows assumption only from account 987654321098 with condition aws:MultiFactorAuthPresent=true and condition StringEquals aws:RequestedRegion=us-east-1. Attach a permission boundary.",
+    "expected_resources": ["aws_iam_role", "aws_iam_policy"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["aws_iam_role"],
+      "required_api_versions": {},
+      "required_patterns": ["aws:MultiFactorAuthPresent", "aws:RequestedRegion", "987654321098", "permissions_boundary"],
+      "forbidden_patterns": ["\"*\""],
+      "checkov_checks": ["CKV_AWS_40", "CKV_AWS_274"]
+    },
+    "common_failures": ["Condition logic using Or instead of And for security conditions", "permissions_boundary referencing non-existent ARN"]
+  },
+  {
+    "task_id": "tf-041",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for a multi-tier VPC: 3 AZs each with public (ALB), private (app), and data (RDS) subnets; Internet Gateway; NAT Gateway per AZ (high availability); public/private/data route tables; Network ACLs on data subnets blocking all except port 5432 from private subnets; VPC Flow Logs to CloudWatch.",
+    "expected_resources": ["aws_vpc", "aws_subnet", "aws_internet_gateway", "aws_nat_gateway", "aws_route_table", "aws_network_acl", "aws_flow_log"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_vpc", "aws_subnet", "aws_internet_gateway", "aws_nat_gateway", "aws_network_acl", "aws_flow_log"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_nat_gateway", "aws_flow_log", "aws_network_acl", "5432"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_40", "CKV2_AWS_12"]
+    },
+    "common_failures": ["Only one NAT Gateway for all AZs (not HA)", "Data subnet NACLs too permissive", "Missing flow log IAM role"]
+  },
+  {
+    "task_id": "tf-042",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for a complete EKS cluster: VPC with private subnets, EKS cluster (1.29) with private endpoint only, managed node groups in private subnets (t3.xlarge, 2-8 nodes), IRSA (IAM Roles for Service Accounts) for a pod reading from S3, CloudWatch Container Insights enabled.",
+    "expected_resources": ["aws_eks_cluster", "aws_eks_node_group", "aws_iam_role", "aws_iam_openid_connect_provider"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_eks_cluster", "aws_eks_node_group", "aws_iam_openid_connect_provider"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_iam_openid_connect_provider", "endpoint_private_access = true", "endpoint_public_access = false", "enabled_cluster_log_types"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_58", "CKV_AWS_38", "CKV_AWS_39", "CKV_AWS_37"]
+    },
+    "common_failures": ["OIDC provider thumbprint hardcoded incorrectly", "IRSA role trust policy using wrong OIDC issuer URL", "Missing endpoint_public_access = false"]
+  },
+  {
+    "task_id": "tf-043",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for a serverless application: Lambda (Python 3.12) behind API Gateway (HTTP API), DynamoDB table with GSI, Cognito User Pool for auth, Lambda authorizer on API Gateway, all wired together with least-privilege IAM. Enable X-Ray tracing on Lambda and API Gateway.",
+    "expected_resources": ["aws_lambda_function", "aws_apigatewayv2_api", "aws_dynamodb_table", "aws_cognito_user_pool"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_lambda_function", "aws_apigatewayv2_api", "aws_dynamodb_table", "aws_cognito_user_pool"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_apigatewayv2_authorizer", "aws_cognito_user_pool", "tracing_config", "global_secondary_index"],
+      "forbidden_patterns": ["\"*\""],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_40", "CKV_AWS_116", "CKV_AWS_50"]
+    },
+    "common_failures": ["Missing Lambda permission for API Gateway invoke", "Cognito authorizer not attached to routes", "DynamoDB GSI missing projection_type"]
+  },
+  {
+    "task_id": "tf-044",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for an RDS Aurora PostgreSQL cluster named prod-aurora: 1 writer + 2 reader instances (db.r6g.large), encrypted with KMS, deletion protection on, automated backups 14 days, enhanced monitoring, Performance Insights enabled, and cluster parameter group with SSL required.",
+    "expected_resources": ["aws_rds_cluster", "aws_rds_cluster_instance", "aws_rds_cluster_parameter_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_rds_cluster", "aws_rds_cluster_instance", "aws_rds_cluster_parameter_group"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_rds_cluster", "deletion_protection = true", "storage_encrypted = true", "performance_insights_enabled"],
+      "forbidden_patterns": ["publicly_accessible = true"],
+      "checkov_checks": ["CKV_AWS_16", "CKV_AWS_17", "CKV_AWS_133", "CKV_AWS_162"]
+    },
+    "common_failures": ["Reader instances not referencing cluster_identifier", "Parameter group family mismatch with engine version"]
+  },
+  {
+    "task_id": "tf-045",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for a CDN stack: CloudFront distribution backed by S3 (OAC, not OAI), WAF v2 WebACL with managed rules attached to CloudFront, ACM certificate in us-east-1 for domain cdn.example.com, Route53 alias record, and S3 access logging.",
+    "expected_resources": ["aws_cloudfront_distribution", "aws_wafv2_web_acl", "aws_acm_certificate", "aws_route53_record"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_cloudfront_distribution", "aws_wafv2_web_acl", "aws_acm_certificate", "aws_route53_record"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_cloudfront_origin_access_control", "AWSManagedRulesCommonRuleSet", "aws_acm_certificate", "cdn.example.com"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_68", "CKV_AWS_86"]
+    },
+    "common_failures": ["Using OAI instead of OAC (deprecated)", "WAF scope must be CLOUDFRONT (not REGIONAL)", "ACM certificate must be in us-east-1 for CloudFront"]
+  },
+  {
+    "task_id": "tf-046",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for a three-tier web app: ALB (HTTPS with WAF) in public subnets, Auto Scaling Group of EC2 (t3.large, IMDSv2 required, encrypted EBS) in private subnets, RDS PostgreSQL Multi-AZ (encrypted, no public access) in data subnets. Include security groups with minimal ingress rules.",
+    "expected_resources": ["aws_lb", "aws_autoscaling_group", "aws_db_instance", "aws_security_group"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_lb", "aws_autoscaling_group", "aws_db_instance", "aws_security_group"],
+      "required_api_versions": {},
+      "required_patterns": ["http_tokens = \"required\"", "multi_az = true", "storage_encrypted = true", "aws_autoscaling_group"],
+      "forbidden_patterns": ["publicly_accessible = true", "0.0.0.0/0"],
+      "checkov_checks": ["CKV_AWS_8", "CKV_AWS_16", "CKV_AWS_17", "CKV_AWS_79", "CKV_AWS_91"]
+    },
+    "common_failures": ["ALB not enforcing HTTPS", "ASG launch template missing IMDSv2 metadata_options", "RDS security group too permissive"]
+  },
+  {
+    "task_id": "tf-047",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for a hub-spoke network topology using AWS Transit Gateway: hub VPC (10.0.0.0/16), spoke VPC-A (10.1.0.0/16), spoke VPC-B (10.2.0.0/16), Transit Gateway attachments for all VPCs, and route tables routing inter-spoke traffic through the hub.",
+    "expected_resources": ["aws_ec2_transit_gateway", "aws_ec2_transit_gateway_vpc_attachment", "aws_ec2_transit_gateway_route_table"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_ec2_transit_gateway", "aws_ec2_transit_gateway_vpc_attachment", "aws_ec2_transit_gateway_route_table"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_ec2_transit_gateway", "aws_ec2_transit_gateway_vpc_attachment", "aws_ec2_transit_gateway_route_table_association"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19"]
+    },
+    "common_failures": ["Missing transit gateway route table associations", "Default route table association not disabled for isolation"]
+  },
+  {
+    "task_id": "tf-048",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for an AWS data lake: S3 bucket with versioning+encryption+lifecycle (raw/processed/curated prefixes), AWS Glue catalog database and crawler, Athena workgroup with S3 result location, Lake Formation permissions granting read to IAM role data-analyst-role.",
+    "expected_resources": ["aws_s3_bucket", "aws_glue_catalog_database", "aws_glue_crawler", "aws_athena_workgroup"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_s3_bucket", "aws_glue_catalog_database", "aws_glue_crawler", "aws_athena_workgroup"],
+      "required_api_versions": {},
+      "required_patterns": ["aws_glue_crawler", "aws_athena_workgroup", "aws_lakeformation_permissions", "enforce_workgroup_configuration"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_19", "CKV_AWS_77"]
+    },
+    "common_failures": ["Athena workgroup not enforcing workgroup configuration", "Glue crawler IAM role missing S3 read permissions"]
+  },
+  {
+    "task_id": "tf-049",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for ECS Fargate production setup: ECS cluster with Container Insights, task definition pulling from ECR (myregistry/api:v3.0) with Secrets Manager environment variables, ECS service (3 tasks) behind ALB with HTTPS, RDS PostgreSQL connection string from Secrets Manager, CloudWatch log group.",
+    "expected_resources": ["aws_ecs_cluster", "aws_ecs_task_definition", "aws_ecs_service", "aws_lb"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.8,
+      "required_resources": ["aws_ecs_cluster", "aws_ecs_task_definition", "aws_ecs_service", "aws_lb"],
+      "required_api_versions": {},
+      "required_patterns": ["containerInsights", "secrets", "secretsmanager", "aws_cloudwatch_log_group"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_18", "CKV_AWS_65", "CKV_AWS_97", "CKV_AWS_249"]
+    },
+    "common_failures": ["ECS task execution role missing secretsmanager:GetSecretValue", "ALB listener not forwarding to correct target group"]
+  },
+  {
+    "task_id": "tf-050",
+    "language": "terraform",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Write Terraform for a compliance-ready AWS account baseline: CloudTrail (all regions, log validation, S3+CloudWatch), AWS Config with managed rules (s3-bucket-public-read-prohibited, restricted-ssh), GuardDuty enabled, Security Hub enabled with AWS Foundational Security standard.",
+    "expected_resources": ["aws_cloudtrail", "aws_config_configuration_recorder", "aws_guardduty_detector", "aws_securityhub_account"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["aws_cloudtrail", "aws_config_configuration_recorder", "aws_guardduty_detector", "aws_securityhub_account"],
+      "required_api_versions": {},
+      "required_patterns": ["enable_log_file_validation = true", "is_multi_region_trail = true", "aws_guardduty_detector", "aws_securityhub_account"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_AWS_36", "CKV_AWS_35", "CKV_AWS_67", "CKV2_AWS_35"]
+    },
+    "common_failures": ["Config recorder not recording all resource types", "Security Hub missing standards subscription resource", "GuardDuty finding publishing frequency not set"]
+  }
+]

@@ -1,0 +1,1002 @@
+[
+  {
+    "task_id": "df-001",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile for a Python Flask application using Python 3.12 slim base image. Install flask==3.0.0 and gunicorn==21.2.0 from requirements.txt. Expose port 5000 and run with gunicorn binding to 0.0.0.0:5000.",
+    "expected_resources": ["FROM", "RUN", "COPY", "EXPOSE", "CMD"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["python:3.12-slim", "gunicorn", "EXPOSE 5000"],
+      "forbidden_patterns": ["python:latest", ":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using python:latest instead of pinned version", "Missing EXPOSE instruction"]
+  },
+  {
+    "task_id": "df-002",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile for a Node.js Express application using node:20-alpine base image. Copy package.json and package-lock.json, run npm ci --only=production, copy source code, expose port 3000, and start with node server.js.",
+    "expected_resources": ["FROM", "RUN", "COPY", "EXPOSE", "CMD"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["node:20-alpine", "npm ci", "EXPOSE 3000", "node server.js"],
+      "forbidden_patterns": ["node:latest", ":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using npm install instead of npm ci", "Copying all files before package.json (breaks layer caching)"]
+  },
+  {
+    "task_id": "df-003",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile for a Go application that compiles a static binary. Use golang:1.22-alpine to build, set CGO_ENABLED=0 and GOOS=linux, and run go build -o /app/server ./cmd/server. The final CMD should run /app/server.",
+    "expected_resources": ["FROM", "ENV", "RUN", "CMD"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["golang:1.22", "CGO_ENABLED=0", "GOOS=linux", "go build"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing CGO_ENABLED=0 for static binary", "Wrong go build output path"]
+  },
+  {
+    "task_id": "df-004",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile for a Java Spring Boot application using eclipse-temurin:21-jre-alpine as base. Copy the pre-built JAR file app.jar into the container and run it with java -jar /app/app.jar with JVM flags -Xmx512m -Xms256m.",
+    "expected_resources": ["FROM", "COPY", "ENTRYPOINT"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["eclipse-temurin:21-jre", "app.jar", "java -jar", "Xmx512m"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using JDK instead of JRE for runtime", "Missing JVM memory flags"]
+  },
+  {
+    "task_id": "df-005",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile to serve a static website using nginx:1.27-alpine. Copy static files from ./dist to /usr/share/nginx/html. Copy a custom nginx.conf to /etc/nginx/nginx.conf. Expose port 80.",
+    "expected_resources": ["FROM", "COPY", "EXPOSE"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["nginx:1.27-alpine", "/usr/share/nginx/html", "nginx.conf", "EXPOSE 80"],
+      "forbidden_patterns": ["nginx:latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using nginx:latest", "Missing custom nginx.conf for production tuning"]
+  },
+  {
+    "task_id": "df-006",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile based on alpine:3.19 that installs curl, jq, and bash using apk add --no-cache. Set the working directory to /app and copy a script entrypoint.sh. Run chmod +x and set it as the entrypoint.",
+    "expected_resources": ["FROM", "RUN", "COPY", "ENTRYPOINT"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["alpine:3.19", "apk add --no-cache", "curl", "jq"],
+      "forbidden_patterns": ["alpine:latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing --no-cache in apk add (increases image size)", "Separate RUN for each apk install"]
+  },
+  {
+    "task_id": "df-007",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile based on ubuntu:22.04 that installs python3, python3-pip, and libpq-dev using apt-get. Clean up apt cache in the same RUN layer. Set DEBIAN_FRONTEND=noninteractive.",
+    "expected_resources": ["FROM", "ENV", "RUN"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["ubuntu:22.04", "DEBIAN_FRONTEND=noninteractive", "rm -rf /var/lib/apt/lists/*"],
+      "forbidden_patterns": ["ubuntu:latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Separate RUN layers for apt-get update and install (breaks cache)", "Not cleaning apt cache in same layer"]
+  },
+  {
+    "task_id": "df-008",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile for a Ruby on Rails application using ruby:3.3-slim. Install bundler, copy Gemfile and Gemfile.lock, run bundle install --without development test, copy app code, expose port 3000, and start with bundle exec rails server -b 0.0.0.0.",
+    "expected_resources": ["FROM", "RUN", "COPY", "EXPOSE", "CMD"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["ruby:3.3-slim", "bundle install", "EXPOSE 3000", "rails server"],
+      "forbidden_patterns": ["ruby:latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Installing dev/test gems in production image", "Missing --without development test"]
+  },
+  {
+    "task_id": "df-009",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile for a PHP Laravel application using php:8.3-fpm-alpine. Install composer, copy composer.json and composer.lock, run composer install --no-dev --optimize-autoloader, copy application source, and expose port 9000.",
+    "expected_resources": ["FROM", "RUN", "COPY", "EXPOSE"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["php:8.3-fpm-alpine", "composer install --no-dev", "EXPOSE 9000"],
+      "forbidden_patterns": ["php:latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Installing dev dependencies in production", "Missing --optimize-autoloader for production"]
+  },
+  {
+    "task_id": "df-010",
+    "language": "dockerfile",
+    "difficulty": 1,
+    "category": "Single Stage",
+    "prompt": "Write a Dockerfile based on bash:5.2 that copies a shell script run.sh into /usr/local/bin, makes it executable with chmod +x, and sets it as the default CMD. Set a WORKDIR of /workspace.",
+    "expected_resources": ["FROM", "COPY", "RUN", "WORKDIR", "CMD"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["bash:5.2", "chmod +x", "/usr/local/bin", "WORKDIR"],
+      "forbidden_patterns": ["bash:latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Script not executable", "Missing WORKDIR instruction"]
+  },
+  {
+    "task_id": "df-011",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile for a Python application: build stage uses python:3.12-slim to install dependencies from requirements.txt into /install using pip install --prefix=/install; runtime stage copies /install from build stage and runs the app. This reduces final image size.",
+    "expected_resources": ["FROM", "COPY", "RUN"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM python:3.12-slim AS", "COPY --from=", "--prefix=/install"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["COPY --from stage name mismatch", "Not copying /install directory to runtime stage"]
+  },
+  {
+    "task_id": "df-012",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile for Node.js: build stage uses node:20-alpine, runs npm ci and npm run build to produce /app/dist; production stage uses node:20-alpine, copies only /app/dist and package.json, runs npm ci --only=production, and starts with node dist/index.js.",
+    "expected_resources": ["FROM", "COPY", "RUN", "CMD"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM node:20-alpine AS", "npm run build", "COPY --from=", "npm ci --only=production"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Copying node_modules from build stage (defeats the purpose)", "Missing npm ci --only=production in final stage"]
+  },
+  {
+    "task_id": "df-013",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile for Go: builder stage uses golang:1.22-alpine with CGO_ENABLED=0 to build a statically linked binary; final stage uses scratch (empty base) and copies only the compiled binary. Set the binary as ENTRYPOINT.",
+    "expected_resources": ["FROM", "ENV", "RUN", "COPY", "ENTRYPOINT"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM golang:1.22-alpine AS", "FROM scratch", "CGO_ENABLED=0", "COPY --from="],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using non-static build with scratch base (missing libc)", "Forgetting to copy CA certificates for HTTPS in scratch image"]
+  },
+  {
+    "task_id": "df-014",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile for Java: build stage uses maven:3.9-eclipse-temurin-21-alpine to run mvn package -DskipTests producing target/app.jar; runtime stage uses eclipse-temurin:21-jre-alpine and copies only the JAR. Run with java -jar.",
+    "expected_resources": ["FROM", "COPY", "RUN", "ENTRYPOINT"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM maven:3.9", "mvn package", "FROM eclipse-temurin:21-jre", "COPY --from="],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using JDK image in runtime stage", "Copying entire target/ directory instead of just the JAR"]
+  },
+  {
+    "task_id": "df-015",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile: build stage uses node:20-alpine to run npm ci and npm run build, producing a React SPA in /app/build; production stage uses nginx:1.27-alpine and serves the built artifacts from /usr/share/nginx/html with a custom nginx.conf.",
+    "expected_resources": ["FROM", "COPY", "RUN"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM node:20-alpine AS", "npm run build", "FROM nginx:1.27-alpine", "COPY --from="],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Copying node_modules into nginx stage", "Wrong build output path for create-react-app vs vite"]
+  },
+  {
+    "task_id": "df-016",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a three-stage Dockerfile for Python: test stage runs pytest to validate code, build stage installs production dependencies, runtime stage runs the application. Ensure tests run before build, and runtime does not include test dependencies.",
+    "expected_resources": ["FROM", "RUN", "COPY"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM python:3.12", "pytest", "AS test", "AS build", "AS runtime"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Test dependencies leaking into runtime stage", "Tests not actually running (RUN pytest not present)"]
+  },
+  {
+    "task_id": "df-017",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile for a .NET 8 application: build stage uses mcr.microsoft.com/dotnet/sdk:8.0-alpine to dotnet publish; runtime stage uses mcr.microsoft.com/dotnet/aspnet:8.0-alpine copying published output. Expose port 8080.",
+    "expected_resources": ["FROM", "RUN", "COPY", "EXPOSE"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["mcr.microsoft.com/dotnet/sdk:8.0", "dotnet publish", "mcr.microsoft.com/dotnet/aspnet:8.0", "EXPOSE 8080"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using SDK image as runtime (much larger)", "Missing --configuration Release in dotnet publish"]
+  },
+  {
+    "task_id": "df-018",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile for a Rust application: builder stage uses rust:1.77-alpine running cargo build --release; final stage uses alpine:3.19 copying only the compiled binary. Install required shared libraries (musl-dev) in builder.",
+    "expected_resources": ["FROM", "RUN", "COPY", "ENTRYPOINT"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM rust:1.77-alpine AS", "cargo build --release", "FROM alpine:3.19", "COPY --from="],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing musl target for static linking on Alpine", "Not using --release flag in cargo build"]
+  },
+  {
+    "task_id": "df-019",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile for a Ruby app with asset compilation: build stage uses ruby:3.3-slim to install gems and run asset precompilation (rake assets:precompile); runtime stage copies gems and compiled assets, excludes dev/test groups.",
+    "expected_resources": ["FROM", "RUN", "COPY"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM ruby:3.3-slim AS", "rake assets:precompile", "COPY --from=", "bundle exec"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Asset compilation tools not available in runtime stage", "Node.js not installed for asset compilation"]
+  },
+  {
+    "task_id": "df-020",
+    "language": "dockerfile",
+    "difficulty": 2,
+    "category": "Multi-Stage",
+    "prompt": "Write a two-stage Dockerfile for PHP with Composer: build stage uses composer:2.7 to install dependencies with --no-dev --optimize-autoloader; runtime stage uses php:8.3-fpm-alpine copying vendor/ from build stage. Expose port 9000.",
+    "expected_resources": ["FROM", "COPY", "RUN", "EXPOSE"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM composer:2.7 AS", "composer install --no-dev", "FROM php:8.3-fpm-alpine", "COPY --from="],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Copying entire build stage instead of just vendor/", "Missing --optimize-autoloader"]
+  },
+  {
+    "task_id": "df-021",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a Dockerfile for a Python application optimized for layer caching: first copy only requirements.txt and install dependencies, then copy source code. Use python:3.12-slim, set PYTHONDONTWRITEBYTECODE=1 and PYTHONUNBUFFERED=1. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "ENV", "COPY", "RUN", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["PYTHONDONTWRITEBYTECODE=1", "PYTHONUNBUFFERED=1", "COPY requirements.txt", "USER"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Copying source before requirements.txt (breaks dependency caching)", "Missing PYTHONUNBUFFERED for proper logging"]
+  },
+  {
+    "task_id": "df-022",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a Dockerfile for Node.js with dev and prod build targets using ARG TARGET=production. In development: install all deps, mount source. In production: multi-stage with only prod deps and built artifacts. Use node:20-alpine. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "ARG", "RUN", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["ARG", "FROM node:20-alpine AS", "USER", "npm ci"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["ARG value not passed to build correctly", "Dev stage including production secrets"]
+  },
+  {
+    "task_id": "df-023",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a Dockerfile for a GPU-enabled Python ML application using nvidia/cuda:12.3.0-runtime-ubuntu22.04 as base. Install PyTorch 2.2.0 with CUDA 12.1 support. Set CUDA_VISIBLE_DEVICES and configure the container for GPU access. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "ENV", "RUN", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["nvidia/cuda:12.3.0-runtime", "torch", "CUDA_VISIBLE_DEVICES", "USER"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Using cuda:devel instead of cuda:runtime (much larger)", "PyTorch CUDA version mismatch with base image"]
+  },
+  {
+    "task_id": "df-024",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a Dockerfile for a multi-platform Go service that builds for both linux/amd64 and linux/arm64. Use BUILDPLATFORM and TARGETPLATFORM ARGs with golang:1.22 base. Cross-compile using GOOS and GOARCH from TARGETPLATFORM. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "ARG", "ENV", "RUN"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["BUILDPLATFORM", "TARGETPLATFORM", "TARGETOS", "TARGETARCH", "USER"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Not using --platform=$BUILDPLATFORM for build stage", "GOARCH/GOOS not set from TARGETPLATFORM ARG"]
+  },
+  {
+    "task_id": "df-025",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a Dockerfile that uses RUN --mount=type=secret to inject an API key at build time without it appearing in image layers. The build stage fetches a private Python package using the secret. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "RUN", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["RUN --mount=type=secret", "id=", "USER"],
+      "forbidden_patterns": [":latest", "ENV API_KEY"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Using ENV or ARG for secrets (leaked in image history)", "Secret not mounted correctly with id="]
+  },
+  {
+    "task_id": "df-026",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a Dockerfile for a Python Flask API with a HEALTHCHECK instruction that hits GET /health every 30 seconds with 10 second timeout, 3 retries, and 5 second start period. Use python:3.12-slim and run with gunicorn. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "HEALTHCHECK", "USER", "CMD"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["HEALTHCHECK", "--interval=30s", "--timeout=10s", "--retries=3", "USER"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Missing --start-period for slow-starting apps", "Using wget instead of curl when curl not installed"]
+  },
+  {
+    "task_id": "df-027",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a Dockerfile that installs a custom corporate CA certificate (ca-cert.crt) into the system trust store during the build. Base on python:3.12-slim. Configure pip to use the CA cert for private package registry access. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "COPY", "RUN", "ENV", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["update-ca-certificates", "ca-cert.crt", "REQUESTS_CA_BUNDLE", "USER"],
+      "forbidden_patterns": [":latest", "verify=False"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Using pip install --trusted-host instead of proper CA cert", "CA cert not copied before update-ca-certificates"]
+  },
+  {
+    "task_id": "df-028",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a Dockerfile that creates a non-root user with specific UID 1001 and GID 1001 named appuser, sets file ownership of /app, and runs the application as this user. Use node:20-alpine base. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "RUN", "USER", "WORKDIR"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["addgroup", "adduser", "1001", "USER appuser", "chown"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Creating user without setting ownership of working directory", "Using numeric UID without creating named user"]
+  },
+  {
+    "task_id": "df-029",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a multi-stage Dockerfile for a Python app with build ARGs for VERSION and BUILD_DATE. The build stage accepts these ARGs and bakes them into the image as LABEL metadata (OCI image labels). Use python:3.12-slim. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "ARG", "LABEL", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["ARG VERSION", "ARG BUILD_DATE", "LABEL", "org.opencontainers.image", "USER"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["ARG declared after FROM (not accessible before FROM)", "Missing OCI standard label keys"]
+  },
+  {
+    "task_id": "df-030",
+    "language": "dockerfile",
+    "difficulty": 3,
+    "category": "Optimized Build",
+    "prompt": "Write a multi-stage Dockerfile for a Python app with C extensions (like numpy/scipy): build stage uses python:3.12-slim with gcc and build tools to compile extensions; runtime stage uses python:3.12-slim with only runtime libraries. Apply a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "RUN", "COPY", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["FROM python:3.12-slim AS builder", "gcc", "COPY --from=builder", "USER"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Build tools (gcc) present in runtime image", "Missing runtime library dependencies (libgomp for OpenMP)"]
+  },
+  {
+    "task_id": "df-031",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile for a Python application using gcr.io/distroless/python3-debian12 as the final runtime image (no shell, no package manager). Multi-stage: build with python:3.12-slim, install deps to /install prefix, then COPY --from into the distroless image. Run as non-root.",
+    "expected_resources": ["FROM", "COPY", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["gcr.io/distroless/python3", "COPY --from=", "nonroot"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["Shell commands in distroless image (no /bin/sh)", "Python path not configured for /install prefix"]
+  },
+  {
+    "task_id": "df-032",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile that creates and runs as a non-root user with UID 1000 and GID 1000. The application directory /app must be owned by this user. Base on node:20-alpine. Explicitly set USER 1000:1000 before the CMD instruction.",
+    "expected_resources": ["FROM", "RUN", "USER", "WORKDIR"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["addgroup --gid 1000", "adduser --uid 1000", "USER 1000:1000", "chown -R"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Running as UID 0 (root) by default", "File ownership not set before USER switch"]
+  },
+  {
+    "task_id": "df-033",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile for a Python API designed for read-only filesystem operation: mount /tmp and /var/run as tmpfs in Docker Compose (document in comments). Use python:3.12-slim, create non-root user, ensure the app writes only to /tmp. Add VOLUME declarations for writable paths.",
+    "expected_resources": ["FROM", "RUN", "USER", "VOLUME"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["VOLUME", "/tmp", "USER", "read-only"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Application writing to locations outside tmpfs mounts", "Missing VOLUME for writable directories"]
+  },
+  {
+    "task_id": "df-034",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a hardened Dockerfile that explicitly drops all Linux capabilities and prevents privilege escalation. Use a minimal base (alpine:3.19), install only needed packages, set USER to non-root. Include a security.txt LABEL noting no-new-privileges. Document docker run --cap-drop=ALL --no-new-privileges usage.",
+    "expected_resources": ["FROM", "RUN", "USER", "LABEL"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["alpine:3.19", "USER", "LABEL", "no-new-privileges"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["User capabilities documented but not enforced in Dockerfile", "Using privileged base image"]
+  },
+  {
+    "task_id": "df-035",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile for a Python service using a minimal attack surface: distroless base (gcr.io/distroless/python3-debian12), no package manager in final image, no shell, dependencies copied from builder, non-root runtime. Include SBOM generation in a separate build target.",
+    "expected_resources": ["FROM", "COPY", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["gcr.io/distroless/python3", "COPY --from=", "sbom", "nonroot"],
+      "forbidden_patterns": [":latest", "apt-get"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["Package manager present in distroless final image", "SBOM target not using correct syft image"]
+  },
+  {
+    "task_id": "df-036",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile with a dedicated sbom build target that runs anchore/syft to generate an SBOM in SPDX JSON format from the final image. The Dockerfile should have standard build and sbom targets. Use python:3.12-slim as the application base.",
+    "expected_resources": ["FROM", "RUN", "COPY"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["syft", "spdx", "AS sbom", "anchore"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["syft not outputting to file (missing -o flag)", "SBOM target not based on final image"]
+  },
+  {
+    "task_id": "df-037",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile with a sign build target that uses cosign to sign the container image after build. Include a Makefile-style comment showing the cosign sign command with --key. The application base should be python:3.12-slim with non-root user and HEALTHCHECK.",
+    "expected_resources": ["FROM", "HEALTHCHECK", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["cosign", "HEALTHCHECK", "USER", "AS sign"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["cosign sign step not referencing built image digest", "Missing HEALTHCHECK in final image"]
+  },
+  {
+    "task_id": "df-038",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile with a scan build target that runs truffleHog3 to detect secrets in the source code before building. The scan stage should fail the build if secrets are found. Final stage uses python:3.12-slim with non-root user.",
+    "expected_resources": ["FROM", "RUN", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["trufflehog", "AS scan", "USER", "python:3.12-slim"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["Scan stage not failing build on secret detection", "truffleHog not scanning the correct directory"]
+  },
+  {
+    "task_id": "df-039",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile demonstrating supply chain security: pin all base images with digest (sha256:...), use --mount=type=cache for package manager cache, generate provenance with buildkit metadata, and add OCI image spec labels including source and revision.",
+    "expected_resources": ["FROM", "LABEL", "RUN"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["sha256:", "--mount=type=cache", "org.opencontainers.image.source", "org.opencontainers.image.revision"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["Digest pinning not including tag (use image:tag@sha256:...)", "Missing OCI source/revision labels"]
+  },
+  {
+    "task_id": "df-040",
+    "language": "dockerfile",
+    "difficulty": 4,
+    "category": "Hardened",
+    "prompt": "Write a Dockerfile for a rootless Podman-compatible container: do not use USER root at any point, use FROM ubi9/ubi-minimal:9.3 as base, set all directories to be owned by uid/gid 1001, use numeric USER 1001:1001, and ensure no setuid/setgid binaries. Include HEALTHCHECK.",
+    "expected_resources": ["FROM", "RUN", "USER", "HEALTHCHECK"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["ubi9/ubi-minimal:9.3", "USER 1001:1001", "HEALTHCHECK", "find.*-perm.*-exec"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8"]
+    },
+    "common_failures": ["setuid/setgid binaries not removed", "Using USER root even temporarily during build"]
+  },
+  {
+    "task_id": "df-041",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a fully hardened nginx Dockerfile: multi-stage build, final stage FROM gcr.io/distroless/static-debian12 (non-root), copy pre-built nginx binary and config, read-only filesystem compatible (no writes at runtime), HEALTHCHECK with curl on /health, all OCI labels, pinned base image digest. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "COPY", "HEALTHCHECK", "USER", "LABEL"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["gcr.io/distroless", "HEALTHCHECK", "org.opencontainers.image", "sha256:", "nonroot"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["distroless image missing required CA certs for HTTPS upstream", "nginx config writing to /var/cache/nginx not allowed in read-only filesystem"]
+  },
+  {
+    "task_id": "df-042",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a hardened Python API Dockerfile: multi-stage with builder (python:3.12-slim) and final (gcr.io/distroless/python3-debian12), non-root user, SBOM generation stage using syft, vulnerability scan stage using grype blocking on CRITICAL CVEs, OCI labels, pinned digests, HEALTHCHECK. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "COPY", "HEALTHCHECK", "USER", "LABEL"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["gcr.io/distroless/python3", "syft", "grype", "HEALTHCHECK", "nonroot"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["grype not configured to fail on CRITICAL (missing --fail-on critical)", "SBOM not generated from final image layer"]
+  },
+  {
+    "task_id": "df-043",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a Dockerfile designed for zero-CVE operation: use chainguard/python:3.12 as base (daily rebuilt, minimal attack surface), pin to digest, create non-root user, run vulnerability scan with grype as a separate build target that blocks on any HIGH or CRITICAL CVE. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "RUN", "USER", "LABEL"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["cgr.dev/chainguard/python", "sha256:", "grype", "--fail-on high", "USER"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["Chainguard image tag drifting instead of pinned to digest", "grype fail-on threshold too permissive"]
+  },
+  {
+    "task_id": "df-044",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a Dockerfile using cgr.dev/chainguard/python as the final base with cosign image signing. Include: multi-stage build, digest-pinned base, SBOM via syft in spdx-json format, image signing step with cosign (keyless using OIDC), non-root user, HEALTHCHECK. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "COPY", "HEALTHCHECK", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["cgr.dev/chainguard", "cosign sign", "syft", "spdx-json", "HEALTHCHECK"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["cosign sign using key instead of keyless OIDC", "syft generating SBOM from wrong stage"]
+  },
+  {
+    "task_id": "df-045",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a complete CI/CD Dockerfile with four named stages: lint (runs flake8 and mypy), test (runs pytest with coverage), build (installs production dependencies), and final (distroless runtime). Each stage should be independently targetable. Use python:3.12-slim for non-final stages. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "RUN", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["AS lint", "AS test", "AS build", "flake8", "pytest", "gcr.io/distroless"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["Stages not independently targetable with --target", "Test coverage not enforced (missing --cov-fail-under)"]
+  },
+  {
+    "task_id": "df-046",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a SLSA Level 3 compliant Dockerfile: digest-pinned base images, reproducible builds (SOURCE_DATE_EPOCH set), build provenance metadata as OCI labels, no network access during build (--network=none where possible), hermetic build environment. Use golang:1.22-alpine. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "ARG", "LABEL", "USER"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["sha256:", "SOURCE_DATE_EPOCH", "org.opencontainers.image.source", "slsa-provenance", "USER"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["Non-reproducible timestamps breaking SLSA provenance", "Missing hermetic build network isolation documentation"]
+  },
+  {
+    "task_id": "df-047",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a hardened multi-platform Go service Dockerfile targeting linux/amd64 and linux/arm64: BUILDPLATFORM/TARGETPLATFORM cross-compilation, gcr.io/distroless/static-debian12 final stage with digest-pinned, non-root user (65532:65532 nonroot), HEALTHCHECK, OCI labels. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "ARG", "COPY", "USER", "HEALTHCHECK"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["gcr.io/distroless/static-debian12", "BUILDPLATFORM", "TARGETOS", "TARGETARCH", "65532"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["Cross-compilation GOARCH mismatch with TARGETPLATFORM", "distroless nonroot UID not 65532"]
+  },
+  {
+    "task_id": "df-048",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a PCI-DSS compliant Dockerfile: no secrets in ENV or ARG, all packages pinned to exact versions with hash verification, non-root UID 10001, read-only filesystem (VOLUME for writable dirs), HEALTHCHECK, disable core dumps (ulimit), audit logging to stdout. Base on python:3.12-slim. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "RUN", "USER", "VOLUME", "HEALTHCHECK"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["USER 10001", "HEALTHCHECK", "VOLUME", "ulimit", "--require-hashes"],
+      "forbidden_patterns": [":latest", "USER root", "ENV.*PASSWORD", "ENV.*SECRET"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["pip install without --require-hashes", "Core dump not disabled (missing ulimit -c 0)"]
+  },
+  {
+    "task_id": "df-049",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a production-grade multi-stage Dockerfile with all security best practices: digest-pinned base, multi-stage (lint, test, build, final-distroless), non-root user, HEALTHCHECK, SBOM stage, vulnerability scan stage (grype block on HIGH+), OCI labels, --mount=type=cache for pip, no secrets in layers. Use python:3.12-slim. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "RUN", "COPY", "USER", "HEALTHCHECK", "LABEL"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.95,
+      "min_bp_score": 0.9,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["sha256:", "AS lint", "AS test", "AS build", "gcr.io/distroless", "syft", "grype", "HEALTHCHECK", "USER"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["Grype not blocking on HIGH severity", "SBOM generated from build stage instead of final image"]
+  },
+  {
+    "task_id": "df-050",
+    "language": "dockerfile",
+    "difficulty": 5,
+    "category": "Production-Hardened",
+    "prompt": "Write a hardened Java application Dockerfile: builder uses eclipse-temurin:21-jdk-alpine for mvn package, final stage uses gcr.io/distroless/java21-debian12 (non-root nonroot user), JVM flags -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+ExitOnOutOfMemoryError, HEALTHCHECK on /actuator/health, OCI labels, digest-pinned bases. Set a non-root USER with appropriate securityContext and Secret management.",
+    "expected_resources": ["FROM", "COPY", "USER", "HEALTHCHECK", "LABEL"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["FROM"],
+      "required_api_versions": {},
+      "required_patterns": ["gcr.io/distroless/java21", "UseContainerSupport", "MaxRAMPercentage", "HEALTHCHECK", "nonroot"],
+      "forbidden_patterns": [":latest", "USER root"],
+      "checkov_checks": ["CKV_DOCKER_2", "CKV_DOCKER_8", "CKV_DOCKER_7"]
+    },
+    "common_failures": ["JVM flags not using container-aware memory settings", "/actuator/health endpoint not enabled in Spring Boot config"]
+  }
+]

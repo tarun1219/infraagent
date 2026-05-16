@@ -1,0 +1,1002 @@
+[
+  {
+    "task_id": "k8s-001",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a Kubernetes ConfigMap named app-config in the default namespace with two key-value pairs: APP_ENV=production and LOG_LEVEL=info.",
+    "expected_resources": ["ConfigMap"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["ConfigMap"],
+      "required_api_versions": {"ConfigMap": "v1"},
+      "required_patterns": ["APP_ENV", "LOG_LEVEL"],
+      "forbidden_patterns": ["extensions/v1beta1"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Wrong apiVersion (v1 is correct for ConfigMap)", "Missing namespace field"]
+  },
+  {
+    "task_id": "k8s-002",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a Kubernetes Opaque Secret named db-credentials in the backend namespace containing base64-encoded fields: username (dXNlcg==) and password (cGFzc3dvcmQ=).",
+    "expected_resources": ["Secret"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["Secret"],
+      "required_api_versions": {"Secret": "v1"},
+      "required_patterns": ["Opaque", "username", "password"],
+      "forbidden_patterns": ["extensions/v1beta1"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using stringData without base64", "Missing type: Opaque"]
+  },
+  {
+    "task_id": "k8s-003",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a Kubernetes Namespace named data-pipeline with labels team=data-engineering and cost-center=analytics.",
+    "expected_resources": ["Namespace"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["Namespace"],
+      "required_api_versions": {"Namespace": "v1"},
+      "required_patterns": ["data-pipeline", "data-engineering", "analytics"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Wrong label syntax", "Missing apiVersion v1"]
+  },
+  {
+    "task_id": "k8s-004",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a ServiceAccount named ci-deployer in the ci-cd namespace with the annotation iam.amazonaws.com/role set to arn:aws:iam::123456789012:role/deployer.",
+    "expected_resources": ["ServiceAccount"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["ServiceAccount"],
+      "required_api_versions": {"ServiceAccount": "v1"},
+      "required_patterns": ["ci-deployer", "ci-cd", "iam.amazonaws.com/role"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing annotation syntax", "Incorrect ARN format"]
+  },
+  {
+    "task_id": "k8s-005",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a ResourceQuota named team-quota in the team-alpha namespace limiting: requests.cpu=4, requests.memory=8Gi, limits.cpu=8, limits.memory=16Gi, and pods=20.",
+    "expected_resources": ["ResourceQuota"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["ResourceQuota"],
+      "required_api_versions": {"ResourceQuota": "v1"},
+      "required_patterns": ["requests.cpu", "requests.memory", "pods"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Incorrect resource name format", "Using cpu instead of requests.cpu"]
+  },
+  {
+    "task_id": "k8s-006",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a LimitRange named default-limits in the sandbox namespace that sets default container CPU request to 100m, CPU limit to 500m, memory request to 128Mi, and memory limit to 256Mi.",
+    "expected_resources": ["LimitRange"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["LimitRange"],
+      "required_api_versions": {"LimitRange": "v1"},
+      "required_patterns": ["500m", "256Mi", "default:"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Wrong limit type specification", "Missing defaultRequest section"]
+  },
+  {
+    "task_id": "k8s-007",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a PersistentVolumeClaim named data-pvc in the stateful-apps namespace requesting 10Gi of ReadWriteOnce storage using the fast-ssd StorageClass.",
+    "expected_resources": ["PersistentVolumeClaim"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["PersistentVolumeClaim"],
+      "required_api_versions": {"PersistentVolumeClaim": "v1"},
+      "required_patterns": ["10Gi", "ReadWriteOnce", "fast-ssd"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Wrong access mode spelling", "Missing storageClassName"]
+  },
+  {
+    "task_id": "k8s-008",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a minimal Kubernetes Pod named debug-pod in the ops namespace running busybox:1.36 with command sleep 3600. Set CPU request to 50m and memory request to 64Mi.",
+    "expected_resources": ["Pod"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["Pod"],
+      "required_api_versions": {"Pod": "v1"},
+      "required_patterns": ["busybox:1.36", "sleep", "3600"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using image:latest", "Missing resource requests"]
+  },
+  {
+    "task_id": "k8s-009",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a ClusterIP Service named api-service in the backend namespace that exposes port 8080 targeting containerPort 8080 on pods with label app=api.",
+    "expected_resources": ["Service"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["Service"],
+      "required_api_versions": {"Service": "v1"},
+      "required_patterns": ["ClusterIP", "8080", "app: api"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Selector mismatch with pod labels", "Missing targetPort"]
+  },
+  {
+    "task_id": "k8s-010",
+    "language": "kubernetes",
+    "difficulty": 1,
+    "category": "Single Resource",
+    "prompt": "Create a Kubernetes Deployment named nginx-static in the web namespace running nginx:1.27 with 2 replicas. Set CPU request 100m/limit 250m and memory request 128Mi/limit 256Mi.",
+    "expected_resources": ["Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.0,
+      "min_bp_score": 0.0,
+      "required_resources": ["Deployment"],
+      "required_api_versions": {"Deployment": "apps/v1"},
+      "required_patterns": ["nginx:1.27", "replicas: 2", "limits:"],
+      "forbidden_patterns": ["apps/v1beta1", ":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing resource limits", "Wrong apiVersion apps/v1beta1"]
+  },
+  {
+    "task_id": "k8s-011",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a Kubernetes Deployment named user-api with 3 replicas running myregistry/user-api:v1.5 and a ClusterIP Service named user-api-svc exposing port 3000 in the backend namespace. Ensure the Service selector matches the Deployment pod labels.",
+    "expected_resources": ["Deployment", "Service"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["Deployment", "Service"],
+      "required_api_versions": {"Deployment": "apps/v1", "Service": "v1"},
+      "required_patterns": ["replicas: 3", "3000", "user-api"],
+      "forbidden_patterns": ["apps/v1beta"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Service selector does not match Deployment pod template labels", "Port mismatch between Service and container"]
+  },
+  {
+    "task_id": "k8s-012",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a headless StatefulSet named postgres with 3 replicas running postgres:15 and a headless Service named postgres in the databases namespace. The StatefulSet should use a volumeClaimTemplate requesting 20Gi ReadWriteOnce from storageclass standard.",
+    "expected_resources": ["StatefulSet", "Service"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["StatefulSet", "Service"],
+      "required_api_versions": {"StatefulSet": "apps/v1"},
+      "required_patterns": ["clusterIP: None", "volumeClaimTemplates", "20Gi"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing clusterIP: None for headless service", "Incorrect serviceName in StatefulSet spec"]
+  },
+  {
+    "task_id": "k8s-013",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a ConfigMap named app-settings with key APP_ENV=production and DB_HOST=postgres.databases.svc.cluster.local, and a Deployment named settings-consumer that mounts these as environment variables using configMapKeyRef.",
+    "expected_resources": ["ConfigMap", "Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["ConfigMap", "Deployment"],
+      "required_api_versions": {"ConfigMap": "v1", "Deployment": "apps/v1"},
+      "required_patterns": ["configMapKeyRef", "APP_ENV", "DB_HOST"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Wrong envFrom vs env syntax", "Missing configMapKeyRef name/key fields"]
+  },
+  {
+    "task_id": "k8s-014",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a Kubernetes Secret named db-creds with fields username and password, and a Deployment named order-service that injects these as environment variables DB_USER and DB_PASS using secretKeyRef.",
+    "expected_resources": ["Secret", "Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["Secret", "Deployment"],
+      "required_api_versions": {"Secret": "v1", "Deployment": "apps/v1"},
+      "required_patterns": ["secretKeyRef", "db-creds", "DB_USER"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Hardcoding secrets in env value instead of secretKeyRef", "Missing key field in secretKeyRef"]
+  },
+  {
+    "task_id": "k8s-015",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a Deployment named web-frontend with 2 replicas running nginx:1.27 and an HorizontalPodAutoscaler targeting web-frontend that scales between 2 and 10 replicas at 70% CPU utilization. Use autoscaling/v2 API.",
+    "expected_resources": ["Deployment", "HorizontalPodAutoscaler"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["Deployment", "HorizontalPodAutoscaler"],
+      "required_api_versions": {"HorizontalPodAutoscaler": "autoscaling/v2"},
+      "required_patterns": ["minReplicas: 2", "maxReplicas: 10", "averageUtilization: 70"],
+      "forbidden_patterns": ["autoscaling/v1", "autoscaling/v2beta"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using deprecated autoscaling/v1", "HPA scaleTargetRef name mismatch"]
+  },
+  {
+    "task_id": "k8s-016",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a Kubernetes Job named data-migration in the ops namespace that runs the image myregistry/migrator:v3.0 once to completion. Set backoffLimit to 3 and activeDeadlineSeconds to 600.",
+    "expected_resources": ["Job"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["Job"],
+      "required_api_versions": {"Job": "batch/v1"},
+      "required_patterns": ["backoffLimit: 3", "activeDeadlineSeconds: 600", "Never"],
+      "forbidden_patterns": ["batch/v1beta1"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using batch/v1beta1 (removed)", "Missing restartPolicy: Never for Jobs"]
+  },
+  {
+    "task_id": "k8s-017",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a CronJob named db-backup in the ops namespace running myregistry/backup:v2.1 every day at 2:00 AM UTC. Set restartPolicy to OnFailure, successfulJobsHistoryLimit to 3, and failedJobsHistoryLimit to 1.",
+    "expected_resources": ["CronJob"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["CronJob"],
+      "required_api_versions": {"CronJob": "batch/v1"},
+      "required_patterns": ["0 2 * * *", "OnFailure", "successfulJobsHistoryLimit"],
+      "forbidden_patterns": ["batch/v1beta1"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Using batch/v1beta1 (removed in 1.25)", "Wrong cron schedule syntax"]
+  },
+  {
+    "task_id": "k8s-018",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a DaemonSet named node-exporter in the monitoring namespace running prom/node-exporter:v1.7.0. The DaemonSet should mount /proc and /sys from the host and set hostPID: true.",
+    "expected_resources": ["DaemonSet"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["DaemonSet"],
+      "required_api_versions": {"DaemonSet": "apps/v1"},
+      "required_patterns": ["hostPID: true", "/proc", "/sys"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing hostPath volume mounts", "Wrong updateStrategy type"]
+  },
+  {
+    "task_id": "k8s-019",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a ServiceAccount named api-sa in the backend namespace, and a Deployment named api-server that uses this ServiceAccount. The Deployment should run myregistry/api:v2.0 with 2 replicas.",
+    "expected_resources": ["ServiceAccount", "Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["ServiceAccount", "Deployment"],
+      "required_api_versions": {"ServiceAccount": "v1", "Deployment": "apps/v1"},
+      "required_patterns": ["serviceAccountName: api-sa", "api-sa"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Missing serviceAccountName in pod spec", "ServiceAccount in different namespace than Deployment"]
+  },
+  {
+    "task_id": "k8s-020",
+    "language": "kubernetes",
+    "difficulty": 2,
+    "category": "Multi-Resource",
+    "prompt": "Create a PersistentVolumeClaim named app-data (10Gi, ReadWriteOnce, standard StorageClass) and a Deployment named data-processor that mounts this PVC at /data inside the container.",
+    "expected_resources": ["PersistentVolumeClaim", "Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.2,
+      "min_bp_score": 0.3,
+      "required_resources": ["PersistentVolumeClaim", "Deployment"],
+      "required_api_versions": {"PersistentVolumeClaim": "v1", "Deployment": "apps/v1"},
+      "required_patterns": ["app-data", "mountPath: /data", "10Gi"],
+      "forbidden_patterns": [],
+      "checkov_checks": []
+    },
+    "common_failures": ["Volume name mismatch between volumes and volumeMounts", "Missing PVC in volumes list"]
+  },
+  {
+    "task_id": "k8s-021",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a StatefulSet named elasticsearch with 3 replicas running elasticsearch:8.11, an HPA scaling from 3 to 9 replicas at 60% CPU, and a PVC template requesting 50Gi of fast-ssd storage. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["StatefulSet", "HorizontalPodAutoscaler", "PersistentVolumeClaim"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["StatefulSet", "HorizontalPodAutoscaler"],
+      "required_api_versions": {"StatefulSet": "apps/v1", "HorizontalPodAutoscaler": "autoscaling/v2"},
+      "required_patterns": ["volumeClaimTemplates", "50Gi", "fast-ssd", "securityContext"],
+      "forbidden_patterns": [":latest", "autoscaling/v1"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Missing volumeClaimTemplates", "HPA targeting wrong resource name", "No securityContext set"]
+  },
+  {
+    "task_id": "k8s-022",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a Deployment named payment-service with 3 replicas, an HPA scaling 3-10 at 70% CPU, and a PodDisruptionBudget ensuring minAvailable=2 at all times. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["Deployment", "HorizontalPodAutoscaler", "PodDisruptionBudget"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["Deployment", "HorizontalPodAutoscaler", "PodDisruptionBudget"],
+      "required_api_versions": {"PodDisruptionBudget": "policy/v1"},
+      "required_patterns": ["minAvailable: 2", "securityContext", "averageUtilization: 70"],
+      "forbidden_patterns": ["policy/v1beta1"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Using deprecated policy/v1beta1 for PDB", "PDB selector not matching Deployment labels"]
+  },
+  {
+    "task_id": "k8s-023",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a multi-container Pod named log-processor in namespace logging with a main container running myregistry/processor:v1.2 and a sidecar container running fluent/fluent-bit:2.2 that shares an emptyDir volume at /var/log. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["Pod"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["Pod"],
+      "required_api_versions": {"Pod": "v1"},
+      "required_patterns": ["fluent-bit", "emptyDir", "/var/log", "securityContext"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Volume not shared between containers", "Missing volumeMounts in one container"]
+  },
+  {
+    "task_id": "k8s-024",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a Deployment named app-server with an init container that runs myregistry/db-migrator:v1.0 to completion before the main container myregistry/app:v2.3 starts. The init container should exit 0 on success. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["Deployment"],
+      "required_api_versions": {"Deployment": "apps/v1"},
+      "required_patterns": ["initContainers", "db-migrator", "securityContext"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["initContainers placed at wrong level in spec", "Main container does not wait for init container"]
+  },
+  {
+    "task_id": "k8s-025",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a Deployment named web-app in namespace production and a NetworkPolicy named web-app-netpol that allows ingress on port 8080 only from pods with label role=frontend, and egress only to pods with label role=database on port 5432. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["Deployment", "NetworkPolicy"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["Deployment", "NetworkPolicy"],
+      "required_api_versions": {"NetworkPolicy": "networking.k8s.io/v1"},
+      "required_patterns": ["NetworkPolicy", "ingress", "egress", "5432", "securityContext"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Missing podSelector in NetworkPolicy", "Egress rule missing port specification"]
+  },
+  {
+    "task_id": "k8s-026",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a headless StatefulSet named zookeeper with 3 replicas running zookeeper:3.9 and a headless Service named zookeeper in namespace messaging. Include readinessProbe on port 2181 and livenessProbe. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["StatefulSet", "Service"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["StatefulSet", "Service"],
+      "required_api_versions": {"StatefulSet": "apps/v1", "Service": "v1"},
+      "required_patterns": ["clusterIP: None", "readinessProbe", "livenessProbe", "securityContext"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Missing clusterIP: None", "serviceName not pointing to headless service"]
+  },
+  {
+    "task_id": "k8s-027",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a Deployment named blog-api, a ClusterIP Service named blog-api-svc on port 8080, and an Ingress named blog-ingress routing api.example.com/v1 to blog-api-svc using the nginx ingress class with TLS termination. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["Deployment", "Service", "Ingress"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["Deployment", "Service", "Ingress"],
+      "required_api_versions": {"Ingress": "networking.k8s.io/v1"},
+      "required_patterns": ["api.example.com", "nginx", "tls:", "securityContext"],
+      "forbidden_patterns": ["extensions/v1beta1"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Using extensions/v1beta1 for Ingress (removed in 1.22)", "Missing TLS secret reference"]
+  },
+  {
+    "task_id": "k8s-028",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a CronJob named report-generator in namespace analytics that runs myregistry/reporter:v1.5 daily at 06:00 UTC and mounts a PVC named report-storage at /reports. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["CronJob", "PersistentVolumeClaim"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["CronJob", "PersistentVolumeClaim"],
+      "required_api_versions": {"CronJob": "batch/v1"},
+      "required_patterns": ["0 6 * * *", "/reports", "report-storage", "securityContext"],
+      "forbidden_patterns": ["batch/v1beta1"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["PVC access mode incompatible with CronJob (use ReadWriteMany or ReadWriteOncePod)", "Wrong cron schedule"]
+  },
+  {
+    "task_id": "k8s-029",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a ConfigMap named svc-config, a Secret named svc-secret, a Deployment named microservice that mounts the ConfigMap as env vars and the Secret as a volume at /etc/secrets, and a ClusterIP Service exposing port 9000. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["ConfigMap", "Secret", "Deployment", "Service"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["ConfigMap", "Secret", "Deployment", "Service"],
+      "required_api_versions": {"Deployment": "apps/v1"},
+      "required_patterns": ["configMapKeyRef", "secretKeyRef", "/etc/secrets", "securityContext"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Volume mount path conflict", "Secret mounted with wrong mode"]
+  },
+  {
+    "task_id": "k8s-030",
+    "language": "kubernetes",
+    "difficulty": 3,
+    "category": "Complex Multi-Resource",
+    "prompt": "Create a Deployment named multi-port-app exposing ports 8080 (HTTP) and 9090 (metrics), and a Service that exposes both ports with named ports http and metrics. Apply appropriate securityContext and RBAC ServiceAccount controls.",
+    "expected_resources": ["Deployment", "Service"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.5,
+      "min_bp_score": 0.6,
+      "required_resources": ["Deployment", "Service"],
+      "required_api_versions": {"Deployment": "apps/v1", "Service": "v1"},
+      "required_patterns": ["8080", "9090", "name: http", "name: metrics", "securityContext"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Port names not matching between Service and containerPorts", "Missing named ports"]
+  },
+  {
+    "task_id": "k8s-031",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a Deployment named secure-api in namespace production running myregistry/api:v3.0 with full Pod Security Standards restricted securityContext: runAsNonRoot=true, runAsUser=1000, allowPrivilegeEscalation=false, readOnlyRootFilesystem=true, drop ALL capabilities, and seccompProfile RuntimeDefault.",
+    "expected_resources": ["Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["Deployment"],
+      "required_api_versions": {"Deployment": "apps/v1"},
+      "required_patterns": ["runAsNonRoot: true", "allowPrivilegeEscalation: false", "readOnlyRootFilesystem: true", "drop:", "RuntimeDefault"],
+      "forbidden_patterns": [":latest", "privileged: true"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_11", "CKV_K8S_6", "CKV_K8S_37"]
+    },
+    "common_failures": ["Missing drop ALL capabilities", "seccompProfile at wrong spec level", "Not setting runAsUser"]
+  },
+  {
+    "task_id": "k8s-032",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a NetworkPolicy named strict-netpol in namespace production that: allows ingress to port 8080 only from namespace monitoring (label env=monitoring) and namespace frontend, blocks all other ingress, allows egress only to port 5432 in namespace databases and port 53 UDP for DNS.",
+    "expected_resources": ["NetworkPolicy"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["NetworkPolicy"],
+      "required_api_versions": {"NetworkPolicy": "networking.k8s.io/v1"},
+      "required_patterns": ["namespaceSelector", "ingress", "egress", "5432", "53"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Missing DNS egress rule (port 53 UDP)", "namespaceSelector not combined with podSelector correctly"]
+  },
+  {
+    "task_id": "k8s-033",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create RBAC resources for a deployment pipeline: a ServiceAccount named deploy-sa, a Role named deploy-role that allows get/list/watch on pods and create/update on deployments, and a RoleBinding named deploy-rb binding the role to the ServiceAccount. All in namespace ci-cd.",
+    "expected_resources": ["ServiceAccount", "Role", "RoleBinding"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["ServiceAccount", "Role", "RoleBinding"],
+      "required_api_versions": {"Role": "rbac.authorization.k8s.io/v1", "RoleBinding": "rbac.authorization.k8s.io/v1"},
+      "required_patterns": ["rbac.authorization.k8s.io", "deploy-sa", "deploy-role", "get", "list", "watch"],
+      "forbidden_patterns": ["\"*\""],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_49"]
+    },
+    "common_failures": ["Using wildcard (*) in verbs or resources", "RoleBinding subjects referencing wrong namespace"]
+  },
+  {
+    "task_id": "k8s-034",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a Pod named hardened-job in namespace security-test running myregistry/scanner:v1.0 with seccompProfile type RuntimeDefault at the pod level and container level, and drop ALL Linux capabilities. Set automountServiceAccountToken: false.",
+    "expected_resources": ["Pod"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["Pod"],
+      "required_api_versions": {"Pod": "v1"},
+      "required_patterns": ["RuntimeDefault", "drop:", "automountServiceAccountToken: false", "ALL"],
+      "forbidden_patterns": [":latest", "privileged: true"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_36", "CKV_K8S_28"]
+    },
+    "common_failures": ["seccompProfile at wrong YAML nesting level", "Missing automountServiceAccountToken: false"]
+  },
+  {
+    "task_id": "k8s-035",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a Deployment named restricted-app with readOnlyRootFilesystem=true, runAsNonRoot=true, allowPrivilegeEscalation=false, and drop ALL capabilities. Add an emptyDir volume at /tmp for writable scratch space. Run as user 65534 (nobody).",
+    "expected_resources": ["Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["Deployment"],
+      "required_api_versions": {"Deployment": "apps/v1"},
+      "required_patterns": ["readOnlyRootFilesystem: true", "runAsNonRoot: true", "allowPrivilegeEscalation: false", "65534", "emptyDir"],
+      "forbidden_patterns": [":latest", "privileged: true"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_11", "CKV_K8S_6"]
+    },
+    "common_failures": ["Forgetting emptyDir for /tmp when readOnlyRootFilesystem=true", "runAsUser at pod level instead of container level"]
+  },
+  {
+    "task_id": "k8s-036",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a PodDisruptionBudget named critical-pdb ensuring maxUnavailable=1 for a Deployment named critical-service with 5 replicas in namespace production. Include appropriate pod anti-affinity rules to spread across nodes.",
+    "expected_resources": ["PodDisruptionBudget", "Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["PodDisruptionBudget", "Deployment"],
+      "required_api_versions": {"PodDisruptionBudget": "policy/v1"},
+      "required_patterns": ["maxUnavailable: 1", "antiAffinity", "topologyKey"],
+      "forbidden_patterns": ["policy/v1beta1"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Using deprecated policy/v1beta1", "PDB selector not matching Deployment pod labels"]
+  },
+  {
+    "task_id": "k8s-037",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a NetworkPolicy named isolate-namespace in namespace tenant-a that denies all ingress and egress by default, then adds exceptions to allow ingress from same namespace only and egress to kube-dns (port 53 UDP/TCP) only.",
+    "expected_resources": ["NetworkPolicy"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["NetworkPolicy"],
+      "required_api_versions": {"NetworkPolicy": "networking.k8s.io/v1"},
+      "required_patterns": ["Ingress", "Egress", "podSelector: {}", "53"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["Empty policyTypes list", "Missing DNS egress exception causes pod DNS failures"]
+  },
+  {
+    "task_id": "k8s-038",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a Deployment named db-client running myregistry/client:v1.0 with runAsUser=1001, fsGroup=2000, supplementalGroups=[3000], and readOnlyRootFilesystem=true. Mount a secret as a volume with mode 0400.",
+    "expected_resources": ["Deployment"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["Deployment"],
+      "required_api_versions": {"Deployment": "apps/v1"},
+      "required_patterns": ["runAsUser: 1001", "fsGroup: 2000", "readOnlyRootFilesystem: true", "0400"],
+      "forbidden_patterns": [":latest", "privileged: true"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_11"]
+    },
+    "common_failures": ["fsGroup at container level instead of pod securityContext", "Secret volume defaultMode wrong format"]
+  },
+  {
+    "task_id": "k8s-039",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a ResourceQuota named strict-quota and LimitRange named strict-limits in namespace regulated enforcing: max 2 CPUs total, 4Gi memory, 5 pods, default container CPU limit 200m, default memory limit 128Mi, and max container CPU 500m.",
+    "expected_resources": ["ResourceQuota", "LimitRange"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["ResourceQuota", "LimitRange"],
+      "required_api_versions": {"ResourceQuota": "v1", "LimitRange": "v1"},
+      "required_patterns": ["limits.cpu", "limits.memory", "max:", "default:"],
+      "forbidden_patterns": [],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8"]
+    },
+    "common_failures": ["LimitRange max vs default confusion", "ResourceQuota using wrong resource name format"]
+  },
+  {
+    "task_id": "k8s-040",
+    "language": "kubernetes",
+    "difficulty": 4,
+    "category": "Security-Hardened",
+    "prompt": "Create a Deployment named hpa-secure-app with HPA (3-12 replicas, 65% CPU) and PDB (minAvailable=2). The Deployment must have runAsNonRoot=true, allowPrivilegeEscalation=false, drop ALL caps, and readOnlyRootFilesystem=true.",
+    "expected_resources": ["Deployment", "HorizontalPodAutoscaler", "PodDisruptionBudget"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.8,
+      "min_bp_score": 0.7,
+      "required_resources": ["Deployment", "HorizontalPodAutoscaler", "PodDisruptionBudget"],
+      "required_api_versions": {"HorizontalPodAutoscaler": "autoscaling/v2", "PodDisruptionBudget": "policy/v1"},
+      "required_patterns": ["runAsNonRoot: true", "allowPrivilegeEscalation: false", "minAvailable: 2", "maxReplicas: 12"],
+      "forbidden_patterns": ["autoscaling/v1", "policy/v1beta1", ":latest"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_11", "CKV_K8S_6", "CKV_K8S_37"]
+    },
+    "common_failures": ["PDB selector mismatch", "HPA using deprecated API version"]
+  },
+  {
+    "task_id": "k8s-041",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a 3-tier application: frontend Deployment (nginx:1.27, 3 replicas) + LoadBalancer Service on port 80, backend Deployment (myregistry/api:v2.0, 3 replicas) + ClusterIP Service on port 8080, and a Redis StatefulSet (redis:7.2, 3 replicas) + headless Service. All in namespace three-tier with appropriate securityContexts, resource limits, and health probes.",
+    "expected_resources": ["Deployment", "Service", "StatefulSet"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.7,
+      "min_bp_score": 0.7,
+      "required_resources": ["Deployment", "Service", "StatefulSet"],
+      "required_api_versions": {"Deployment": "apps/v1", "StatefulSet": "apps/v1"},
+      "required_patterns": ["LoadBalancer", "clusterIP: None", "readinessProbe", "livenessProbe", "securityContext"],
+      "forbidden_patterns": [":latest"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8", "CKV_K8S_11"]
+    },
+    "common_failures": ["Missing health probes on all tiers", "Redis headless service missing clusterIP: None"]
+  },
+  {
+    "task_id": "k8s-042",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a microservices setup in namespace microservices: ServiceAccount, Role, RoleBinding (RBAC for pod reader), a NetworkPolicy allowing inter-service traffic only on port 8080, an Ingress with TLS routing to a frontend Service, and a Deployment with full PSS restricted securityContext.",
+    "expected_resources": ["ServiceAccount", "Role", "RoleBinding", "NetworkPolicy", "Ingress", "Deployment", "Service"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.85,
+      "min_bp_score": 0.8,
+      "required_resources": ["ServiceAccount", "Role", "RoleBinding", "NetworkPolicy", "Ingress", "Deployment"],
+      "required_api_versions": {"Ingress": "networking.k8s.io/v1", "Role": "rbac.authorization.k8s.io/v1"},
+      "required_patterns": ["runAsNonRoot: true", "NetworkPolicy", "tls:", "rbac.authorization.k8s.io"],
+      "forbidden_patterns": ["extensions/v1beta1", ":latest", "\"*\""],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_11", "CKV_K8S_49", "CKV_K8S_6"]
+    },
+    "common_failures": ["RBAC wildcard verbs", "Ingress TLS secret not referenced", "NetworkPolicy too permissive"]
+  },
+  {
+    "task_id": "k8s-043",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a multi-namespace RBAC setup: Namespace team-a, Namespace team-b, a ClusterRole named read-pods allowing get/list/watch on pods cluster-wide, and RoleBindings in each namespace binding team-a-sa and team-b-sa ServiceAccounts to the ClusterRole. Ensure automountServiceAccountToken: false on all ServiceAccounts.",
+    "expected_resources": ["Namespace", "ClusterRole", "RoleBinding", "ServiceAccount"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.85,
+      "min_bp_score": 0.8,
+      "required_resources": ["Namespace", "ClusterRole", "RoleBinding", "ServiceAccount"],
+      "required_api_versions": {"ClusterRole": "rbac.authorization.k8s.io/v1"},
+      "required_patterns": ["automountServiceAccountToken: false", "ClusterRole", "read-pods", "rbac.authorization.k8s.io"],
+      "forbidden_patterns": ["\"*\""],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_49", "CKV_K8S_155"]
+    },
+    "common_failures": ["Using ClusterRoleBinding instead of RoleBinding for namespace-scoped access", "Missing automountServiceAccountToken: false"]
+  },
+  {
+    "task_id": "k8s-044",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a fully PSS-restricted application: Deployment named secure-web (runAsNonRoot, runAsUser=1000, allowPrivilegeEscalation=false, readOnlyRootFilesystem=true, drop ALL, seccompProfile RuntimeDefault), ClusterIP Service, and Ingress with TLS using cert-manager annotation cert-manager.io/cluster-issuer=letsencrypt. Namespace: secure-apps.",
+    "expected_resources": ["Deployment", "Service", "Ingress"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["Deployment", "Service", "Ingress"],
+      "required_api_versions": {"Ingress": "networking.k8s.io/v1", "Deployment": "apps/v1"},
+      "required_patterns": ["runAsNonRoot: true", "RuntimeDefault", "cert-manager.io/cluster-issuer", "readOnlyRootFilesystem: true"],
+      "forbidden_patterns": [":latest", "extensions/v1beta1", "privileged: true"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_11", "CKV_K8S_6", "CKV_K8S_37"]
+    },
+    "common_failures": ["Missing seccompProfile", "TLS secret not referenced in Ingress", "allowPrivilegeEscalation not explicitly false"]
+  },
+  {
+    "task_id": "k8s-045",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a StatefulSet named mysql (mysql:8.0, 1 replica) with a 50Gi PVC template, a CronJob named mysql-backup running every 6 hours using myregistry/mysql-backup:v1.0, a ServiceAccount with RBAC Role/RoleBinding allowing the CronJob to list pods, all in namespace databases.",
+    "expected_resources": ["StatefulSet", "CronJob", "ServiceAccount", "Role", "RoleBinding"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.85,
+      "min_bp_score": 0.8,
+      "required_resources": ["StatefulSet", "CronJob", "ServiceAccount", "Role", "RoleBinding"],
+      "required_api_versions": {"StatefulSet": "apps/v1", "CronJob": "batch/v1"},
+      "required_patterns": ["0 */6 * * *", "50Gi", "volumeClaimTemplates", "rbac.authorization.k8s.io"],
+      "forbidden_patterns": [":latest", "batch/v1beta1"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8", "CKV_K8S_49"]
+    },
+    "common_failures": ["CronJob RBAC not scoped to correct namespace", "StatefulSet serviceName not matching Service name"]
+  },
+  {
+    "task_id": "k8s-046",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a blue-green deployment pair: Deployment named app-blue (myregistry/app:v1.0, 5 replicas) and Deployment named app-green (myregistry/app:v2.0, 0 replicas) with a Service named app-svc whose selector can switch between them using a slot label. Include a PodDisruptionBudget for the active deployment.",
+    "expected_resources": ["Deployment", "Service", "PodDisruptionBudget"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.7,
+      "min_bp_score": 0.75,
+      "required_resources": ["Deployment", "Service", "PodDisruptionBudget"],
+      "required_api_versions": {"Deployment": "apps/v1", "PodDisruptionBudget": "policy/v1"},
+      "required_patterns": ["app-blue", "app-green", "slot:", "minAvailable"],
+      "forbidden_patterns": [":latest", "policy/v1beta1"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8", "CKV_K8S_11"]
+    },
+    "common_failures": ["Service selector not using slot label", "PDB selector matching wrong deployment"]
+  },
+  {
+    "task_id": "k8s-047",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a canary deployment setup: a stable Deployment named api-stable (myregistry/api:v1.0, 9 replicas) and a canary Deployment named api-canary (myregistry/api:v2.0, 1 replica) sharing a common Service selector label app=api. Add an HPA on api-stable (5-20 replicas, 70% CPU).",
+    "expected_resources": ["Deployment", "Service", "HorizontalPodAutoscaler"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.7,
+      "min_bp_score": 0.75,
+      "required_resources": ["Deployment", "Service", "HorizontalPodAutoscaler"],
+      "required_api_versions": {"HorizontalPodAutoscaler": "autoscaling/v2"},
+      "required_patterns": ["api-stable", "api-canary", "app: api", "maxReplicas: 20"],
+      "forbidden_patterns": [":latest", "autoscaling/v1"],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8", "CKV_K8S_11"]
+    },
+    "common_failures": ["Canary and stable not sharing common Service selector", "HPA targeting canary instead of stable"]
+  },
+  {
+    "task_id": "k8s-048",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a complete production app in namespace production-app: Deployment named app (3 replicas, full securityContext), NetworkPolicy allowing only frontend ingress and database egress, HPA (3-15, 70% CPU), PDB (minAvailable=2), ClusterIP Service, and RBAC (ServiceAccount + Role + RoleBinding for config map reading).",
+    "expected_resources": ["Deployment", "NetworkPolicy", "HorizontalPodAutoscaler", "PodDisruptionBudget", "Service", "ServiceAccount", "Role", "RoleBinding"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["Deployment", "NetworkPolicy", "HorizontalPodAutoscaler", "PodDisruptionBudget", "Service"],
+      "required_api_versions": {"HorizontalPodAutoscaler": "autoscaling/v2", "PodDisruptionBudget": "policy/v1"},
+      "required_patterns": ["runAsNonRoot: true", "NetworkPolicy", "minAvailable: 2", "maxReplicas: 15", "rbac.authorization.k8s.io"],
+      "forbidden_patterns": [":latest", "autoscaling/v1", "policy/v1beta1", "\"*\""],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_11", "CKV_K8S_49", "CKV_K8S_6", "CKV_K8S_37"]
+    },
+    "common_failures": ["RBAC wildcard resources", "PDB selector not aligned with HPA target", "NetworkPolicy not restricting egress"]
+  },
+  {
+    "task_id": "k8s-049",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a namespace named regulated with: ResourceQuota (10 CPUs, 20Gi, 30 pods), LimitRange (default CPU 200m, memory 256Mi, max CPU 2, max memory 4Gi), NetworkPolicy denying all traffic by default, and a Namespace-scoped Role allowing only configmap get/list.",
+    "expected_resources": ["Namespace", "ResourceQuota", "LimitRange", "NetworkPolicy", "Role"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.85,
+      "min_bp_score": 0.8,
+      "required_resources": ["Namespace", "ResourceQuota", "LimitRange", "NetworkPolicy", "Role"],
+      "required_api_versions": {"NetworkPolicy": "networking.k8s.io/v1", "Role": "rbac.authorization.k8s.io/v1"},
+      "required_patterns": ["requests.cpu", "requests.memory", "default:", "policyTypes", "configmaps"],
+      "forbidden_patterns": ["\"*\""],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_8", "CKV_K8S_49"]
+    },
+    "common_failures": ["Missing policyTypes in NetworkPolicy", "LimitRange type not set to Container"]
+  },
+  {
+    "task_id": "k8s-050",
+    "language": "kubernetes",
+    "difficulty": 5,
+    "category": "Production-Grade",
+    "prompt": "Create a complete 3-tier app in namespace fullstack: frontend Deployment+LoadBalancer Service+Ingress with TLS, backend Deployment+ClusterIP Service with RBAC (ServiceAccount+Role+RoleBinding), database StatefulSet+headless Service, NetworkPolicy restricting traffic between tiers, and HPA on backend (3-10, 70% CPU). Apply full PSS restricted securityContext on all Deployments.",
+    "expected_resources": ["Deployment", "Service", "Ingress", "StatefulSet", "NetworkPolicy", "HorizontalPodAutoscaler", "ServiceAccount", "Role", "RoleBinding"],
+    "validation": {
+      "syntax_valid": true,
+      "schema_valid": true,
+      "min_security_score": 0.9,
+      "min_bp_score": 0.85,
+      "required_resources": ["Deployment", "Service", "Ingress", "StatefulSet", "NetworkPolicy", "HorizontalPodAutoscaler"],
+      "required_api_versions": {"Ingress": "networking.k8s.io/v1", "HorizontalPodAutoscaler": "autoscaling/v2", "StatefulSet": "apps/v1"},
+      "required_patterns": ["runAsNonRoot: true", "tls:", "clusterIP: None", "NetworkPolicy", "rbac.authorization.k8s.io"],
+      "forbidden_patterns": [":latest", "extensions/v1beta1", "autoscaling/v1", "\"*\""],
+      "checkov_checks": ["CKV_K8S_30", "CKV_K8S_28", "CKV_K8S_11", "CKV_K8S_49", "CKV_K8S_6", "CKV_K8S_37"]
+    },
+    "common_failures": ["Frontend Ingress missing TLS secret", "NetworkPolicy not separating tiers", "StatefulSet headless service misconfigured"]
+  }
+]

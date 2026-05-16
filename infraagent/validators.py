@@ -634,6 +634,60 @@ def _validate_docker_build(content: str) -> Tuple[Optional[bool], List[str]]:
 # Layer 3: Security Validators
 # ---------------------------------------------------------------------------
 
+_TRIVY_PATH = shutil.which("trivy") or "/opt/homebrew/bin/trivy"
+
+
+def _run_trivy_config(filepath: str, framework: str = "") -> Tuple[int, int, List[ValidationError]]:
+    """
+    Run `trivy config` on a file and return (passed, failed, errors).
+
+    Falls back cleanly when trivy is not installed.
+    """
+    errors: List[ValidationError] = []
+    trivy_bin = shutil.which("trivy") or _TRIVY_PATH
+    if not Path(trivy_bin).exists():
+        return 0, 0, []
+
+    cmd = [
+        trivy_bin, "config",
+        "--format", "json",
+        "--exit-code", "0",
+        "--quiet",
+    ]
+    if framework:
+        cmd += ["--tf-exclude-downloaded-modules"]
+    cmd.append(filepath)
+
+    try:
+        result = subprocess.run(
+            cmd, capture_output=True, text=True, timeout=30,
+        )
+        data = json.loads(result.stdout)
+        passed = 0
+        failed_count = 0
+        for result_item in data.get("Results", []):
+            misconfigs = result_item.get("Misconfigurations", []) or []
+            for m in misconfigs:
+                severity = m.get("Severity", "UNKNOWN").upper()
+                status = m.get("Status", "FAIL")
+                if status in ("PASS", "EXCEPTION"):
+                    passed += 1
+                    continue
+                failed_count += 1
+                sev = Severity.ERROR if severity in ("CRITICAL", "HIGH") else Severity.WARNING
+                errors.append(ValidationError(
+                    layer=ValidationLayer.SECURITY,
+                    tool="trivy",
+                    rule_id=m.get("ID", "TRIVY_UNKNOWN"),
+                    message=f"{m.get('Title', 'Security issue')}: {m.get('Description', '')}",
+                    severity=sev,
+                    resource=result_item.get("Target"),
+                ))
+        return passed, failed_count, errors
+    except (subprocess.TimeoutExpired, json.JSONDecodeError, FileNotFoundError, KeyError):
+        return 0, 0, []
+
+
 _SECURITY_CHECKS_K8S = [
     ("SEC_NO_ROOT", "runAsNonRoot", "Container must set runAsNonRoot: true"),
     ("SEC_PRIV_ESC", "allowPrivilegeEscalation: false", "Must disable privilege escalation"),
@@ -681,7 +735,7 @@ def _validate_k8s_security(content: str) -> Tuple[float, List[ValidationError]]:
             severity=Severity.ERROR,
         ))
 
-    # Attempt checkov
+    # Attempt checkov + trivy
     with tempfile.NamedTemporaryFile(
         mode="w", suffix=".yaml", delete=False
     ) as f:
@@ -721,12 +775,29 @@ def _validate_k8s_security(content: str) -> Tuple[float, List[ValidationError]]:
         except OSError as _unlink_err:
             logger.warning("Failed to clean up temp file %s: %s", fname, _unlink_err)
 
+    # Trivy config scan
+    with tempfile.NamedTemporaryFile(
+        mode="w", suffix=".yaml", delete=False
+    ) as tf2:
+        tf2.write(content)
+        trivy_fname = tf2.name
+    try:
+        t_passed, t_failed, t_errors = _run_trivy_config(trivy_fname)
+        total += t_passed + t_failed
+        passed += t_passed
+        errors.extend(t_errors)
+    finally:
+        try:
+            Path(trivy_fname).unlink(missing_ok=True)
+        except OSError as _unlink_err:
+            logger.warning("Failed to clean up temp file %s: %s", trivy_fname, _unlink_err)
+
     score = passed / total if total > 0 else 0.0
     return score, errors
 
 
 def _validate_tf_security(content: str) -> Tuple[float, List[ValidationError]]:
-    """Security checks for Terraform (tfsec + pattern matching)."""
+    """Security checks for Terraform (trivy + checkov + pattern matching)."""
     errors: List[ValidationError] = []
     total = len(_SECURITY_CHECKS_TF)
     passed = 0
@@ -752,6 +823,72 @@ def _validate_tf_security(content: str) -> Tuple[float, List[ValidationError]]:
                     message=message,
                     severity=Severity.WARNING,
                 ))
+
+    # Trivy config scan for Terraform
+    with tempfile.NamedTemporaryFile(
+        mode="w", suffix=".tf", delete=False
+    ) as tf:
+        tf.write(content)
+        trivy_fname = tf.name
+    try:
+        t_passed, t_failed, t_errors = _run_trivy_config(trivy_fname)
+        total += t_passed + t_failed
+        passed += t_passed
+        errors.extend(t_errors)
+    finally:
+        try:
+            Path(trivy_fname).unlink(missing_ok=True)
+        except OSError as _unlink_err:
+            logger.warning("Failed to clean up temp file %s: %s", trivy_fname, _unlink_err)
+
+    score = passed / total if total > 0 else 0.0
+    return score, errors
+
+
+_SECURITY_CHECKS_DOCKERFILE = [
+    ("DF_NO_ROOT", "USER", "Dockerfile must set a non-root USER"),
+    ("DF_NO_LATEST", ":latest", "Avoid ':latest' tag — pin to specific digest or version", True),
+    ("DF_HEALTHCHECK", "HEALTHCHECK", "Dockerfile should include a HEALTHCHECK instruction"),
+]
+
+
+def _validate_dockerfile_security(content: str) -> Tuple[float, List[ValidationError]]:
+    """Security checks for Dockerfiles (trivy + hadolint + pattern matching)."""
+    errors: List[ValidationError] = []
+    total = len(_SECURITY_CHECKS_DOCKERFILE)
+    passed = 0
+
+    for check in _SECURITY_CHECKS_DOCKERFILE:
+        rule_id, pattern, message = check[:3]
+        inverted = len(check) == 4 and check[3]
+        found = pattern in content
+        if (found and not inverted) or (not found and inverted):
+            passed += 1
+        else:
+            errors.append(ValidationError(
+                layer=ValidationLayer.SECURITY,
+                tool="infraagent-security",
+                rule_id=rule_id,
+                message=message,
+                severity=Severity.ERROR if not inverted else Severity.WARNING,
+            ))
+
+    # Trivy config scan for Dockerfiles
+    with tempfile.NamedTemporaryFile(
+        mode="w", suffix="Dockerfile", delete=False
+    ) as tf:
+        tf.write(content)
+        trivy_fname = tf.name
+    try:
+        t_passed, t_failed, t_errors = _run_trivy_config(trivy_fname)
+        total += t_passed + t_failed
+        passed += t_passed
+        errors.extend(t_errors)
+    finally:
+        try:
+            Path(trivy_fname).unlink(missing_ok=True)
+        except OSError as _unlink_err:
+            logger.warning("Failed to clean up temp file %s: %s", trivy_fname, _unlink_err)
 
     score = passed / total if total > 0 else 0.0
     return score, errors
@@ -933,6 +1070,8 @@ class MultiLayerValidator:
             sec_score, sec_errors = _validate_k8s_security(code)
         elif language == "terraform":
             sec_score, sec_errors = _validate_tf_security(code)
+        elif language == "dockerfile":
+            sec_score, sec_errors = _validate_dockerfile_security(code)
         else:
             sec_score = 1.0
             sec_errors = []

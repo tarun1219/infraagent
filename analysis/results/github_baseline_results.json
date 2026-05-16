@@ -1,0 +1,442 @@
+{
+  "meta": {
+    "source": "github_public_repos",
+    "language": "kubernetes",
+    "n_urls": 30,
+    "n_downloaded": 19,
+    "n_download_errors": 11,
+    "tool_path": "/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:/Users/tarun/.local/bin:/Users/tarun/.pyenv/shims:/Users/tarun/.rbenv/shims:/Users/tarun/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/2e26c907-d2de-420e-bdc6-d54373c26ed3/82db34a3-655f-4d9e-be31-aa3c16ed4dc2/bin"
+  },
+  "stats": {
+    "n_attempted": 19,
+    "pct_syntax_valid": 0.8421,
+    "pct_schema_valid": 0.6316,
+    "pct_security_compliant": 0.9474,
+    "pct_functional_correct": 0.5789,
+    "mean_security_score": 0.8627
+  },
+  "download_errors": [
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/https-nginx/nginx-app.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/cassandra/cassandra-service.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/cassandra/cassandra-statefulset.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/app-with-directory/Deployment.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/app-with-directory/Service.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/source-controller/deployment.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/kustomize-controller/deployment.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/helm-controller/deployment.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tektoncd/pipeline/main/config/core/deployments/tekton-pipelines-webhook.yaml",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/external-dns/master/kustomize/base/deployment.yaml",
+      "error": "HTTP 404"
+    }
+  ],
+  "per_file": [
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/pods/simple-pod.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_000_simple-pod.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 2,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.7753,
+      "checkov_passed": 69,
+      "checkov_failed": 20,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/application/deployment.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_001_deployment.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 2,
+      "yamllint_warnings": 2,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.7753,
+      "checkov_passed": 69,
+      "checkov_failed": 20,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/controllers/nginx-deployment.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_002_nginx-deployment.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 2,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.7753,
+      "checkov_passed": 69,
+      "checkov_failed": 20,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/configmap/configmap-multikeys.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_003_configmap-multikeys.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 0,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.0,
+      "checkov_passed": 0,
+      "checkov_failed": 1,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/application/php-apache.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_004_php-apache.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 3,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.7889,
+      "checkov_passed": 71,
+      "checkov_failed": 19,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/https-nginx/nginx-app.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/cassandra/cassandra-service.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/cassandra/cassandra-statefulset.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/app-with-directory/Deployment.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/app-with-directory/Service.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/manifests/alertmanager-alertmanager.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_011_alertmanager-alertmanager.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 0,
+      "yamllint_warnings": 1,
+      "schema_valid": false,
+      "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_011_alertmanager-alertmanager.yaml - Alertmanager main failed validation: could not find schema for Alertmanager\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Errors: 1, Skipped: 0\n",
+      "security_score": 1.0,
+      "checkov_passed": 0,
+      "checkov_failed": 0,
+      "security_compliant": true,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/manifests/grafana-deployment.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_012_grafana-deployment.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 10,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.9551,
+      "checkov_passed": 85,
+      "checkov_failed": 4,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/manifests/prometheus-prometheus.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_013_prometheus-prometheus.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 1,
+      "yamllint_warnings": 1,
+      "schema_valid": false,
+      "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_013_prometheus-prometheus.yaml - Prometheus k8s failed validation: could not find schema for Prometheus\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Errors: 1, Skipped: 0\n",
+      "security_score": 1.0,
+      "checkov_passed": 0,
+      "checkov_failed": 0,
+      "security_compliant": true,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/manifests/nodeExporter-daemonset.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_014_nodeExporter-daemonset.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 11,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.8764,
+      "checkov_passed": 78,
+      "checkov_failed": 11,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/source-controller/deployment.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/kustomize-controller/deployment.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/helm-controller/deployment.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_018_gatekeeper.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 1326,
+      "yamllint_warnings": 1,
+      "schema_valid": false,
+      "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_018_gatekeeper.yaml - CustomResourceDefinition assign.mutations.gatekeeper.sh failed validation: could not find schema for CustomResourceDefinition\n/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sju",
+      "security_score": 0.9363,
+      "checkov_passed": 191,
+      "checkov_failed": 13,
+      "security_compliant": true,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/cert-manager/cert-manager/master/deploy/charts/cert-manager/templates/deployment.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_019_deployment.yaml",
+      "syntax_valid": false,
+      "yamllint_errors": 18,
+      "yamllint_warnings": 1,
+      "schema_valid": false,
+      "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_019_deployment.yaml - failed validation: error unmarshalling resource: error converting YAML to JSON: yaml: line 12: could not find expected ':'\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Errors: 1, Ski",
+      "security_score": 1.0,
+      "checkov_passed": 0,
+      "checkov_failed": 0,
+      "security_compliant": true,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/knative/serving/main/config/core/deployments/controller.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_020_controller.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 7,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.9333,
+      "checkov_passed": 84,
+      "checkov_failed": 6,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/knative/serving/main/config/core/deployments/webhook.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_021_webhook.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 9,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.9333,
+      "checkov_passed": 84,
+      "checkov_failed": 6,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jaegertracing/jaeger-operator/main/config/manager/manager.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_022_manager.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 0,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.875,
+      "checkov_passed": 77,
+      "checkov_failed": 11,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tektoncd/pipeline/main/config/core/deployments/tekton-pipelines-webhook.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/metallb/metallb/main/config/manifests/metallb-native.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_024_metallb-native.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 532,
+      "yamllint_warnings": 1,
+      "schema_valid": false,
+      "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_024_metallb-native.yaml - CustomResourceDefinition bgppeers.metallb.io failed validation: could not find schema for CustomResourceDefinition\n/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/gith",
+      "security_score": 0.8908,
+      "checkov_passed": 204,
+      "checkov_failed": 25,
+      "security_compliant": true,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_025_deploy.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 103,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.9204,
+      "checkov_passed": 289,
+      "checkov_failed": 25,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/external-dns/master/kustomize/base/deployment.yaml",
+      "file": null,
+      "download_error": "HTTP 404",
+      "syntax_valid": false,
+      "schema_valid": false,
+      "security_score": 0.0,
+      "security_compliant": false,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/kubernetes/autoscaler/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_027_cluster-autoscaler-autodiscover.yaml",
+      "syntax_valid": true,
+      "yamllint_errors": 4,
+      "yamllint_warnings": 1,
+      "schema_valid": true,
+      "kubeconform_error": null,
+      "security_score": 0.9558,
+      "checkov_passed": 108,
+      "checkov_failed": 5,
+      "security_compliant": true,
+      "functional_correct": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/main/helm/sealed-secrets/templates/deployment.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_028_deployment.yaml",
+      "syntax_valid": false,
+      "yamllint_errors": 35,
+      "yamllint_warnings": 1,
+      "schema_valid": false,
+      "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_028_deployment.yaml - failed validation: error unmarshalling resource: error converting YAML to JSON: yaml: did not find expected node content\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Errors: 1, Skipp",
+      "security_score": 1.0,
+      "checkov_passed": 0,
+      "checkov_failed": 0,
+      "security_compliant": true,
+      "functional_correct": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/crossplane/crossplane/master/cluster/charts/crossplane/templates/rbac-manager-deployment.yaml",
+      "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_029_rbac-manager-deployment.yaml",
+      "syntax_valid": false,
+      "yamllint_errors": 12,
+      "yamllint_warnings": 1,
+      "schema_valid": false,
+      "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_029_rbac-manager-deployment.yaml - failed validation: error unmarshalling resource: error converting YAML to JSON: yaml: did not find expected node content\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Err",
+      "security_score": 1.0,
+      "checkov_passed": 0,
+      "checkov_failed": 0,
+      "security_compliant": true,
+      "functional_correct": false
+    }
+  ]
+}

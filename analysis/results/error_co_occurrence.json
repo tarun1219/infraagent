@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "n_tasks": 33,
+    "failure_modes": [
+      "syntax_fail",
+      "schema_fail",
+      "security_fail",
+      "bp_fail",
+      "functional_fail"
+    ],
+    "security_threshold": 0.5,
+    "bp_threshold": 0.5
+  },
+  "failure_rates": {
+    "syntax_fail": {
+      "n_fail": 5,
+      "n_pass": 28,
+      "fail_rate": 0.1515
+    },
+    "schema_fail": {
+      "n_fail": 5,
+      "n_pass": 28,
+      "fail_rate": 0.1515
+    },
+    "security_fail": {
+      "n_fail": 3,
+      "n_pass": 30,
+      "fail_rate": 0.0909
+    },
+    "bp_fail": {
+      "n_fail": 0,
+      "n_pass": 33,
+      "fail_rate": 0.0
+    },
+    "functional_fail": {
+      "n_fail": 7,
+      "n_pass": 26,
+      "fail_rate": 0.2121
+    }
+  },
+  "phi_matrix": {
+    "modes": [
+      "syntax_fail",
+      "schema_fail",
+      "security_fail",
+      "bp_fail",
+      "functional_fail"
+    ],
+    "matrix": [
+      [
+        1.0,
+        1.0,
+        0.1604,
+        0.0,
+        0.8144
+      ],
+      [
+        1.0,
+        1.0,
+        0.1604,
+        0.0,
+        0.8144
+      ],
+      [
+        0.1604,
+        0.1604,
+        1.0,
+        0.0,
+        0.6094
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.8144,
+        0.8144,
+        0.6094,
+        0.0,
+        1.0
+      ]
+    ],
+    "interpretation": "phi coefficient: +1=always co-occur, 0=independent, -1=never co-occur"
+  },
+  "p_value_matrix": {
+    "modes": [
+      "syntax_fail",
+      "schema_fail",
+      "security_fail",
+      "bp_fail",
+      "functional_fail"
+    ],
+    "matrix": [
+      [
+        0.0,
+        0.0,
+        0.356957,
+        1.0,
+        3e-06
+      ],
+      [
+        0.0,
+        0.0,
+        0.356957,
+        1.0,
+        3e-06
+      ],
+      [
+        0.356957,
+        0.356957,
+        0.0,
+        1.0,
+        0.000463
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      [
+        3e-06,
+        3e-06,
+        0.000463,
+        1.0,
+        0.0
+      ]
+    ]
+  },
+  "strong_associations": [
+    {
+      "mode_a": "syntax_fail",
+      "mode_b": "schema_fail",
+      "phi": 1.0,
+      "p_value": 0.0,
+      "significant": true,
+      "strength": "strong",
+      "direction": "positive"
+    },
+    {
+      "mode_a": "syntax_fail",
+      "mode_b": "functional_fail",
+      "phi": 0.8144,
+      "p_value": 3e-06,
+      "significant": true,
+      "strength": "strong",
+      "direction": "positive"
+    },
+    {
+      "mode_a": "schema_fail",
+      "mode_b": "functional_fail",
+      "phi": 0.8144,
+      "p_value": 3e-06,
+      "significant": true,
+      "strength": "strong",
+      "direction": "positive"
+    },
+    {
+      "mode_a": "security_fail",
+      "mode_b": "functional_fail",
+      "phi": 0.6094,
+      "p_value": 0.000463,
+      "significant": true,
+      "strength": "strong",
+      "direction": "positive"
+    }
+  ],
+  "co_occurrence_counts": {
+    "syntax_fail_AND_schema_fail": {
+      "both_fail": 5,
+      "a_only_fail": 0,
+      "b_only_fail": 0,
+      "both_pass": 28,
+      "conditional_p_a_given_b": 1.0,
+      "conditional_p_b_given_a": 1.0
+    },
+    "syntax_fail_AND_security_fail": {
+      "both_fail": 1,
+      "a_only_fail": 4,
+      "b_only_fail": 2,
+      "both_pass": 26,
+      "conditional_p_a_given_b": 0.3333,
+      "conditional_p_b_given_a": 0.2
+    },
+    "syntax_fail_AND_bp_fail": {
+      "both_fail": 0,
+      "a_only_fail": 5,
+      "b_only_fail": 0,
+      "both_pass": 28,
+      "conditional_p_a_given_b": 0.0,
+      "conditional_p_b_given_a": 0.0
+    },
+    "syntax_fail_AND_functional_fail": {
+      "both_fail": 5,
+      "a_only_fail": 0,
+      "b_only_fail": 2,
+      "both_pass": 26,
+      "conditional_p_a_given_b": 0.7143,
+      "conditional_p_b_given_a": 1.0
+    },
+    "schema_fail_AND_security_fail": {
+      "both_fail": 1,
+      "a_only_fail": 4,
+      "b_only_fail": 2,
+      "both_pass": 26,
+      "conditional_p_a_given_b": 0.3333,
+      "conditional_p_b_given_a": 0.2
+    },
+    "schema_fail_AND_bp_fail": {
+      "both_fail": 0,
+      "a_only_fail": 5,
+      "b_only_fail": 0,
+      "both_pass": 28,
+      "conditional_p_a_given_b": 0.0,
+      "conditional_p_b_given_a": 0.0
+    },
+    "schema_fail_AND_functional_fail": {
+      "both_fail": 5,
+      "a_only_fail": 0,
+      "b_only_fail": 2,
+      "both_pass": 26,
+      "conditional_p_a_given_b": 0.7143,
+      "conditional_p_b_given_a": 1.0
+    },
+    "security_fail_AND_bp_fail": {
+      "both_fail": 0,
+      "a_only_fail": 3,
+      "b_only_fail": 0,
+      "both_pass": 30,
+      "conditional_p_a_given_b": 0.0,
+      "conditional_p_b_given_a": 0.0
+    },
+    "security_fail_AND_functional_fail": {
+      "both_fail": 3,
+      "a_only_fail": 0,
+      "b_only_fail": 4,
+      "both_pass": 26,
+      "conditional_p_a_given_b": 0.4286,
+      "conditional_p_b_given_a": 1.0
+    },
+    "bp_fail_AND_functional_fail": {
+      "both_fail": 0,
+      "a_only_fail": 0,
+      "b_only_fail": 7,
+      "both_pass": 26,
+      "conditional_p_a_given_b": 0.0,
+      "conditional_p_b_given_a": 0.0
+    }
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "functional_threshold": 0.7,
+    "security_threshold": 0.7,
+    "conditions": [
+      "AI_only",
+      "AI_plus_SC",
+      "AI_plus_human_review",
+      "human_only"
+    ],
+    "difficulty_levels": [
+      "easy",
+      "medium",
+      "hard",
+      "expert"
+    ]
+  },
+  "performance_matrix": {
+    "functional_correctness": {
+      "AI_only": {
+        "easy": 0.71,
+        "medium": 0.52,
+        "hard": 0.34,
+        "expert": 0.18
+      },
+      "AI_plus_SC": {
+        "easy": 0.82,
+        "medium": 0.63,
+        "hard": 0.47,
+        "expert": 0.29
+      },
+      "AI_plus_human_review": {
+        "easy": 0.91,
+        "medium": 0.79,
+        "hard": 0.64,
+        "expert": 0.48
+      },
+      "human_only": {
+        "easy": 0.95,
+        "medium": 0.87,
+        "hard": 0.76,
+        "expert": 0.61
+      }
+    },
+    "security_compliance": {
+      "AI_only": {
+        "easy": 0.68,
+        "medium": 0.55,
+        "hard": 0.39,
+        "expert": 0.22
+      },
+      "AI_plus_SC": {
+        "easy": 0.81,
+        "medium": 0.67,
+        "hard": 0.51,
+        "expert": 0.33
+      },
+      "AI_plus_human_review": {
+        "easy": 0.92,
+        "medium": 0.82,
+        "hard": 0.68,
+        "expert": 0.51
+      },
+      "human_only": {
+        "easy": 0.96,
+        "medium": 0.89,
+        "hard": 0.78,
+        "expert": 0.64
+      }
+    }
+  },
+  "minimum_recommended_condition": {
+    "easy": {
+      "minimum_condition": "AI_only",
+      "achieved_rate": 0.71,
+      "threshold": 0.7,
+      "meets_threshold": true
+    },
+    "medium": {
+      "minimum_condition": "AI_plus_human_review",
+      "achieved_rate": 0.79,
+      "threshold": 0.7,
+      "meets_threshold": true
+    },
+    "hard": {
+      "minimum_condition": "human_only",
+      "achieved_rate": 0.76,
+      "threshold": 0.7,
+      "meets_threshold": true
+    },
+    "expert": {
+      "minimum_condition": "human_only",
+      "achieved_rate": 0.61,
+      "threshold": 0.7,
+      "meets_threshold": false,
+      "note": "No condition achieves 70% for expert difficulty"
+    }
+  },
+  "autonomy_zones": {
+    "easy": {
+      "zone": "supervised_autonomy",
+      "recommendation": "AI + automated SC recommended",
+      "ai_only_functional_rate": 0.71,
+      "ai_only_security_rate": 0.68,
+      "functional_threshold_met": true,
+      "security_threshold_met": false
+    },
+    "medium": {
+      "zone": "human_review_required",
+      "recommendation": "Human expert review required before deployment",
+      "ai_only_functional_rate": 0.52,
+      "ai_only_security_rate": 0.55,
+      "functional_threshold_met": false,
+      "security_threshold_met": false
+    },
+    "hard": {
+      "zone": "human_review_required",
+      "recommendation": "Human expert review required before deployment",
+      "ai_only_functional_rate": 0.34,
+      "ai_only_security_rate": 0.39,
+      "functional_threshold_met": false,
+      "security_threshold_met": false
+    },
+    "expert": {
+      "zone": "human_review_required",
+      "recommendation": "Human expert review required before deployment",
+      "ai_only_functional_rate": 0.18,
+      "ai_only_security_rate": 0.22,
+      "functional_threshold_met": false,
+      "security_threshold_met": false
+    }
+  },
+  "cost_benefit_analysis": {
+    "easy": {
+      "by_condition": {
+        "AI_only": {
+          "functional_rate": 0.71,
+          "relative_cost": 1.0,
+          "efficiency": 0.71
+        },
+        "AI_plus_SC": {
+          "functional_rate": 0.82,
+          "relative_cost": 1.2,
+          "efficiency": 0.6833
+        },
+        "AI_plus_human_review": {
+          "functional_rate": 0.91,
+          "relative_cost": 3.0,
+          "efficiency": 0.3033
+        },
+        "human_only": {
+          "functional_rate": 0.95,
+          "relative_cost": 8.0,
+          "efficiency": 0.1187
+        }
+      },
+      "most_cost_effective": "AI_only",
+      "most_cost_effective_efficiency": 0.71
+    },
+    "medium": {
+      "by_condition": {
+        "AI_only": {
+          "functional_rate": 0.52,
+          "relative_cost": 1.0,
+          "efficiency": 0.52
+        },
+        "AI_plus_SC": {
+          "functional_rate": 0.63,
+          "relative_cost": 1.2,
+          "efficiency": 0.525
+        },
+        "AI_plus_human_review": {
+          "functional_rate": 0.79,
+          "relative_cost": 3.0,
+          "efficiency": 0.2633
+        },
+        "human_only": {
+          "functional_rate": 0.87,
+          "relative_cost": 8.0,
+          "efficiency": 0.1087
+        }
+      },
+      "most_cost_effective": "AI_plus_SC",
+      "most_cost_effective_efficiency": 0.525
+    },
+    "hard": {
+      "by_condition": {
+        "AI_only": {
+          "functional_rate": 0.34,
+          "relative_cost": 1.0,
+          "efficiency": 0.34
+        },
+        "AI_plus_SC": {
+          "functional_rate": 0.47,
+          "relative_cost": 1.2,
+          "efficiency": 0.3917
+        },
+        "AI_plus_human_review": {
+          "functional_rate": 0.64,
+          "relative_cost": 3.0,
+          "efficiency": 0.2133
+        },
+        "human_only": {
+          "functional_rate": 0.76,
+          "relative_cost": 8.0,
+          "efficiency": 0.095
+        }
+      },
+      "most_cost_effective": "AI_plus_SC",
+      "most_cost_effective_efficiency": 0.3917
+    },
+    "expert": {
+      "by_condition": {
+        "AI_only": {
+          "functional_rate": 0.18,
+          "relative_cost": 1.0,
+          "efficiency": 0.18
+        },
+        "AI_plus_SC": {
+          "functional_rate": 0.29,
+          "relative_cost": 1.2,
+          "efficiency": 0.2417
+        },
+        "AI_plus_human_review": {
+          "functional_rate": 0.48,
+          "relative_cost": 3.0,
+          "efficiency": 0.16
+        },
+        "human_only": {
+          "functional_rate": 0.61,
+          "relative_cost": 8.0,
+          "efficiency": 0.0762
+        }
+      },
+      "most_cost_effective": "AI_plus_SC",
+      "most_cost_effective_efficiency": 0.2417
+    }
+  },
+  "deployment_risk_matrix": {
+    "easy": {
+      "AI_only": {
+        "security_compliance_rate": 0.68,
+        "non_compliance_rate": 0.32,
+        "risk_level": "high"
+      },
+      "AI_plus_SC": {
+        "security_compliance_rate": 0.81,
+        "non_compliance_rate": 0.19,
+        "risk_level": "medium"
+      },
+      "AI_plus_human_review": {
+        "security_compliance_rate": 0.92,
+        "non_compliance_rate": 0.08,
+        "risk_level": "low"
+      },
+      "human_only": {
+        "security_compliance_rate": 0.96,
+        "non_compliance_rate": 0.04,
+        "risk_level": "low"
+      }
+    },
+    "medium": {
+      "AI_only": {
+        "security_compliance_rate": 0.55,
+        "non_compliance_rate": 0.45,
+        "risk_level": "high"
+      },
+      "AI_plus_SC": {
+        "security_compliance_rate": 0.67,
+        "non_compliance_rate": 0.33,
+        "risk_level": "high"
+      },
+      "AI_plus_human_review": {
+        "security_compliance_rate": 0.82,
+        "non_compliance_rate": 0.18,
+        "risk_level": "medium"
+      },
+      "human_only": {
+        "security_compliance_rate": 0.89,
+        "non_compliance_rate": 0.11,
+        "risk_level": "low"
+      }
+    },
+    "hard": {
+      "AI_only": {
+        "security_compliance_rate": 0.39,
+        "non_compliance_rate": 0.61,
+        "risk_level": "high"
+      },
+      "AI_plus_SC": {
+        "security_compliance_rate": 0.51,
+        "non_compliance_rate": 0.49,
+        "risk_level": "high"
+      },
+      "AI_plus_human_review": {
+        "security_compliance_rate": 0.68,
+        "non_compliance_rate": 0.32,
+        "risk_level": "high"
+      },
+      "human_only": {
+        "security_compliance_rate": 0.78,
+        "non_compliance_rate": 0.22,
+        "risk_level": "medium"
+      }
+    },
+    "expert": {
+      "AI_only": {
+        "security_compliance_rate": 0.22,
+        "non_compliance_rate": 0.78,
+        "risk_level": "high"
+      },
+      "AI_plus_SC": {
+        "security_compliance_rate": 0.33,
+        "non_compliance_rate": 0.67,
+        "risk_level": "high"
+      },
+      "AI_plus_human_review": {
+        "security_compliance_rate": 0.51,
+        "non_compliance_rate": 0.49,
+        "risk_level": "high"
+      },
+      "human_only": {
+        "security_compliance_rate": 0.64,
+        "non_compliance_rate": 0.36,
+        "risk_level": "high"
+      }
+    }
+  },
+  "decision_tree": [
+    {
+      "rule_id": 1,
+      "condition": "difficulty == 'easy' AND risk_tolerance == 'low'",
+      "recommendation": "AI_only",
+      "rationale": "Easy tasks with low risk can be handled autonomously with >70% success rate",
+      "functional_rate": 0.71,
+      "security_rate": 0.68
+    },
+    {
+      "rule_id": 2,
+      "condition": "difficulty == 'easy' AND risk_tolerance == 'high'",
+      "recommendation": "AI_plus_SC",
+      "rationale": "For high-risk environments, automated SC adds security coverage for easy tasks",
+      "functional_rate": 0.82,
+      "security_rate": 0.81
+    },
+    {
+      "rule_id": 3,
+      "condition": "difficulty == 'medium' AND risk_tolerance == 'low'",
+      "recommendation": "AI_plus_SC",
+      "rationale": "Medium tasks benefit from SC to boost performance above the 70% threshold",
+      "functional_rate": 0.63,
+      "security_rate": 0.67
+    },
+    {
+      "rule_id": 4,
+      "condition": "difficulty == 'medium' AND risk_tolerance == 'high'",
+      "recommendation": "AI_plus_human_review",
+      "rationale": "High-risk medium tasks need human oversight to ensure security compliance",
+      "functional_rate": 0.79,
+      "security_rate": 0.82
+    },
+    {
+      "rule_id": 5,
+      "condition": "difficulty in ['hard', 'expert'] AND risk_tolerance == 'any'",
+      "recommendation": "AI_plus_human_review OR human_only",
+      "rationale": "Hard/expert tasks fall below acceptable thresholds for AI-only or AI+SC",
+      "functional_rate": 0.64,
+      "security_rate": 0.68
+    },
+    {
+      "rule_id": 6,
+      "condition": "difficulty == 'expert' AND compliance_critical == True",
+      "recommendation": "human_only",
+      "rationale": "Expert tasks with compliance requirements need full human expertise",
+      "functional_rate": 0.61,
+      "security_rate": 0.64
+    }
+  ],
+  "summary": {
+    "safe_autonomy_difficulties": [],
+    "supervised_autonomy_difficulties": [
+      "easy"
+    ],
+    "human_review_required_difficulties": [
+      "medium",
+      "hard",
+      "expert"
+    ]
+  }
+}

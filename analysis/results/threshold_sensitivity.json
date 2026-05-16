@@ -1,0 +1,781 @@
+{
+  "meta": {
+    "n_tasks": 33,
+    "security_thresholds": [
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8
+    ],
+    "bp_thresholds": [
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8
+    ],
+    "default_security_threshold": 0.5,
+    "default_bp_threshold": 0.5
+  },
+  "grid": {
+    "rows": "security_threshold",
+    "cols": "bp_threshold",
+    "security_thresholds": [
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8
+    ],
+    "bp_thresholds": [
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8
+    ],
+    "pass_rates": [
+      [
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.697
+      ],
+      [
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.697
+      ],
+      [
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.697
+      ],
+      [
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.697
+      ],
+      [
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.697
+      ],
+      [
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.7879,
+        0.697
+      ],
+      [
+        0.6667,
+        0.6667,
+        0.6667,
+        0.6667,
+        0.6667,
+        0.6061
+      ]
+    ],
+    "baseline_rate": 0.7879
+  },
+  "robustness_zone": {
+    "baseline_rate": 0.7879,
+    "tolerance": 0.05,
+    "n_robust_cells": 30,
+    "n_total_cells": 42,
+    "robustness_fraction": 0.7143,
+    "robust_security_range": [
+      0.2,
+      0.7
+    ],
+    "robust_bp_range": [
+      0.3,
+      0.7
+    ],
+    "robust_cells": [
+      {
+        "security_threshold": 0.2,
+        "bp_threshold": 0.3,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.2,
+        "bp_threshold": 0.4,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.2,
+        "bp_threshold": 0.5,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.2,
+        "bp_threshold": 0.6,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.2,
+        "bp_threshold": 0.7,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.3,
+        "bp_threshold": 0.3,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.3,
+        "bp_threshold": 0.4,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.3,
+        "bp_threshold": 0.5,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.3,
+        "bp_threshold": 0.6,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.3,
+        "bp_threshold": 0.7,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.4,
+        "bp_threshold": 0.3,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.4,
+        "bp_threshold": 0.4,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.4,
+        "bp_threshold": 0.5,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.4,
+        "bp_threshold": 0.6,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.4,
+        "bp_threshold": 0.7,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.5,
+        "bp_threshold": 0.3,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.5,
+        "bp_threshold": 0.4,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.5,
+        "bp_threshold": 0.5,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.5,
+        "bp_threshold": 0.6,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.5,
+        "bp_threshold": 0.7,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.6,
+        "bp_threshold": 0.3,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.6,
+        "bp_threshold": 0.4,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.6,
+        "bp_threshold": 0.5,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.6,
+        "bp_threshold": 0.6,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.6,
+        "bp_threshold": 0.7,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.7,
+        "bp_threshold": 0.3,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.7,
+        "bp_threshold": 0.4,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.7,
+        "bp_threshold": 0.5,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.7,
+        "bp_threshold": 0.6,
+        "rate": 0.7879
+      },
+      {
+        "security_threshold": 0.7,
+        "bp_threshold": 0.7,
+        "rate": 0.7879
+      }
+    ]
+  },
+  "sensitivity": {
+    "max_security_sensitivity": 1.212,
+    "mean_security_sensitivity": 0.1936,
+    "max_bp_sensitivity": 0.909,
+    "mean_bp_sensitivity": 0.1731,
+    "dominant_threshold": "security",
+    "grid_range": 0.1818,
+    "grid_std": 0.052
+  },
+  "by_language": {
+    "docker": {
+      "n": 11,
+      "baseline_rate_at_0.5_0.5": 0.5455,
+      "grid": [
+        [
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455
+        ],
+        [
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455
+        ],
+        [
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455
+        ],
+        [
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455
+        ],
+        [
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455
+        ],
+        [
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455
+        ],
+        [
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455,
+          0.5455
+        ]
+      ],
+      "sensitivity": {
+        "max_security_sensitivity": 0.0,
+        "mean_security_sensitivity": 0.0,
+        "max_bp_sensitivity": 0.0,
+        "mean_bp_sensitivity": 0.0,
+        "dominant_threshold": "bp",
+        "grid_range": 0.0,
+        "grid_std": 0.0
+      }
+    },
+    "kubernetes": {
+      "n": 12,
+      "baseline_rate_at_0.5_0.5": 0.8333,
+      "grid": [
+        [
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.5833
+        ],
+        [
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.5833
+        ],
+        [
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.5833
+        ],
+        [
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.5833
+        ],
+        [
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.5833
+        ],
+        [
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.8333,
+          0.5833
+        ],
+        [
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.5833
+        ]
+      ],
+      "sensitivity": {
+        "max_security_sensitivity": 0.833,
+        "mean_security_sensitivity": 0.1157,
+        "max_bp_sensitivity": 2.5,
+        "mean_bp_sensitivity": 0.4762,
+        "dominant_threshold": "bp",
+        "grid_range": 0.25,
+        "grid_std": 0.0926
+      }
+    },
+    "terraform": {
+      "n": 10,
+      "baseline_rate_at_0.5_0.5": 1.0,
+      "grid": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ]
+      ],
+      "sensitivity": {
+        "max_security_sensitivity": 3.0,
+        "mean_security_sensitivity": 0.5,
+        "max_bp_sensitivity": 0.0,
+        "mean_bp_sensitivity": 0.0,
+        "dominant_threshold": "security",
+        "grid_range": 0.3,
+        "grid_std": 0.105
+      }
+    }
+  },
+  "by_difficulty": {
+    "easy": {
+      "n": 2,
+      "baseline_rate_at_0.5_0.5": 0.5,
+      "grid": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "sensitivity": {
+        "max_security_sensitivity": 0.0,
+        "mean_security_sensitivity": 0.0,
+        "max_bp_sensitivity": 0.0,
+        "mean_bp_sensitivity": 0.0,
+        "dominant_threshold": "bp",
+        "grid_range": 0.0,
+        "grid_std": 0.0
+      }
+    },
+    "expert": {
+      "n": 1,
+      "baseline_rate_at_0.5_0.5": 1.0,
+      "grid": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "sensitivity": {
+        "max_security_sensitivity": 0.0,
+        "mean_security_sensitivity": 0.0,
+        "max_bp_sensitivity": 0.0,
+        "mean_bp_sensitivity": 0.0,
+        "dominant_threshold": "bp",
+        "grid_range": 0.0,
+        "grid_std": 0.0
+      }
+    },
+    "hard": {
+      "n": 4,
+      "baseline_rate_at_0.5_0.5": 1.0,
+      "grid": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ]
+      ],
+      "sensitivity": {
+        "max_security_sensitivity": 0.0,
+        "mean_security_sensitivity": 0.0,
+        "max_bp_sensitivity": 5.0,
+        "mean_bp_sensitivity": 1.0,
+        "dominant_threshold": "bp",
+        "grid_range": 0.5,
+        "grid_std": 0.1863
+      }
+    },
+    "medium": {
+      "n": 26,
+      "baseline_rate_at_0.5_0.5": 0.7692,
+      "grid": [
+        [
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7308
+        ],
+        [
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7308
+        ],
+        [
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7308
+        ],
+        [
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7308
+        ],
+        [
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7308
+        ],
+        [
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7692,
+          0.7308
+        ],
+        [
+          0.6154,
+          0.6154,
+          0.6154,
+          0.6154,
+          0.6154,
+          0.6154
+        ]
+      ],
+      "sensitivity": {
+        "max_security_sensitivity": 1.538,
+        "mean_security_sensitivity": 0.2457,
+        "max_bp_sensitivity": 0.384,
+        "mean_bp_sensitivity": 0.0658,
+        "dominant_threshold": "security",
+        "grid_range": 0.1538,
+        "grid_std": 0.0533
+      }
+    }
+  }
+}

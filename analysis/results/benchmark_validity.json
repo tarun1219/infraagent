@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "n_tasks": 33,
+    "conditions_used": [
+      "AI_only",
+      "AI_plus_SC",
+      "AI_plus_human_review",
+      "human_only"
+    ],
+    "difficulty_levels": [
+      "easy",
+      "medium",
+      "hard",
+      "expert"
+    ]
+  },
+  "difficulty_predicts_failure": {
+    "spearman_rho": -0.2672,
+    "p_value": 0.132721,
+    "significant": 

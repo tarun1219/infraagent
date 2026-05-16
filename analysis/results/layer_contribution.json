@@ -1,0 +1,439 @@
+{
+  "meta": {
+    "n_tasks": 33,
+    "security_threshold": 0.5,
+    "bp_threshold": 0.5
+  },
+  "overall_funnel": {
+    "n_total": 33,
+    "layer_funnel": {
+      "L1_syntax": {
+        "pass": 28,
+        "fail": 5,
+        "pass_rate": 0.8485,
+        "fail_rate": 0.1515
+      },
+      "L2_schema": {
+        "pass": 28,
+        "fail": 0,
+        "pass_rate": 0.8485,
+        "fail_rate": 0.0,
+        "additional_failures_caught": 0,
+        "cumulative_fail_rate": 0.1515
+      },
+      "L3_security": {
+        "pass": 26,
+        "fail": 2,
+        "pass_rate": 0.7879,
+        "fail_rate": 0.0606,
+        "additional_failures_caught": 2,
+        "cumulative_fail_rate": 0.2121
+      },
+      "L4_best_practices": {
+        "pass": 26,
+        "fail": 0,
+        "pass_rate": 0.7879,
+        "fail_rate": 0.0,
+        "additional_failures_caught": 0,
+        "cumulative_fail_rate": 0.2121
+      }
+    },
+    "false_pass_analysis": {
+      "n_syntax_pass": 28,
+      "n_functional_correct": 26,
+      "n_false_passes_if_syntax_only": 2,
+      "false_pass_rate_overall": 0.0606,
+      "syntax_only_miss_rate": 0.0714,
+      "interpretation": "6.1% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 7.1% are actually non-functional."
+    }
+  },
+  "marginal_layer_value": {
+    "L1_syntax_contribution": 0.1515,
+    "L2_schema_contribution": 0.0,
+    "L3_security_contribution": 0.0606,
+    "L4_bp_contribution": 0.0,
+    "total_issues_caught_rate": 0.2121,
+    "L2_marginal_gain_over_L1": 0.0,
+    "L3_marginal_gain_over_L2": 0.0606,
+    "L4_marginal_gain_over_L3": 0.0
+  },
+  "by_language": {
+    "docker": {
+      "L1_syntax_contribution": 0.4545,
+      "L2_schema_contribution": 0.0,
+      "L3_security_contribution": 0.0,
+      "L4_bp_contribution": 0.0,
+      "total_issues_caught_rate": 0.4545,
+      "L2_marginal_gain_over_L1": 0.0,
+      "L3_marginal_gain_over_L2": 0.0,
+      "L4_marginal_gain_over_L3": 0.0
+    },
+    "kubernetes": {
+      "L1_syntax_contribution": 0.0,
+      "L2_schema_contribution": 0.0,
+      "L3_security_contribution": 0.1667,
+      "L4_bp_contribution": 0.0,
+      "total_issues_caught_rate": 0.1667,
+      "L2_marginal_gain_over_L1": 0.0,
+      "L3_marginal_gain_over_L2": 0.1667,
+      "L4_marginal_gain_over_L3": 0.0
+    },
+    "terraform": {
+      "L1_syntax_contribution": 0.0,
+      "L2_schema_contribution": 0.0,
+      "L3_security_contribution": 0.0,
+      "L4_bp_contribution": 0.0,
+      "total_issues_caught_rate": 0.0,
+      "L2_marginal_gain_over_L1": 0.0,
+      "L3_marginal_gain_over_L2": 0.0,
+      "L4_marginal_gain_over_L3": 0.0
+    }
+  },
+  "by_difficulty": {
+    "easy": {
+      "L1_syntax_contribution": 0.5,
+      "L2_schema_contribution": 0.0,
+      "L3_security_contribution": 0.0,
+      "L4_bp_contribution": 0.0,
+      "total_issues_caught_rate": 0.5,
+      "L2_marginal_gain_over_L1": 0.0,
+      "L3_marginal_gain_over_L2": 0.0,
+      "L4_marginal_gain_over_L3": 0.0
+    },
+    "expert": {
+      "L1_syntax_contribution": 0.0,
+      "L2_schema_contribution": 0.0,
+      "L3_security_contribution": 0.0,
+      "L4_bp_contribution": 0.0,
+      "total_issues_caught_rate": 0.0,
+      "L2_marginal_gain_over_L1": 0.0,
+      "L3_marginal_gain_over_L2": 0.0,
+      "L4_marginal_gain_over_L3": 0.0
+    },
+    "hard": {
+      "L1_syntax_contribution": 0.0,
+      "L2_schema_contribution": 0.0,
+      "L3_security_contribution": 0.0,
+      "L4_bp_contribution": 0.0,
+      "total_issues_caught_rate": 0.0,
+      "L2_marginal_gain_over_L1": 0.0,
+      "L3_marginal_gain_over_L2": 0.0,
+      "L4_marginal_gain_over_L3": 0.0
+    },
+    "medium": {
+      "L1_syntax_contribution": 0.1538,
+      "L2_schema_contribution": 0.0,
+      "L3_security_contribution": 0.0769,
+      "L4_bp_contribution": 0.0,
+      "total_issues_caught_rate": 0.2308,
+      "L2_marginal_gain_over_L1": 0.0,
+      "L3_marginal_gain_over_L2": 0.0769,
+      "L4_marginal_gain_over_L3": 0.0
+    }
+  },
+  "full_by_language": {
+    "docker": {
+      "n_total": 11,
+      "layer_funnel": {
+        "L1_syntax": {
+          "pass": 6,
+          "fail": 5,
+          "pass_rate": 0.5455,
+          "fail_rate": 0.4545
+        },
+        "L2_schema": {
+          "pass": 6,
+          "fail": 0,
+          "pass_rate": 0.5455,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.4545
+        },
+        "L3_security": {
+          "pass": 6,
+          "fail": 0,
+          "pass_rate": 0.5455,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.4545
+        },
+        "L4_best_practices": {
+          "pass": 6,
+          "fail": 0,
+          "pass_rate": 0.5455,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.4545
+        }
+      },
+      "false_pass_analysis": {
+        "n_syntax_pass": 6,
+        "n_functional_correct": 6,
+        "n_false_passes_if_syntax_only": 0,
+        "false_pass_rate_overall": 0.0,
+        "syntax_only_miss_rate": 0.0,
+        "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+      }
+    },
+    "kubernetes": {
+      "n_total": 12,
+      "layer_funnel": {
+        "L1_syntax": {
+          "pass": 12,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0
+        },
+        "L2_schema": {
+          "pass": 12,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        },
+        "L3_security": {
+          "pass": 10,
+          "fail": 2,
+          "pass_rate": 0.8333,
+          "fail_rate": 0.1667,
+          "additional_failures_caught": 2,
+          "cumulative_fail_rate": 0.1667
+        },
+        "L4_best_practices": {
+          "pass": 10,
+          "fail": 0,
+          "pass_rate": 0.8333,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.1667
+        }
+      },
+      "false_pass_analysis": {
+        "n_syntax_pass": 12,
+        "n_functional_correct": 10,
+        "n_false_passes_if_syntax_only": 2,
+        "false_pass_rate_overall": 0.1667,
+        "syntax_only_miss_rate": 0.1667,
+        "interpretation": "16.7% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 16.7% are actually non-functional."
+      }
+    },
+    "terraform": {
+      "n_total": 10,
+      "layer_funnel": {
+        "L1_syntax": {
+          "pass": 10,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0
+        },
+        "L2_schema": {
+          "pass": 10,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        },
+        "L3_security": {
+          "pass": 10,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        },
+        "L4_best_practices": {
+          "pass": 10,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        }
+      },
+      "false_pass_analysis": {
+        "n_syntax_pass": 10,
+        "n_functional_correct": 10,
+        "n_false_passes_if_syntax_only": 0,
+        "false_pass_rate_overall": 0.0,
+        "syntax_only_miss_rate": 0.0,
+        "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+      }
+    }
+  },
+  "full_by_difficulty": {
+    "easy": {
+      "n_total": 2,
+      "layer_funnel": {
+        "L1_syntax": {
+          "pass": 1,
+          "fail": 1,
+          "pass_rate": 0.5,
+          "fail_rate": 0.5
+        },
+        "L2_schema": {
+          "pass": 1,
+          "fail": 0,
+          "pass_rate": 0.5,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.5
+        },
+        "L3_security": {
+          "pass": 1,
+          "fail": 0,
+          "pass_rate": 0.5,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.5
+        },
+        "L4_best_practices": {
+          "pass": 1,
+          "fail": 0,
+          "pass_rate": 0.5,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.5
+        }
+      },
+      "false_pass_analysis": {
+        "n_syntax_pass": 1,
+        "n_functional_correct": 1,
+        "n_false_passes_if_syntax_only": 0,
+        "false_pass_rate_overall": 0.0,
+        "syntax_only_miss_rate": 0.0,
+        "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+      }
+    },
+    "expert": {
+      "n_total": 1,
+      "layer_funnel": {
+        "L1_syntax": {
+          "pass": 1,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0
+        },
+        "L2_schema": {
+          "pass": 1,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        },
+        "L3_security": {
+          "pass": 1,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        },
+        "L4_best_practices": {
+          "pass": 1,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        }
+      },
+      "false_pass_analysis": {
+        "n_syntax_pass": 1,
+        "n_functional_correct": 1,
+        "n_false_passes_if_syntax_only": 0,
+        "false_pass_rate_overall": 0.0,
+        "syntax_only_miss_rate": 0.0,
+        "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+      }
+    },
+    "hard": {
+      "n_total": 4,
+      "layer_funnel": {
+        "L1_syntax": {
+          "pass": 4,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0
+        },
+        "L2_schema": {
+          "pass": 4,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        },
+        "L3_security": {
+          "pass": 4,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        },
+        "L4_best_practices": {
+          "pass": 4,
+          "fail": 0,
+          "pass_rate": 1.0,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.0
+        }
+      },
+      "false_pass_analysis": {
+        "n_syntax_pass": 4,
+        "n_functional_correct": 4,
+        "n_false_passes_if_syntax_only": 0,
+        "false_pass_rate_overall": 0.0,
+        "syntax_only_miss_rate": 0.0,
+        "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+      }
+    },
+    "medium": {
+      "n_total": 26,
+      "layer_funnel": {
+        "L1_syntax": {
+          "pass": 22,
+          "fail": 4,
+          "pass_rate": 0.8462,
+          "fail_rate": 0.1538
+        },
+        "L2_schema": {
+          "pass": 22,
+          "fail": 0,
+          "pass_rate": 0.8462,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.1538
+        },
+        "L3_security": {
+          "pass": 20,
+          "fail": 2,
+          "pass_rate": 0.7692,
+          "fail_rate": 0.0769,
+          "additional_failures_caught": 2,
+          "cumulative_fail_rate": 0.2308
+        },
+        "L4_best_practices": {
+          "pass": 20,
+          "fail": 0,
+          "pass_rate": 0.7692,
+          "fail_rate": 0.0,
+          "additional_failures_caught": 0,
+          "cumulative_fail_rate": 0.2308
+        }
+      },
+      "false_pass_analysis": {
+        "n_syntax_pass": 22,
+        "n_functional_correct": 20,
+        "n_false_passes_if_syntax_only": 2,
+        "false_pass_rate_overall": 0.0769,
+        "syntax_only_miss_rate": 0.0909,
+        "interpretation": "7.7% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 9.1% are actually non-functional."
+      }
+    }
+  }
+}

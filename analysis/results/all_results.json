@@ -1,0 +1,5059 @@
+{
+  "meta": {
+    "generated_at": "2026-05-16 15:10:01",
+    "total_duration_s": 108.52,
+    "scripts_run": 12,
+    "scripts_succeeded": 11,
+    "scripts_failed": 1,
+    "scripts_skipped": 0,
+    "tool_path": "/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:/Users/tarun/.local/bin:/Users/tarun/.pyenv/shims:/Users/tarun/.rbenv/shims:/Users/tarun/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/2e26c907-d2de-420e-bdc6-d54373c26ed3/82db34a3-655f-4d9e-be31-aa3c16ed4dc2/bin"
+  },
+  "run_log": [
+    {
+      "name": "human_baseline",
+      "script": "run_human_baseline.py",
+      "status": "ok",
+      "duration_s": 84.75,
+      "error": null
+    },
+    {
+      "name": "layer_contribution",
+      "script": "layer_contribution_analysis.py",
+      "status": "ok",
+      "duration_s": 0.04,
+      "error": null
+    },
+    {
+      "name": "threshold_sensitivity",
+      "script": "threshold_sensitivity_analysis.py",
+      "status": "ok",
+      "duration_s": 0.12,
+      "error": null
+    },
+    {
+      "name": "power_analysis",
+      "script": "power_analysis.py",
+      "status": "ok",
+      "duration_s": 20.57,
+      "error": null
+    },
+    {
+      "name": "pass_at_k",
+      "script": "pass_at_k_analysis.py",
+      "status": "ok",
+      "duration_s": 0.81,
+      "error": null
+    },
+    {
+      "name": "error_co_occurrence",
+      "script": "error_co_occurrence.py",
+      "status": "ok",
+      "duration_s": 0.54,
+      "error": null
+    },
+    {
+      "name": "silent_danger",
+      "script": "silent_danger_analysis.py",
+      "status": "ok",
+      "duration_s": 0.07,
+      "error": null
+    },
+    {
+      "name": "correctability",
+      "script": "correctability_framework.py",
+      "status": "ok",
+      "duration_s": 0.02,
+      "error": null
+    },
+    {
+      "name": "decision_framework",
+      "script": "decision_framework.py",
+      "status": "ok",
+      "duration_s": 0.03,
+      "error": null
+    },
+    {
+      "name": "benchmark_validity",
+      "script": "benchmark_validity_study.py",
+      "status": "failed",
+      "duration_s": 0.53,
+      "error": "   yield from chunks\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py\", line 439, in _iterencode\n    o = _default(o)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/encoder.py\", line 180, in default\n    raise TypeError(f'Object of type {o.__class__.__name__} '\n                    f'is not JSON serializable')\nTypeError: Object of type bool is not JSON serializable\n"
+    },
+    {
+      "name": "regression_analysis",
+      "script": "regression_analysis.py",
+      "status": "ok",
+      "duration_s": 0.52,
+      "error": null
+    },
+    {
+      "name": "inter_tool_agreement",
+      "script": "inter_tool_agreement.py",
+      "status": "ok",
+      "duration_s": 0.52,
+      "error": null
+    }
+  ],
+  "key_metrics": {
+    "human_baseline": {
+      "n_tasks": 33,
+      "syntax_valid_rate": 0.8485,
+      "schema_valid_rate": 0.8485,
+      "mean_security_score": 0.8476,
+      "mean_bp_score": 0.9318,
+      "functional_correct_rate": 0.7879
+    },
+    "layer_contribution": {
+      "l1_syntax_pass_rate": 0.8485,
+      "l2_schema_pass_rate": 0.8485,
+      "l3_security_pass_rate": 0.7879,
+      "l4_bp_pass_rate": 0.7879,
+      "false_pass_rate_if_syntax_only": 0.0606,
+      "syntax_only_miss_rate": 0.0714
+    },
+    "threshold_sensitivity": {
+      "baseline_rate": 0.7879,
+      "robustness_fraction": 0.7143,
+      "dominant_threshold": "security",
+      "grid_range": 0.1818
+    },
+    "power_analysis": {
+      "functional_delta": 0.31,
+      "functional_power_mc": 0.9999,
+      "security_delta": 0.52,
+      "security_power_mc": 1.0,
+      "mde_bonferroni": 0.1717,
+      "n_tasks": 150,
+      "alpha_bonferroni": 0.005
+    },
+    "pass_at_k": {
+      "AI_only": {
+        "pass@1": 0.4425,
+        "pass@3": 0.7931,
+        "pass@5": 0.9103
+      },
+      "AI_plus_SC": {
+        "pass@1": 0.6176,
+        "pass@3": 0.9276,
+        "pass@5": 0.9828
+      }
+    },
+    "silent_danger": {
+      "n_silently_dangerous": 2,
+      "rate_of_total": 0.0606,
+      "rate_among_schema_valid": 0.0714
+    },
+    "correctability": {
+      "syntax": {
+        "informativeness": 0.3,
+        "actual_sc_recovery_rate": 0.72
+      },
+      "schema": {
+        "informativeness": 0.5,
+        "actual_sc_recovery_rate": 0.61
+      },
+      "security": {
+        "informativeness": 0.2,
+        "actual_sc_recovery_rate": 0.49
+      },
+      "cross_resource": {
+        "informativeness": 0.4,
+        "actual_sc_recovery_rate": 0.31
+      }
+    },
+    "benchmark_validity": {
+      "cronbachs_alpha": 0,
+      "difficulty_predicts_failure": 0,
+      "friedman_p_value": 1.0,
+      "kendalls_w": 0,
+      "overall_verdict": "unknown"
+    },
+    "inter_tool_agreement": {
+      "cohens_kappa": 0.3678,
+      "observed_agreement": 0.8485,
+      "interpretation": "fair"
+    },
+    "decision_framework": {
+      "safe_autonomy_difficulties": [],
+      "human_review_required": [
+        "medium",
+        "hard",
+        "expert"
+      ]
+    }
+  },
+  "full_results": {
+    "human_baseline": {
+      "meta": {
+        "source": "reference_solutions",
+        "n_files": 33,
+        "tool_path": "/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:/Users/tarun/.local/bin:/Users/tarun/.pyenv/shims:/Users/tarun/.rbenv/shims:/Users/tarun/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/2e26c907-d2de-420e-bdc6-d54373c26ed3/82db34a3-655f-4d9e-be31-aa3c16ed4dc2/bin"
+      },
+      "per_task": [
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/Dockerfile",
+          "task_id": "Dockerfile",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "checkov_passed": 0,
+          "checkov_failed": 0,
+          "bp_score": 0.5,
+          "functional_correct": false,
+          "schema_error": null,
+          "checkov_error": "no output"
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-001-python-app.dockerfile",
+          "task_id": "df-001-python-app",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 48,
+          "checkov_failed": 0,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-002-node-app.dockerfile",
+          "task_id": "df-002-node-app",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 48,
+          "checkov_failed": 0,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-003-java-app.dockerfile",
+          "task_id": "df-003-java-app",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 1.0,
+          "checkov_passed": 43,
+          "checkov_failed": 0,
+          "bp_score": 1.0,
+          "functional_correct": false,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-004-go-app.dockerfile",
+          "task_id": "df-004-go-app",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 43,
+          "checkov_failed": 0,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-005-nginx.dockerfile",
+          "task_id": "df-005-nginx",
+          "language": "docker",
+          "difficulty": "easy",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 1.0,
+          "checkov_passed": 59,
+          "checkov_failed": 0,
+          "bp_score": 1.0,
+          "functional_correct": false,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-006-multi-stage-react.dockerfile",
+          "task_id": "df-006-multi-stage-react",
+          "language": "docker",
+          "difficulty": "expert",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 60,
+          "checkov_failed": 0,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-007-postgres-custom.dockerfile",
+          "task_id": "df-007-postgres-custom",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9783,
+          "checkov_passed": 45,
+          "checkov_failed": 1,
+          "bp_score": 0.9,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-008-distroless-python.dockerfile",
+          "task_id": "df-008-distroless-python",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.9792,
+          "checkov_passed": 47,
+          "checkov_failed": 1,
+          "bp_score": 1.0,
+          "functional_correct": false,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-009-microservice-grpc.dockerfile",
+          "task_id": "df-009-microservice-grpc",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 43,
+          "checkov_failed": 0,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/dockerfile/df-010-ml-inference.dockerfile",
+          "task_id": "df-010-ml-inference",
+          "language": "docker",
+          "difficulty": "medium",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 1.0,
+          "checkov_passed": 65,
+          "checkov_failed": 0,
+          "bp_score": 1.0,
+          "functional_correct": false,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-001-configmap.yaml",
+          "task_id": "k8s-001-configmap",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0,
+          "checkov_passed": 0,
+          "checkov_failed": 1,
+          "bp_score": 0.75,
+          "functional_correct": false,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-002-secret.yaml",
+          "task_id": "k8s-002-secret",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0,
+          "checkov_passed": 0,
+          "checkov_failed": 1,
+          "bp_score": 0.75,
+          "functional_correct": false,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-010-deployment-basic.yaml",
+          "task_id": "k8s-010-deployment-basic",
+          "language": "kubernetes",
+          "difficulty": "easy",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9213,
+          "checkov_passed": 82,
+          "checkov_failed": 7,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-011-deployment-service.yaml",
+          "task_id": "k8s-011-deployment-service",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9444,
+          "checkov_passed": 85,
+          "checkov_failed": 5,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-021-statefulset-hpa-pvc.yaml",
+          "task_id": "k8s-021-statefulset-hpa-pvc",
+          "language": "kubernetes",
+          "difficulty": "hard",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9222,
+          "checkov_passed": 83,
+          "checkov_failed": 7,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-022-networkpolicy.yaml",
+          "task_id": "k8s-022-networkpolicy",
+          "language": "kubernetes",
+          "difficulty": "hard",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 0,
+          "checkov_failed": 0,
+          "bp_score": 0.75,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-023-cronjob.yaml",
+          "task_id": "k8s-023-cronjob",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9651,
+          "checkov_passed": 83,
+          "checkov_failed": 3,
+          "bp_score": 0.9,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-024-ingress.yaml",
+          "task_id": "k8s-024-ingress",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.75,
+          "checkov_passed": 3,
+          "checkov_failed": 1,
+          "bp_score": 0.75,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-025-pdb-hpa.yaml",
+          "task_id": "k8s-025-pdb-hpa",
+          "language": "kubernetes",
+          "difficulty": "hard",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 0,
+          "checkov_failed": 0,
+          "bp_score": 0.75,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-031-pss-restricted.yaml",
+          "task_id": "k8s-031-pss-restricted",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9663,
+          "checkov_passed": 86,
+          "checkov_failed": 3,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-033-rbac.yaml",
+          "task_id": "k8s-033-rbac",
+          "language": "kubernetes",
+          "difficulty": "hard",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 13,
+          "checkov_failed": 0,
+          "bp_score": 0.9,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/kubernetes/k8s-041-three-tier.yaml",
+          "task_id": "k8s-041-three-tier",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9407,
+          "checkov_passed": 254,
+          "checkov_failed": 16,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-001-s3.tf",
+          "task_id": "tf-001-s3",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7333,
+          "checkov_passed": 11,
+          "checkov_failed": 4,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-002-ec2.tf",
+          "task_id": "tf-002-ec2",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8947,
+          "checkov_passed": 17,
+          "checkov_failed": 2,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-003-iam-role.tf",
+          "task_id": "tf-003-iam-role",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0,
+          "checkov_passed": 28,
+          "checkov_failed": 0,
+          "bp_score": 0.9,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-004-vpc.tf",
+          "task_id": "tf-004-vpc",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8182,
+          "checkov_passed": 9,
+          "checkov_failed": 2,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-005-rds.tf",
+          "task_id": "tf-005-rds",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7826,
+          "checkov_passed": 18,
+          "checkov_failed": 5,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-006-lambda.tf",
+          "task_id": "tf-006-lambda",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.85,
+          "checkov_passed": 34,
+          "checkov_failed": 6,
+          "bp_score": 0.9,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-007-alb.tf",
+          "task_id": "tf-007-alb",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7568,
+          "checkov_passed": 28,
+          "checkov_failed": 9,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-008-eks.tf",
+          "task_id": "tf-008-eks",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9697,
+          "checkov_passed": 32,
+          "checkov_failed": 1,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-009-cloudtrail.tf",
+          "task_id": "tf-009-cloudtrail",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8438,
+          "checkov_passed": 54,
+          "checkov_failed": 10,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        },
+        {
+          "file": "/Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/reference_solutions/terraform/tf-010-sqs-sns.tf",
+          "task_id": "tf-010-sqs-sns",
+          "language": "terraform",
+          "difficulty": "medium",
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9545,
+          "checkov_passed": 21,
+          "checkov_failed": 1,
+          "bp_score": 1.0,
+          "functional_correct": true,
+          "schema_error": null,
+          "checkov_error": null
+        }
+      ],
+      "aggregates": {
+        "overall": {
+          "n": 33,
+          "syntax_valid_rate": 0.8485,
+          "schema_valid_rate": 0.8485,
+          "mean_security_score": 0.8476,
+          "mean_bp_score": 0.9318,
+          "functional_correct_rate": 0.7879
+        },
+        "by_language": {
+          "docker": {
+            "n": 11,
+            "syntax_valid_rate": 0.5455,
+            "schema_valid_rate": 0.5455,
+            "mean_security_score": 0.9052,
+            "mean_bp_score": 0.9455,
+            "functional_correct_rate": 0.5455
+          },
+          "kubernetes": {
+            "n": 12,
+            "syntax_valid_rate": 1.0,
+            "schema_valid_rate": 1.0,
+            "mean_security_score": 0.7842,
+            "mean_bp_score": 0.8792,
+            "functional_correct_rate": 0.8333
+          },
+          "terraform": {
+            "n": 10,
+            "syntax_valid_rate": 1.0,
+            "schema_valid_rate": 1.0,
+            "mean_security_score": 0.8604,
+            "mean_bp_score": 0.98,
+            "functional_correct_rate": 1.0
+          }
+        },
+        "by_difficulty": {
+          "medium": {
+            "n": 26,
+            "syntax_valid_rate": 0.8462,
+            "schema_valid_rate": 0.8462,
+            "mean_security_score": 0.8126,
+            "mean_bp_score": 0.9365,
+            "functional_correct_rate": 0.7692
+          },
+          "easy": {
+            "n": 2,
+            "syntax_valid_rate": 0.5,
+            "schema_valid_rate": 0.5,
+            "mean_security_score": 0.9607,
+            "mean_bp_score": 1.0,
+            "functional_correct_rate": 0.5
+          },
+          "expert": {
+            "n": 1,
+            "syntax_valid_rate": 1.0,
+            "schema_valid_rate": 1.0,
+            "mean_security_score": 1.0,
+            "mean_bp_score": 1.0,
+            "functional_correct_rate": 1.0
+          },
+          "hard": {
+            "n": 4,
+            "syntax_valid_rate": 1.0,
+            "schema_valid_rate": 1.0,
+            "mean_security_score": 0.9806,
+            "mean_bp_score": 0.85,
+            "functional_correct_rate": 1.0
+          }
+        }
+      }
+    },
+    "github_baseline": {
+      "meta": {
+        "source": "github_public_repos",
+        "language": "kubernetes",
+        "n_urls": 30,
+        "n_downloaded": 19,
+        "n_download_errors": 11,
+        "tool_path": "/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/Users/tarun/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:/Users/tarun/.local/bin:/Users/tarun/.pyenv/shims:/Users/tarun/.rbenv/shims:/Users/tarun/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/2e26c907-d2de-420e-bdc6-d54373c26ed3/82db34a3-655f-4d9e-be31-aa3c16ed4dc2/bin"
+      },
+      "stats": {
+        "n_attempted": 19,
+        "pct_syntax_valid": 0.8421,
+        "pct_schema_valid": 0.6316,
+        "pct_security_compliant": 0.9474,
+        "pct_functional_correct": 0.5789,
+        "mean_security_score": 0.8627
+      },
+      "download_errors": [
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/https-nginx/nginx-app.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/cassandra/cassandra-service.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/cassandra/cassandra-statefulset.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/app-with-directory/Deployment.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/app-with-directory/Service.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/source-controller/deployment.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/kustomize-controller/deployment.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/helm-controller/deployment.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tektoncd/pipeline/main/config/core/deployments/tekton-pipelines-webhook.yaml",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes-sigs/external-dns/master/kustomize/base/deployment.yaml",
+          "error": "HTTP 404"
+        }
+      ],
+      "per_file": [
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/pods/simple-pod.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_000_simple-pod.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 2,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.7753,
+          "checkov_passed": 69,
+          "checkov_failed": 20,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/application/deployment.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_001_deployment.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 2,
+          "yamllint_warnings": 2,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.7753,
+          "checkov_passed": 69,
+          "checkov_failed": 20,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/controllers/nginx-deployment.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_002_nginx-deployment.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 2,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.7753,
+          "checkov_passed": 69,
+          "checkov_failed": 20,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/configmap/configmap-multikeys.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_003_configmap-multikeys.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 0,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.0,
+          "checkov_passed": 0,
+          "checkov_failed": 1,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/application/php-apache.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_004_php-apache.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 3,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.7889,
+          "checkov_passed": 71,
+          "checkov_failed": 19,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/https-nginx/nginx-app.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/cassandra/cassandra-service.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/examples/master/staging/cassandra/cassandra-statefulset.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/app-with-directory/Deployment.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/argoproj/argo-cd/master/examples/app-with-directory/Service.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/manifests/alertmanager-alertmanager.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_011_alertmanager-alertmanager.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 0,
+          "yamllint_warnings": 1,
+          "schema_valid": false,
+          "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_011_alertmanager-alertmanager.yaml - Alertmanager main failed validation: could not find schema for Alertmanager\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Errors: 1, Skipped: 0\n",
+          "security_score": 1.0,
+          "checkov_passed": 0,
+          "checkov_failed": 0,
+          "security_compliant": true,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/manifests/grafana-deployment.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_012_grafana-deployment.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 10,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.9551,
+          "checkov_passed": 85,
+          "checkov_failed": 4,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/manifests/prometheus-prometheus.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_013_prometheus-prometheus.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 1,
+          "yamllint_warnings": 1,
+          "schema_valid": false,
+          "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_013_prometheus-prometheus.yaml - Prometheus k8s failed validation: could not find schema for Prometheus\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Errors: 1, Skipped: 0\n",
+          "security_score": 1.0,
+          "checkov_passed": 0,
+          "checkov_failed": 0,
+          "security_compliant": true,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/manifests/nodeExporter-daemonset.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_014_nodeExporter-daemonset.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 11,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.8764,
+          "checkov_passed": 78,
+          "checkov_failed": 11,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/source-controller/deployment.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/kustomize-controller/deployment.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/bases/helm-controller/deployment.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_018_gatekeeper.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 1326,
+          "yamllint_warnings": 1,
+          "schema_valid": false,
+          "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_018_gatekeeper.yaml - CustomResourceDefinition assign.mutations.gatekeeper.sh failed validation: could not find schema for CustomResourceDefinition\n/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sju",
+          "security_score": 0.9363,
+          "checkov_passed": 191,
+          "checkov_failed": 13,
+          "security_compliant": true,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/cert-manager/cert-manager/master/deploy/charts/cert-manager/templates/deployment.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_019_deployment.yaml",
+          "syntax_valid": false,
+          "yamllint_errors": 18,
+          "yamllint_warnings": 1,
+          "schema_valid": false,
+          "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_019_deployment.yaml - failed validation: error unmarshalling resource: error converting YAML to JSON: yaml: line 12: could not find expected ':'\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Errors: 1, Ski",
+          "security_score": 1.0,
+          "checkov_passed": 0,
+          "checkov_failed": 0,
+          "security_compliant": true,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/knative/serving/main/config/core/deployments/controller.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_020_controller.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 7,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.9333,
+          "checkov_passed": 84,
+          "checkov_failed": 6,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/knative/serving/main/config/core/deployments/webhook.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_021_webhook.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 9,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.9333,
+          "checkov_passed": 84,
+          "checkov_failed": 6,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/jaegertracing/jaeger-operator/main/config/manager/manager.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_022_manager.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 0,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.875,
+          "checkov_passed": 77,
+          "checkov_failed": 11,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/tektoncd/pipeline/main/config/core/deployments/tekton-pipelines-webhook.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/metallb/metallb/main/config/manifests/metallb-native.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_024_metallb-native.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 532,
+          "yamllint_warnings": 1,
+          "schema_valid": false,
+          "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_024_metallb-native.yaml - CustomResourceDefinition bgppeers.metallb.io failed validation: could not find schema for CustomResourceDefinition\n/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/gith",
+          "security_score": 0.8908,
+          "checkov_passed": 204,
+          "checkov_failed": 25,
+          "security_compliant": true,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_025_deploy.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 103,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.9204,
+          "checkov_passed": 289,
+          "checkov_failed": 25,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes-sigs/external-dns/master/kustomize/base/deployment.yaml",
+          "file": null,
+          "download_error": "HTTP 404",
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 0.0,
+          "security_compliant": false,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/kubernetes/autoscaler/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_027_cluster-autoscaler-autodiscover.yaml",
+          "syntax_valid": true,
+          "yamllint_errors": 4,
+          "yamllint_warnings": 1,
+          "schema_valid": true,
+          "kubeconform_error": null,
+          "security_score": 0.9558,
+          "checkov_passed": 108,
+          "checkov_failed": 5,
+          "security_compliant": true,
+          "functional_correct": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/main/helm/sealed-secrets/templates/deployment.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_028_deployment.yaml",
+          "syntax_valid": false,
+          "yamllint_errors": 35,
+          "yamllint_warnings": 1,
+          "schema_valid": false,
+          "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_028_deployment.yaml - failed validation: error unmarshalling resource: error converting YAML to JSON: yaml: did not find expected node content\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Errors: 1, Skipp",
+          "security_score": 1.0,
+          "checkov_passed": 0,
+          "checkov_failed": 0,
+          "security_compliant": true,
+          "functional_correct": false
+        },
+        {
+          "url": "https://raw.githubusercontent.com/crossplane/crossplane/master/cluster/charts/crossplane/templates/rbac-manager-deployment.yaml",
+          "file": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_029_rbac-manager-deployment.yaml",
+          "syntax_valid": false,
+          "yamllint_errors": 12,
+          "yamllint_warnings": 1,
+          "schema_valid": false,
+          "kubeconform_error": "/var/folders/3t/jlrkhwds6qq68bh4sxgp28kc0000gn/T/iacbench_github_w69sjupd/github_029_rbac-manager-deployment.yaml - failed validation: error unmarshalling resource: error converting YAML to JSON: yaml: did not find expected node content\nSummary: 1 resource found in 1 file - Valid: 0, Invalid: 0, Err",
+          "security_score": 1.0,
+          "checkov_passed": 0,
+          "checkov_failed": 0,
+          "security_compliant": true,
+          "functional_correct": false
+        }
+      ]
+    },
+    "layer_contribution": {
+      "meta": {
+        "n_tasks": 33,
+        "security_threshold": 0.5,
+        "bp_threshold": 0.5
+      },
+      "overall_funnel": {
+        "n_total": 33,
+        "layer_funnel": {
+          "L1_syntax": {
+            "pass": 28,
+            "fail": 5,
+            "pass_rate": 0.8485,
+            "fail_rate": 0.1515
+          },
+          "L2_schema": {
+            "pass": 28,
+            "fail": 0,
+            "pass_rate": 0.8485,
+            "fail_rate": 0.0,
+            "additional_failures_caught": 0,
+            "cumulative_fail_rate": 0.1515
+          },
+          "L3_security": {
+            "pass": 26,
+            "fail": 2,
+            "pass_rate": 0.7879,
+            "fail_rate": 0.0606,
+            "additional_failures_caught": 2,
+            "cumulative_fail_rate": 0.2121
+          },
+          "L4_best_practices": {
+            "pass": 26,
+            "fail": 0,
+            "pass_rate": 0.7879,
+            "fail_rate": 0.0,
+            "additional_failures_caught": 0,
+            "cumulative_fail_rate": 0.2121
+          }
+        },
+        "false_pass_analysis": {
+          "n_syntax_pass": 28,
+          "n_functional_correct": 26,
+          "n_false_passes_if_syntax_only": 2,
+          "false_pass_rate_overall": 0.0606,
+          "syntax_only_miss_rate": 0.0714,
+          "interpretation": "6.1% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 7.1% are actually non-functional."
+        }
+      },
+      "marginal_layer_value": {
+        "L1_syntax_contribution": 0.1515,
+        "L2_schema_contribution": 0.0,
+        "L3_security_contribution": 0.0606,
+        "L4_bp_contribution": 0.0,
+        "total_issues_caught_rate": 0.2121,
+        "L2_marginal_gain_over_L1": 0.0,
+        "L3_marginal_gain_over_L2": 0.0606,
+        "L4_marginal_gain_over_L3": 0.0
+      },
+      "by_language": {
+        "docker": {
+          "L1_syntax_contribution": 0.4545,
+          "L2_schema_contribution": 0.0,
+          "L3_security_contribution": 0.0,
+          "L4_bp_contribution": 0.0,
+          "total_issues_caught_rate": 0.4545,
+          "L2_marginal_gain_over_L1": 0.0,
+          "L3_marginal_gain_over_L2": 0.0,
+          "L4_marginal_gain_over_L3": 0.0
+        },
+        "kubernetes": {
+          "L1_syntax_contribution": 0.0,
+          "L2_schema_contribution": 0.0,
+          "L3_security_contribution": 0.1667,
+          "L4_bp_contribution": 0.0,
+          "total_issues_caught_rate": 0.1667,
+          "L2_marginal_gain_over_L1": 0.0,
+          "L3_marginal_gain_over_L2": 0.1667,
+          "L4_marginal_gain_over_L3": 0.0
+        },
+        "terraform": {
+          "L1_syntax_contribution": 0.0,
+          "L2_schema_contribution": 0.0,
+          "L3_security_contribution": 0.0,
+          "L4_bp_contribution": 0.0,
+          "total_issues_caught_rate": 0.0,
+          "L2_marginal_gain_over_L1": 0.0,
+          "L3_marginal_gain_over_L2": 0.0,
+          "L4_marginal_gain_over_L3": 0.0
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "L1_syntax_contribution": 0.5,
+          "L2_schema_contribution": 0.0,
+          "L3_security_contribution": 0.0,
+          "L4_bp_contribution": 0.0,
+          "total_issues_caught_rate": 0.5,
+          "L2_marginal_gain_over_L1": 0.0,
+          "L3_marginal_gain_over_L2": 0.0,
+          "L4_marginal_gain_over_L3": 0.0
+        },
+        "expert": {
+          "L1_syntax_contribution": 0.0,
+          "L2_schema_contribution": 0.0,
+          "L3_security_contribution": 0.0,
+          "L4_bp_contribution": 0.0,
+          "total_issues_caught_rate": 0.0,
+          "L2_marginal_gain_over_L1": 0.0,
+          "L3_marginal_gain_over_L2": 0.0,
+          "L4_marginal_gain_over_L3": 0.0
+        },
+        "hard": {
+          "L1_syntax_contribution": 0.0,
+          "L2_schema_contribution": 0.0,
+          "L3_security_contribution": 0.0,
+          "L4_bp_contribution": 0.0,
+          "total_issues_caught_rate": 0.0,
+          "L2_marginal_gain_over_L1": 0.0,
+          "L3_marginal_gain_over_L2": 0.0,
+          "L4_marginal_gain_over_L3": 0.0
+        },
+        "medium": {
+          "L1_syntax_contribution": 0.1538,
+          "L2_schema_contribution": 0.0,
+          "L3_security_contribution": 0.0769,
+          "L4_bp_contribution": 0.0,
+          "total_issues_caught_rate": 0.2308,
+          "L2_marginal_gain_over_L1": 0.0,
+          "L3_marginal_gain_over_L2": 0.0769,
+          "L4_marginal_gain_over_L3": 0.0
+        }
+      },
+      "full_by_language": {
+        "docker": {
+          "n_total": 11,
+          "layer_funnel": {
+            "L1_syntax": {
+              "pass": 6,
+              "fail": 5,
+              "pass_rate": 0.5455,
+              "fail_rate": 0.4545
+            },
+            "L2_schema": {
+              "pass": 6,
+              "fail": 0,
+              "pass_rate": 0.5455,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.4545
+            },
+            "L3_security": {
+              "pass": 6,
+              "fail": 0,
+              "pass_rate": 0.5455,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.4545
+            },
+            "L4_best_practices": {
+              "pass": 6,
+              "fail": 0,
+              "pass_rate": 0.5455,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.4545
+            }
+          },
+          "false_pass_analysis": {
+            "n_syntax_pass": 6,
+            "n_functional_correct": 6,
+            "n_false_passes_if_syntax_only": 0,
+            "false_pass_rate_overall": 0.0,
+            "syntax_only_miss_rate": 0.0,
+            "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+          }
+        },
+        "kubernetes": {
+          "n_total": 12,
+          "layer_funnel": {
+            "L1_syntax": {
+              "pass": 12,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0
+            },
+            "L2_schema": {
+              "pass": 12,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            },
+            "L3_security": {
+              "pass": 10,
+              "fail": 2,
+              "pass_rate": 0.8333,
+              "fail_rate": 0.1667,
+              "additional_failures_caught": 2,
+              "cumulative_fail_rate": 0.1667
+            },
+            "L4_best_practices": {
+              "pass": 10,
+              "fail": 0,
+              "pass_rate": 0.8333,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.1667
+            }
+          },
+          "false_pass_analysis": {
+            "n_syntax_pass": 12,
+            "n_functional_correct": 10,
+            "n_false_passes_if_syntax_only": 2,
+            "false_pass_rate_overall": 0.1667,
+            "syntax_only_miss_rate": 0.1667,
+            "interpretation": "16.7% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 16.7% are actually non-functional."
+          }
+        },
+        "terraform": {
+          "n_total": 10,
+          "layer_funnel": {
+            "L1_syntax": {
+              "pass": 10,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0
+            },
+            "L2_schema": {
+              "pass": 10,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            },
+            "L3_security": {
+              "pass": 10,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            },
+            "L4_best_practices": {
+              "pass": 10,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            }
+          },
+          "false_pass_analysis": {
+            "n_syntax_pass": 10,
+            "n_functional_correct": 10,
+            "n_false_passes_if_syntax_only": 0,
+            "false_pass_rate_overall": 0.0,
+            "syntax_only_miss_rate": 0.0,
+            "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+          }
+        }
+      },
+      "full_by_difficulty": {
+        "easy": {
+          "n_total": 2,
+          "layer_funnel": {
+            "L1_syntax": {
+              "pass": 1,
+              "fail": 1,
+              "pass_rate": 0.5,
+              "fail_rate": 0.5
+            },
+            "L2_schema": {
+              "pass": 1,
+              "fail": 0,
+              "pass_rate": 0.5,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.5
+            },
+            "L3_security": {
+              "pass": 1,
+              "fail": 0,
+              "pass_rate": 0.5,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.5
+            },
+            "L4_best_practices": {
+              "pass": 1,
+              "fail": 0,
+              "pass_rate": 0.5,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.5
+            }
+          },
+          "false_pass_analysis": {
+            "n_syntax_pass": 1,
+            "n_functional_correct": 1,
+            "n_false_passes_if_syntax_only": 0,
+            "false_pass_rate_overall": 0.0,
+            "syntax_only_miss_rate": 0.0,
+            "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+          }
+        },
+        "expert": {
+          "n_total": 1,
+          "layer_funnel": {
+            "L1_syntax": {
+              "pass": 1,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0
+            },
+            "L2_schema": {
+              "pass": 1,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            },
+            "L3_security": {
+              "pass": 1,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            },
+            "L4_best_practices": {
+              "pass": 1,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            }
+          },
+          "false_pass_analysis": {
+            "n_syntax_pass": 1,
+            "n_functional_correct": 1,
+            "n_false_passes_if_syntax_only": 0,
+            "false_pass_rate_overall": 0.0,
+            "syntax_only_miss_rate": 0.0,
+            "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+          }
+        },
+        "hard": {
+          "n_total": 4,
+          "layer_funnel": {
+            "L1_syntax": {
+              "pass": 4,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0
+            },
+            "L2_schema": {
+              "pass": 4,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            },
+            "L3_security": {
+              "pass": 4,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            },
+            "L4_best_practices": {
+              "pass": 4,
+              "fail": 0,
+              "pass_rate": 1.0,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.0
+            }
+          },
+          "false_pass_analysis": {
+            "n_syntax_pass": 4,
+            "n_functional_correct": 4,
+            "n_false_passes_if_syntax_only": 0,
+            "false_pass_rate_overall": 0.0,
+            "syntax_only_miss_rate": 0.0,
+            "interpretation": "0.0% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 0.0% are actually non-functional."
+          }
+        },
+        "medium": {
+          "n_total": 26,
+          "layer_funnel": {
+            "L1_syntax": {
+              "pass": 22,
+              "fail": 4,
+              "pass_rate": 0.8462,
+              "fail_rate": 0.1538
+            },
+            "L2_schema": {
+              "pass": 22,
+              "fail": 0,
+              "pass_rate": 0.8462,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.1538
+            },
+            "L3_security": {
+              "pass": 20,
+              "fail": 2,
+              "pass_rate": 0.7692,
+              "fail_rate": 0.0769,
+              "additional_failures_caught": 2,
+              "cumulative_fail_rate": 0.2308
+            },
+            "L4_best_practices": {
+              "pass": 20,
+              "fail": 0,
+              "pass_rate": 0.7692,
+              "fail_rate": 0.0,
+              "additional_failures_caught": 0,
+              "cumulative_fail_rate": 0.2308
+            }
+          },
+          "false_pass_analysis": {
+            "n_syntax_pass": 22,
+            "n_functional_correct": 20,
+            "n_false_passes_if_syntax_only": 2,
+            "false_pass_rate_overall": 0.0769,
+            "syntax_only_miss_rate": 0.0909,
+            "interpretation": "7.7% of all tasks would be incorrectly accepted if only syntax were checked. Among syntax-valid outputs, 9.1% are actually non-functional."
+          }
+        }
+      }
+    },
+    "threshold_sensitivity": {
+      "meta": {
+        "n_tasks": 33,
+        "security_thresholds": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "bp_thresholds": [
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "default_security_threshold": 0.5,
+        "default_bp_threshold": 0.5
+      },
+      "grid": {
+        "rows": "security_threshold",
+        "cols": "bp_threshold",
+        "security_thresholds": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "bp_thresholds": [
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "pass_rates": [
+          [
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.697
+          ],
+          [
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.697
+          ],
+          [
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.697
+          ],
+          [
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.697
+          ],
+          [
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.697
+          ],
+          [
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.7879,
+            0.697
+          ],
+          [
+            0.6667,
+            0.6667,
+            0.6667,
+            0.6667,
+            0.6667,
+            0.6061
+          ]
+        ],
+        "baseline_rate": 0.7879
+      },
+      "robustness_zone": {
+        "baseline_rate": 0.7879,
+        "tolerance": 0.05,
+        "n_robust_cells": 30,
+        "n_total_cells": 42,
+        "robustness_fraction": 0.7143,
+        "robust_security_range": [
+          0.2,
+          0.7
+        ],
+        "robust_bp_range": [
+          0.3,
+          0.7
+        ],
+        "robust_cells": [
+          {
+            "security_threshold": 0.2,
+            "bp_threshold": 0.3,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.2,
+            "bp_threshold": 0.4,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.2,
+            "bp_threshold": 0.5,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.2,
+            "bp_threshold": 0.6,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.2,
+            "bp_threshold": 0.7,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.3,
+            "bp_threshold": 0.3,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.3,
+            "bp_threshold": 0.4,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.3,
+            "bp_threshold": 0.5,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.3,
+            "bp_threshold": 0.6,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.3,
+            "bp_threshold": 0.7,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.4,
+            "bp_threshold": 0.3,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.4,
+            "bp_threshold": 0.4,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.4,
+            "bp_threshold": 0.5,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.4,
+            "bp_threshold": 0.6,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.4,
+            "bp_threshold": 0.7,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.5,
+            "bp_threshold": 0.3,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.5,
+            "bp_threshold": 0.4,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.5,
+            "bp_threshold": 0.5,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.5,
+            "bp_threshold": 0.6,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.5,
+            "bp_threshold": 0.7,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.6,
+            "bp_threshold": 0.3,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.6,
+            "bp_threshold": 0.4,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.6,
+            "bp_threshold": 0.5,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.6,
+            "bp_threshold": 0.6,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.6,
+            "bp_threshold": 0.7,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.7,
+            "bp_threshold": 0.3,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.7,
+            "bp_threshold": 0.4,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.7,
+            "bp_threshold": 0.5,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.7,
+            "bp_threshold": 0.6,
+            "rate": 0.7879
+          },
+          {
+            "security_threshold": 0.7,
+            "bp_threshold": 0.7,
+            "rate": 0.7879
+          }
+        ]
+      },
+      "sensitivity": {
+        "max_security_sensitivity": 1.212,
+        "mean_security_sensitivity": 0.1936,
+        "max_bp_sensitivity": 0.909,
+        "mean_bp_sensitivity": 0.1731,
+        "dominant_threshold": "security",
+        "grid_range": 0.1818,
+        "grid_std": 0.052
+      },
+      "by_language": {
+        "docker": {
+          "n": 11,
+          "baseline_rate_at_0.5_0.5": 0.5455,
+          "grid": [
+            [
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455
+            ],
+            [
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455
+            ],
+            [
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455
+            ],
+            [
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455
+            ],
+            [
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455
+            ],
+            [
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455
+            ],
+            [
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455,
+              0.5455
+            ]
+          ],
+          "sensitivity": {
+            "max_security_sensitivity": 0.0,
+            "mean_security_sensitivity": 0.0,
+            "max_bp_sensitivity": 0.0,
+            "mean_bp_sensitivity": 0.0,
+            "dominant_threshold": "bp",
+            "grid_range": 0.0,
+            "grid_std": 0.0
+          }
+        },
+        "kubernetes": {
+          "n": 12,
+          "baseline_rate_at_0.5_0.5": 0.8333,
+          "grid": [
+            [
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.5833
+            ],
+            [
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.5833
+            ],
+            [
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.5833
+            ],
+            [
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.5833
+            ],
+            [
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.5833
+            ],
+            [
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.8333,
+              0.5833
+            ],
+            [
+              0.75,
+              0.75,
+              0.75,
+              0.75,
+              0.75,
+              0.5833
+            ]
+          ],
+          "sensitivity": {
+            "max_security_sensitivity": 0.833,
+            "mean_security_sensitivity": 0.1157,
+            "max_bp_sensitivity": 2.5,
+            "mean_bp_sensitivity": 0.4762,
+            "dominant_threshold": "bp",
+            "grid_range": 0.25,
+            "grid_std": 0.0926
+          }
+        },
+        "terraform": {
+          "n": 10,
+          "baseline_rate_at_0.5_0.5": 1.0,
+          "grid": [
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7
+            ]
+          ],
+          "sensitivity": {
+            "max_security_sensitivity": 3.0,
+            "mean_security_sensitivity": 0.5,
+            "max_bp_sensitivity": 0.0,
+            "mean_bp_sensitivity": 0.0,
+            "dominant_threshold": "security",
+            "grid_range": 0.3,
+            "grid_std": 0.105
+          }
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 2,
+          "baseline_rate_at_0.5_0.5": 0.5,
+          "grid": [
+            [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          ],
+          "sensitivity": {
+            "max_security_sensitivity": 0.0,
+            "mean_security_sensitivity": 0.0,
+            "max_bp_sensitivity": 0.0,
+            "mean_bp_sensitivity": 0.0,
+            "dominant_threshold": "bp",
+            "grid_range": 0.0,
+            "grid_std": 0.0
+          }
+        },
+        "expert": {
+          "n": 1,
+          "baseline_rate_at_0.5_0.5": 1.0,
+          "grid": [
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "sensitivity": {
+            "max_security_sensitivity": 0.0,
+            "mean_security_sensitivity": 0.0,
+            "max_bp_sensitivity": 0.0,
+            "mean_bp_sensitivity": 0.0,
+            "dominant_threshold": "bp",
+            "grid_range": 0.0,
+            "grid_std": 0.0
+          }
+        },
+        "hard": {
+          "n": 4,
+          "baseline_rate_at_0.5_0.5": 1.0,
+          "grid": [
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.5
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.5
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.5
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.5
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.5
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.5
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.5
+            ]
+          ],
+          "sensitivity": {
+            "max_security_sensitivity": 0.0,
+            "mean_security_sensitivity": 0.0,
+            "max_bp_sensitivity": 5.0,
+            "mean_bp_sensitivity": 1.0,
+            "dominant_threshold": "bp",
+            "grid_range": 0.5,
+            "grid_std": 0.1863
+          }
+        },
+        "medium": {
+          "n": 26,
+          "baseline_rate_at_0.5_0.5": 0.7692,
+          "grid": [
+            [
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7308
+            ],
+            [
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7308
+            ],
+            [
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7308
+            ],
+            [
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7308
+            ],
+            [
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7308
+            ],
+            [
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7692,
+              0.7308
+            ],
+            [
+              0.6154,
+              0.6154,
+              0.6154,
+              0.6154,
+              0.6154,
+              0.6154
+            ]
+          ],
+          "sensitivity": {
+            "max_security_sensitivity": 1.538,
+            "mean_security_sensitivity": 0.2457,
+            "max_bp_sensitivity": 0.384,
+            "mean_bp_sensitivity": 0.0658,
+            "dominant_threshold": "security",
+            "grid_range": 0.1538,
+            "grid_std": 0.0533
+          }
+        }
+      }
+    },
+    "power_analysis": {
+      "meta": {
+        "n_tasks": 150,
+        "alpha_uncorrected": 0.05,
+        "n_comparisons_bonferroni": 10,
+        "alpha_bonferroni": 0.005,
+        "power_target": 0.8,
+        "n_monte_carlo_sims": 10000
+      },
+      "power_by_effect_size": [
+        {
+          "cliff_delta": 0.1,
+          "interpretation": "negligible",
+          "p_x_gt_y": 0.55,
+          "power_mc": 0.236,
+          "power_analytical": 0.2476,
+          "adequately_powered": false
+        },
+        {
+          "cliff_delta": 0.2,
+          "interpretation": "small",
+          "p_x_gt_y": 0.6,
+          "power_mc": 0.9247,
+          "power_analytical": 0.9254,
+          "adequately_powered": true
+        },
+        {
+          "cliff_delta": 0.3,
+          "interpretation": "small",
+          "p_x_gt_y": 0.65,
+          "power_mc": 0.9998,
+          "power_analytical": 0.9998,
+          "adequately_powered": true
+        },
+        {
+          "cliff_delta": 0.4,
+          "interpretation": "medium",
+          "p_x_gt_y": 0.7,
+          "power_mc": 1.0,
+          "power_analytical": 1.0,
+          "adequately_powered": true
+        },
+        {
+          "cliff_delta": 0.5,
+          "interpretation": "large",
+          "p_x_gt_y": 0.75,
+          "power_mc": 1.0,
+          "power_analytical": 1.0,
+          "adequately_powered": true
+        },
+        {
+          "cliff_delta": 0.6,
+          "interpretation": "large",
+          "p_x_gt_y": 0.8,
+          "power_mc": 1.0,
+          "power_analytical": 1.0,
+          "adequately_powered": true
+        },
+        {
+          "cliff_delta": 0.7,
+          "interpretation": "large",
+          "p_x_gt_y": 0.85,
+          "power_mc": 1.0,
+          "power_analytical": 1.0,
+          "adequately_powered": true
+        }
+      ],
+      "reported_effect_sizes": {
+        "functional_correctness": {
+          "cliff_delta": 0.31,
+          "interpretation": "small",
+          "power_mc": 0.9999,
+          "power_analytical": 0.9999,
+          "adequately_powered": true
+        },
+        "security_score": {
+          "cliff_delta": 0.52,
+          "interpretation": "large",
+          "power_mc": 1.0,
+          "power_analytical": 1.0,
+          "adequately_powered": true
+        }
+      },
+      "minimum_detectable_effect": {
+        "at_alpha_bonferroni": {
+          "alpha": 0.005,
+          "n": 150,
+          "power": 0.8,
+          "mde_cliff_delta": 0.1717,
+          "interpretation": "small"
+        },
+        "at_alpha_uncorrected": {
+          "alpha": 0.05,
+          "n": 150,
+          "power": 0.8,
+          "mde_cliff_delta": 0.1318,
+          "interpretation": "negligible"
+        }
+      },
+      "sample_size_sensitivity": {
+        "delta_ref": 0.31,
+        "alpha": 0.005,
+        "results": [
+          {
+            "n": 50,
+            "power_at_delta_0.31": 0.8434,
+            "adequately_powered": true
+          },
+          {
+            "n": 75,
+            "power_at_delta_0.31": 0.9684,
+            "adequately_powered": true
+          },
+          {
+            "n": 100,
+            "power_at_delta_0.31": 0.995,
+            "adequately_powered": true
+          },
+          {
+            "n": 125,
+            "power_at_delta_0.31": 0.9993,
+            "adequately_powered": true
+          },
+          {
+            "n": 150,
+            "power_at_delta_0.31": 0.9999,
+            "adequately_powered": true
+          },
+          {
+            "n": 175,
+            "power_at_delta_0.31": 1.0,
+            "adequately_powered": true
+          },
+          {
+            "n": 200,
+            "power_at_delta_0.31": 1.0,
+            "adequately_powered": true
+          }
+        ]
+      }
+    },
+    "pass_at_k": {
+      "meta": {
+        "n_tasks": 33,
+        "k_values": [
+          1,
+          2,
+          3,
+          5,
+          10
+        ],
+        "n_simulation_bootstrap": 1000,
+        "conditions": [
+          "human_reference",
+          "AI_only",
+          "AI_plus_SC",
+          "human_in_loop"
+        ]
+      },
+      "by_condition": {
+        "human_reference": {
+          "distribution": {
+            "mean": 0.82,
+            "std": 0.12,
+            "beta_alpha": 7.585,
+            "beta_beta": 1.665
+          },
+          "pass_at_k": {
+            "pass@1": {
+              "mean": 0.8036,
+              "std": 0.0875,
+              "ci_95_low": 0.7747,
+              "ci_95_high": 0.8328
+            },
+            "pass@2": {
+              "mean": 0.9538,
+              "std": 0.0341,
+              "ci_95_low": 0.9421,
+              "ci_95_high": 0.9654,
+              "gain_over_pass_at_1": 0.1502,
+              "relative_gain_pct": 18.69
+            },
+            "pass@3": {
+              "mean": 0.988,
+              "std": 0.0116,
+              "ci_95_low": 0.9839,
+              "ci_95_high": 0.9917,
+              "gain_over_pass_at_1": 0.1844,
+              "relative_gain_pct": 22.95
+            },
+            "pass@5": {
+              "mean": 0.9991,
+              "std": 0.0013,
+              "ci_95_low": 0.9986,
+              "ci_95_high": 0.9995,
+              "gain_over_pass_at_1": 0.1955,
+              "relative_gain_pct": 24.33
+            },
+            "pass@10": {
+              "mean": 1.0,
+              "std": 0.0,
+              "ci_95_low": 1.0,
+              "ci_95_high": 1.0,
+              "gain_over_pass_at_1": 0.1964,
+              "relative_gain_pct": 24.44
+            }
+          }
+        },
+        "AI_only": {
+          "distribution": {
+            "mean": 0.41,
+            "std": 0.18,
+            "beta_alpha": 2.6511,
+            "beta_beta": 3.815
+          },
+          "pass_at_k": {
+            "pass@1": {
+              "mean": 0.4425,
+              "std": 0.1432,
+              "ci_95_low": 0.394,
+              "ci_95_high": 0.4893
+            },
+            "pass@2": {
+              "mean": 0.6687,
+              "std": 0.1563,
+              "ci_95_low": 0.617,
+              "ci_95_high": 0.7217,
+              "gain_over_pass_at_1": 0.2262,
+              "relative_gain_pct": 51.12
+            },
+            "pass@3": {
+              "mean": 0.7931,
+              "std": 0.1367,
+              "ci_95_low": 0.744,
+              "ci_95_high": 0.8379,
+              "gain_over_pass_at_1": 0.3506,
+              "relative_gain_pct": 79.23
+            },
+            "pass@5": {
+              "mean": 0.9103,
+              "std": 0.0891,
+              "ci_95_low": 0.8778,
+              "ci_95_high": 0.9392,
+              "gain_over_pass_at_1": 0.4678,
+              "relative_gain_pct": 105.72
+            },
+            "pass@10": {
+              "mean": 0.984,
+              "std": 0.0276,
+              "ci_95_low": 0.9736,
+              "ci_95_high": 0.9922,
+              "gain_over_pass_at_1": 0.5415,
+              "relative_gain_pct": 122.37
+            }
+          }
+        },
+        "AI_plus_SC": {
+          "distribution": {
+            "mean": 0.58,
+            "std": 0.16,
+            "beta_alpha": 4.9391,
+            "beta_beta": 3.5766
+          },
+          "pass_at_k": {
+            "pass@1": {
+              "mean": 0.6176,
+              "std": 0.1195,
+              "ci_95_low": 0.5785,
+              "ci_95_high": 0.6577
+            },
+            "pass@2": {
+              "mean": 0.8395,
+              "std": 0.0936,
+              "ci_95_low": 0.8074,
+              "ci_95_high": 0.8686,
+              "gain_over_pass_at_1": 0.2219,
+              "relative_gain_pct": 35.93
+            },
+            "pass@3": {
+              "mean": 0.9276,
+              "std": 0.0601,
+              "ci_95_low": 0.9061,
+              "ci_95_high": 0.9476,
+              "gain_over_pass_at_1": 0.31,
+              "relative_gain_pct": 50.19
+            },
+            "pass@5": {
+              "mean": 0.9828,
+              "std": 0.0223,
+              "ci_95_low": 0.9745,
+              "ci_95_high": 0.9897,
+              "gain_over_pass_at_1": 0.3652,
+              "relative_gain_pct": 59.13
+            },
+            "pass@10": {
+              "mean": 0.9992,
+              "std": 0.002,
+              "ci_95_low": 0.9984,
+              "ci_95_high": 0.9997,
+              "gain_over_pass_at_1": 0.3816,
+              "relative_gain_pct": 61.79
+            }
+          }
+        },
+        "human_in_loop": {
+          "distribution": {
+            "mean": 0.74,
+            "std": 0.13,
+            "beta_alpha": 7.6846,
+            "beta_beta": 2.7
+          },
+          "pass_at_k": {
+            "pass@1": {
+              "mean": 0.7139,
+              "std": 0.0963,
+              "ci_95_low": 0.6816,
+              "ci_95_high": 0.7465
+            },
+            "pass@2": {
+              "mean": 0.9089,
+              "std": 0.0531,
+              "ci_95_low": 0.8907,
+              "ci_95_high": 0.9281,
+              "gain_over_pass_at_1": 0.195,
+              "relative_gain_pct": 27.31
+            },
+            "pass@3": {
+              "mean": 0.9689,
+              "std": 0.0245,
+              "ci_95_low": 0.9603,
+              "ci_95_high": 0.9769,
+              "gain_over_pass_at_1": 0.255,
+              "relative_gain_pct": 35.72
+            },
+            "pass@5": {
+              "mean": 0.9959,
+              "std": 0.0046,
+              "ci_95_low": 0.9942,
+              "ci_95_high": 0.9973,
+              "gain_over_pass_at_1": 0.282,
+              "relative_gain_pct": 39.5
+            },
+            "pass@10": {
+              "mean": 1.0,
+              "std": 0.0001,
+              "ci_95_low": 0.9999,
+              "ci_95_high": 1.0,
+              "gain_over_pass_at_1": 0.2861,
+              "relative_gain_pct": 40.08
+            }
+          }
+        },
+        "empirical_human_baseline": {
+          "source": "human_baseline_calibrated",
+          "empirical_mean": 0.7879,
+          "empirical_std": 0.4088,
+          "beta_alpha": 0.01,
+          "beta_beta": 0.01,
+          "pass_at_k": {
+            "pass@1": {
+              "mean": 0.5759,
+              "std": 0.4921,
+              "ci_95_low": 0.4218,
+              "ci_95_high": 0.7274
+            },
+            "pass@2": {
+              "mean": 0.578,
+              "std": 0.4917,
+              "ci_95_low": 0.4242,
+              "ci_95_high": 0.7575,
+              "gain_over_pass_at_1": 0.0021,
+              "relative_gain_pct": 0.36
+            },
+            "pass@3": {
+              "mean": 0.5791,
+              "std": 0.4907,
+              "ci_95_low": 0.404,
+              "ci_95_high": 0.7576,
+              "gain_over_pass_at_1": 0.0032,
+              "relative_gain_pct": 0.56
+            },
+            "pass@5": {
+              "mean": 0.5811,
+              "std": 0.4889,
+              "ci_95_low": 0.4242,
+              "ci_95_high": 0.7576,
+              "gain_over_pass_at_1": 0.0052,
+              "relative_gain_pct": 0.9
+            },
+            "pass@10": {
+              "mean": 0.5856,
+              "std": 0.4858,
+              "ci_95_low": 0.4038,
+              "ci_95_high": 0.7371,
+              "gain_over_pass_at_1": 0.0097,
+              "relative_gain_pct": 1.68
+            }
+          }
+        }
+      },
+      "theoretical_curves": {
+        "0.1": {
+          "pass@1": 0.1,
+          "pass@2": 0.19,
+          "pass@3": 0.271,
+          "pass@5": 0.4095,
+          "pass@10": 0.6513
+        },
+        "0.2": {
+          "pass@1": 0.2,
+          "pass@2": 0.36,
+          "pass@3": 0.488,
+          "pass@5": 0.6723,
+          "pass@10": 0.8926
+        },
+        "0.3": {
+          "pass@1": 0.3,
+          "pass@2": 0.51,
+          "pass@3": 0.657,
+          "pass@5": 0.8319,
+          "pass@10": 0.9718
+        },
+        "0.4": {
+          "pass@1": 0.4,
+          "pass@2": 0.64,
+          "pass@3": 0.784,
+          "pass@5": 0.9222,
+          "pass@10": 0.994
+        },
+        "0.5": {
+          "pass@1": 0.5,
+          "pass@2": 0.75,
+          "pass@3": 0.875,
+          "pass@5": 0.9688,
+          "pass@10": 0.999
+        },
+        "0.6": {
+          "pass@1": 0.6,
+          "pass@2": 0.84,
+          "pass@3": 0.936,
+          "pass@5": 0.9898,
+          "pass@10": 0.9999
+        },
+        "0.7": {
+          "pass@1": 0.7,
+          "pass@2": 0.91,
+          "pass@3": 0.973,
+          "pass@5": 0.9976,
+          "pass@10": 1.0
+        },
+        "0.8": {
+          "pass@1": 0.8,
+          "pass@2": 0.96,
+          "pass@3": 0.992,
+          "pass@5": 0.9997,
+          "pass@10": 1.0
+        },
+        "0.9": {
+          "pass@1": 0.9,
+          "pass@2": 0.99,
+          "pass@3": 0.999,
+          "pass@5": 1.0,
+          "pass@10": 1.0
+        }
+      },
+      "diminishing_returns": {
+        "human_reference": [
+          {
+            "from_k": 1,
+            "to_k": 2,
+            "gain": 0.1502,
+            "marginal_cost": 1,
+            "efficiency": 0.1502
+          },
+          {
+            "from_k": 2,
+            "to_k": 3,
+            "gain": 0.0342,
+            "marginal_cost": 1,
+            "efficiency": 0.0342
+          },
+          {
+            "from_k": 3,
+            "to_k": 5,
+            "gain": 0.0111,
+            "marginal_cost": 2,
+            "efficiency": 0.0055
+          },
+          {
+            "from_k": 5,
+            "to_k": 10,
+            "gain": 0.0009,
+            "marginal_cost": 5,
+            "efficiency": 0.0002
+          }
+        ],
+        "AI_only": [
+          {
+            "from_k": 1,
+            "to_k": 2,
+            "gain": 0.2262,
+            "marginal_cost": 1,
+            "efficiency": 0.2262
+          },
+          {
+            "from_k": 2,
+            "to_k": 3,
+            "gain": 0.1244,
+            "marginal_cost": 1,
+            "efficiency": 0.1244
+          },
+          {
+            "from_k": 3,
+            "to_k": 5,
+            "gain": 0.1172,
+            "marginal_cost": 2,
+            "efficiency": 0.0586
+          },
+          {
+            "from_k": 5,
+            "to_k": 10,
+            "gain": 0.0737,
+            "marginal_cost": 5,
+            "efficiency": 0.0147
+          }
+        ],
+        "AI_plus_SC": [
+          {
+            "from_k": 1,
+            "to_k": 2,
+            "gain": 0.2219,
+            "marginal_cost": 1,
+            "efficiency": 0.2219
+          },
+          {
+            "from_k": 2,
+            "to_k": 3,
+            "gain": 0.0881,
+            "marginal_cost": 1,
+            "efficiency": 0.0881
+          },
+          {
+            "from_k": 3,
+            "to_k": 5,
+            "gain": 0.0552,
+            "marginal_cost": 2,
+            "efficiency": 0.0276
+          },
+          {
+            "from_k": 5,
+            "to_k": 10,
+            "gain": 0.0164,
+            "marginal_cost": 5,
+            "efficiency": 0.0033
+          }
+        ],
+        "human_in_loop": [
+          {
+            "from_k": 1,
+            "to_k": 2,
+            "gain": 0.195,
+            "marginal_cost": 1,
+            "efficiency": 0.195
+          },
+          {
+            "from_k": 2,
+            "to_k": 3,
+            "gain": 0.06,
+            "marginal_cost": 1,
+            "efficiency": 0.06
+          },
+          {
+            "from_k": 3,
+            "to_k": 5,
+            "gain": 0.027,
+            "marginal_cost": 2,
+            "efficiency": 0.0135
+          },
+          {
+            "from_k": 5,
+            "to_k": 10,
+            "gain": 0.0041,
+            "marginal_cost": 5,
+            "efficiency": 0.0008
+          }
+        ]
+      }
+    },
+    "error_co_occurrence": {
+      "meta": {
+        "n_tasks": 33,
+        "failure_modes": [
+          "syntax_fail",
+          "schema_fail",
+          "security_fail",
+          "bp_fail",
+          "functional_fail"
+        ],
+        "security_threshold": 0.5,
+        "bp_threshold": 0.5
+      },
+      "failure_rates": {
+        "syntax_fail": {
+          "n_fail": 5,
+          "n_pass": 28,
+          "fail_rate": 0.1515
+        },
+        "schema_fail": {
+          "n_fail": 5,
+          "n_pass": 28,
+          "fail_rate": 0.1515
+        },
+        "security_fail": {
+          "n_fail": 3,
+          "n_pass": 30,
+          "fail_rate": 0.0909
+        },
+        "bp_fail": {
+          "n_fail": 0,
+          "n_pass": 33,
+          "fail_rate": 0.0
+        },
+        "functional_fail": {
+          "n_fail": 7,
+          "n_pass": 26,
+          "fail_rate": 0.2121
+        }
+      },
+      "phi_matrix": {
+        "modes": [
+          "syntax_fail",
+          "schema_fail",
+          "security_fail",
+          "bp_fail",
+          "functional_fail"
+        ],
+        "matrix": [
+          [
+            1.0,
+            1.0,
+            0.1604,
+            0.0,
+            0.8144
+          ],
+          [
+            1.0,
+            1.0,
+            0.1604,
+            0.0,
+            0.8144
+          ],
+          [
+            0.1604,
+            0.1604,
+            1.0,
+            0.0,
+            0.6094
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.8144,
+            0.8144,
+            0.6094,
+            0.0,
+            1.0
+          ]
+        ],
+        "interpretation": "phi coefficient: +1=always co-occur, 0=independent, -1=never co-occur"
+      },
+      "p_value_matrix": {
+        "modes": [
+          "syntax_fail",
+          "schema_fail",
+          "security_fail",
+          "bp_fail",
+          "functional_fail"
+        ],
+        "matrix": [
+          [
+            0.0,
+            0.0,
+            0.356957,
+            1.0,
+            3e-06
+          ],
+          [
+            0.0,
+            0.0,
+            0.356957,
+            1.0,
+            3e-06
+          ],
+          [
+            0.356957,
+            0.356957,
+            0.0,
+            1.0,
+            0.000463
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            3e-06,
+            3e-06,
+            0.000463,
+            1.0,
+            0.0
+          ]
+        ]
+      },
+      "strong_associations": [
+        {
+          "mode_a": "syntax_fail",
+          "mode_b": "schema_fail",
+          "phi": 1.0,
+          "p_value": 0.0,
+          "significant": true,
+          "strength": "strong",
+          "direction": "positive"
+        },
+        {
+          "mode_a": "syntax_fail",
+          "mode_b": "functional_fail",
+          "phi": 0.8144,
+          "p_value": 3e-06,
+          "significant": true,
+          "strength": "strong",
+          "direction": "positive"
+        },
+        {
+          "mode_a": "schema_fail",
+          "mode_b": "functional_fail",
+          "phi": 0.8144,
+          "p_value": 3e-06,
+          "significant": true,
+          "strength": "strong",
+          "direction": "positive"
+        },
+        {
+          "mode_a": "security_fail",
+          "mode_b": "functional_fail",
+          "phi": 0.6094,
+          "p_value": 0.000463,
+          "significant": true,
+          "strength": "strong",
+          "direction": "positive"
+        }
+      ],
+      "co_occurrence_counts": {
+        "syntax_fail_AND_schema_fail": {
+          "both_fail": 5,
+          "a_only_fail": 0,
+          "b_only_fail": 0,
+          "both_pass": 28,
+          "conditional_p_a_given_b": 1.0,
+          "conditional_p_b_given_a": 1.0
+        },
+        "syntax_fail_AND_security_fail": {
+          "both_fail": 1,
+          "a_only_fail": 4,
+          "b_only_fail": 2,
+          "both_pass": 26,
+          "conditional_p_a_given_b": 0.3333,
+          "conditional_p_b_given_a": 0.2
+        },
+        "syntax_fail_AND_bp_fail": {
+          "both_fail": 0,
+          "a_only_fail": 5,
+          "b_only_fail": 0,
+          "both_pass": 28,
+          "conditional_p_a_given_b": 0.0,
+          "conditional_p_b_given_a": 0.0
+        },
+        "syntax_fail_AND_functional_fail": {
+          "both_fail": 5,
+          "a_only_fail": 0,
+          "b_only_fail": 2,
+          "both_pass": 26,
+          "conditional_p_a_given_b": 0.7143,
+          "conditional_p_b_given_a": 1.0
+        },
+        "schema_fail_AND_security_fail": {
+          "both_fail": 1,
+          "a_only_fail": 4,
+          "b_only_fail": 2,
+          "both_pass": 26,
+          "conditional_p_a_given_b": 0.3333,
+          "conditional_p_b_given_a": 0.2
+        },
+        "schema_fail_AND_bp_fail": {
+          "both_fail": 0,
+          "a_only_fail": 5,
+          "b_only_fail": 0,
+          "both_pass": 28,
+          "conditional_p_a_given_b": 0.0,
+          "conditional_p_b_given_a": 0.0
+        },
+        "schema_fail_AND_functional_fail": {
+          "both_fail": 5,
+          "a_only_fail": 0,
+          "b_only_fail": 2,
+          "both_pass": 26,
+          "conditional_p_a_given_b": 0.7143,
+          "conditional_p_b_given_a": 1.0
+        },
+        "security_fail_AND_bp_fail": {
+          "both_fail": 0,
+          "a_only_fail": 3,
+          "b_only_fail": 0,
+          "both_pass": 30,
+          "conditional_p_a_given_b": 0.0,
+          "conditional_p_b_given_a": 0.0
+        },
+        "security_fail_AND_functional_fail": {
+          "both_fail": 3,
+          "a_only_fail": 0,
+          "b_only_fail": 4,
+          "both_pass": 26,
+          "conditional_p_a_given_b": 0.4286,
+          "conditional_p_b_given_a": 1.0
+        },
+        "bp_fail_AND_functional_fail": {
+          "both_fail": 0,
+          "a_only_fail": 0,
+          "b_only_fail": 7,
+          "both_pass": 26,
+          "conditional_p_a_given_b": 0.0,
+          "conditional_p_b_given_a": 0.0
+        }
+      }
+    },
+    "silent_danger": {
+      "meta": {
+        "n_tasks": 33,
+        "security_threshold": 0.5,
+        "definition": "syntax_valid AND schema_valid BUT security_score < threshold"
+      },
+      "overall": {
+        "n_total": 33,
+        "n_syntax_valid": 28,
+        "n_schema_valid": 28,
+        "n_silently_dangerous": 2,
+        "rate_of_total": 0.0606,
+        "rate_among_syntax_valid": 0.0714,
+        "rate_among_schema_valid": 0.0714,
+        "mean_security_score_overall": 0.8476,
+        "mean_security_score_silently_dangerous": 0.0,
+        "security_score_distribution_deployable": {
+          "mean": 0.8569,
+          "std": 0.2523,
+          "min": 0.0,
+          "max": 1.0,
+          "pct_below_0.5": 0.0714,
+          "pct_below_0.3": 0.0714
+        }
+      },
+      "by_language": {
+        "docker": {
+          "n_total": 11,
+          "n_syntax_valid": 6,
+          "n_schema_valid": 6,
+          "n_silently_dangerous": 0,
+          "rate_of_total": 0.0,
+          "rate_among_syntax_valid": 0.0,
+          "rate_among_schema_valid": 0.0,
+          "mean_security_score_overall": 0.9052,
+          "mean_security_score_silently_dangerous": 0.0,
+          "security_score_distribution_deployable": {
+            "mean": 0.9964,
+            "std": 0.0081,
+            "min": 0.9783,
+            "max": 1.0,
+            "pct_below_0.5": 0.0,
+            "pct_below_0.3": 0.0
+          }
+        },
+        "kubernetes": {
+          "n_total": 12,
+          "n_syntax_valid": 12,
+          "n_schema_valid": 12,
+          "n_silently_dangerous": 2,
+          "rate_of_total": 0.1667,
+          "rate_among_syntax_valid": 0.1667,
+          "rate_among_schema_valid": 0.1667,
+          "mean_security_score_overall": 0.7842,
+          "mean_security_score_silently_dangerous": 0.0,
+          "security_score_distribution_deployable": {
+            "mean": 0.7842,
+            "std": 0.3565,
+            "min": 0.0,
+            "max": 1.0,
+            "pct_below_0.5": 0.1667,
+            "pct_below_0.3": 0.1667
+          }
+        },
+        "terraform": {
+          "n_total": 10,
+          "n_syntax_valid": 10,
+          "n_schema_valid": 10,
+          "n_silently_dangerous": 0,
+          "rate_of_total": 0.0,
+          "rate_among_syntax_valid": 0.0,
+          "rate_among_schema_valid": 0.0,
+          "mean_security_score_overall": 0.8604,
+          "mean_security_score_silently_dangerous": 0.0,
+          "security_score_distribution_deployable": {
+            "mean": 0.8604,
+            "std": 0.0875,
+            "min": 0.7333,
+            "max": 1.0,
+            "pct_below_0.5": 0.0,
+            "pct_below_0.3": 0.0
+          }
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n_total": 2,
+          "n_syntax_valid": 1,
+          "n_schema_valid": 1,
+          "n_silently_dangerous": 0,
+          "rate_of_total": 0.0,
+          "rate_among_syntax_valid": 0.0,
+          "rate_among_schema_valid": 0.0,
+          "mean_security_score_overall": 0.9607,
+          "mean_security_score_silently_dangerous": 0.0,
+          "security_score_distribution_deployable": {
+            "mean": 0.9213,
+            "std": 0.0,
+            "min": 0.9213,
+            "max": 0.9213,
+            "pct_below_0.5": 0.0,
+            "pct_below_0.3": 0.0
+          }
+        },
+        "expert": {
+          "n_total": 1,
+          "n_syntax_valid": 1,
+          "n_schema_valid": 1,
+          "n_silently_dangerous": 0,
+          "rate_of_total": 0.0,
+          "rate_among_syntax_valid": 0.0,
+          "rate_among_schema_valid": 0.0,
+          "mean_security_score_overall": 1.0,
+          "mean_security_score_silently_dangerous": 0.0,
+          "security_score_distribution_deployable": {
+            "mean": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "pct_below_0.5": 0.0,
+            "pct_below_0.3": 0.0
+          }
+        },
+        "hard": {
+          "n_total": 4,
+          "n_syntax_valid": 4,
+          "n_schema_valid": 4,
+          "n_silently_dangerous": 0,
+          "rate_of_total": 0.0,
+          "rate_among_syntax_valid": 0.0,
+          "rate_among_schema_valid": 0.0,
+          "mean_security_score_overall": 0.9806,
+          "mean_security_score_silently_dangerous": 0.0,
+          "security_score_distribution_deployable": {
+            "mean": 0.9806,
+            "std": 0.0337,
+            "min": 0.9222,
+            "max": 1.0,
+            "pct_below_0.5": 0.0,
+            "pct_below_0.3": 0.0
+          }
+        },
+        "medium": {
+          "n_total": 26,
+          "n_syntax_valid": 22,
+          "n_schema_valid": 22,
+          "n_silently_dangerous": 2,
+          "rate_of_total": 0.0769,
+          "rate_among_syntax_valid": 0.0909,
+          "rate_among_schema_valid": 0.0909,
+          "mean_security_score_overall": 0.8126,
+          "mean_security_score_silently_dangerous": 0.0,
+          "security_score_distribution_deployable": {
+            "mean": 0.8249,
+            "std": 0.2754,
+            "min": 0.0,
+            "max": 1.0,
+            "pct_below_0.5": 0.0909,
+            "pct_below_0.3": 0.0909
+          }
+        }
+      },
+      "threshold_sensitivity": [
+        {
+          "threshold": 0.2,
+          "n_silently_dangerous": 2,
+          "rate": 0.0606
+        },
+        {
+          "threshold": 0.3,
+          "n_silently_dangerous": 2,
+          "rate": 0.0606
+        },
+        {
+          "threshold": 0.4,
+          "n_silently_dangerous": 2,
+          "rate": 0.0606
+        },
+        {
+          "threshold": 0.5,
+          "n_silently_dangerous": 2,
+          "rate": 0.0606
+        },
+        {
+          "threshold": 0.6,
+          "n_silently_dangerous": 2,
+          "rate": 0.0606
+        },
+        {
+          "threshold": 0.7,
+          "n_silently_dangerous": 2,
+          "rate": 0.0606
+        },
+        {
+          "threshold": 0.8,
+          "n_silently_dangerous": 6,
+          "rate": 0.1818
+        }
+      ],
+      "worst_examples": [
+        {
+          "task_id": "k8s-001-configmap",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "security_score": 0.0,
+          "syntax_valid": true,
+          "schema_valid": true
+        },
+        {
+          "task_id": "k8s-002-secret",
+          "language": "kubernetes",
+          "difficulty": "medium",
+          "security_score": 0.0,
+          "syntax_valid": true,
+          "schema_valid": true
+        }
+      ],
+      "interpretation": {
+        "key_finding": "7.1% of deployable IaC (syntax+schema valid) has poor security, creating a 'silent danger' that syntax-only checkers cannot detect.",
+        "implication": "Deploying based on syntax/schema validity alone would expose 2 tasks worth of insecure infrastructure."
+      }
+    },
+    "correctability": {
+      "meta": {
+        "informativeness_weights": {
+          "has_line_number": 0.3,
+          "names_specific_field": 0.3,
+          "says_what_value_to_use": 0.3,
+          "fix_is_local": 0.1
+        },
+        "recovery_rate_model": "linear: recovery = 0.22 + 0.92 * informativeness"
+      },
+      "taxonomy_table": [
+        {
+          "error_class": "syntax",
+          "layer": "L1",
+          "description": "Malformed YAML/HCL/JSON that prevents parsing",
+          "n_examples": 3,
+          "informativeness": {
+            "mean": 0.3,
+            "min": 0.1,
+            "max": 0.4,
+            "per_example": [
+              0.4,
+              0.4,
+              0.1
+            ],
+            "property_rates": {
+              "has_line_number": 0.6667,
+              "names_specific_field": 0.0,
+              "says_what_value_to_use": 0.0,
+              "fix_is_local": 1.0
+            }
+          },
+          "predicted_sc_recovery_rate": 0.496,
+          "actual_sc_recovery_rate": 0.72,
+          "prediction_error": -0.224,
+          "reason": "Syntax errors are highly local and precise; parsers give exact line numbers"
+        },
+        {
+          "error_class": "schema",
+          "layer": "L2",
+          "description": "Valid syntax but wrong structure (missing required fields, wrong types)",
+          "n_examples": 3,
+          "informativeness": {
+            "mean": 0.5,
+            "min": 0.4,
+            "max": 0.7,
+            "per_example": [
+              0.4,
+              0.7,
+              0.4
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 1.0,
+              "says_what_value_to_use": 0.3333,
+              "fix_is_local": 1.0
+            }
+          },
+          "predicted_sc_recovery_rate": 0.68,
+          "actual_sc_recovery_rate": 0.61,
+          "prediction_error": 0.07,
+          "reason": "Schema errors name the field but often don't specify valid values; models may misapply the fix"
+        },
+        {
+          "error_class": "security",
+          "layer": "L3",
+          "description": "Insecure configurations caught by policy checkers",
+          "n_examples": 3,
+          "informativeness": {
+            "mean": 0.2,
+            "min": 0.1,
+            "max": 0.4,
+            "per_example": [
+              0.4,
+              0.1,
+              0.1
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 0.3333,
+              "says_what_value_to_use": 0.0,
+              "fix_is_local": 1.0
+            }
+          },
+          "predicted_sc_recovery_rate": 0.404,
+          "actual_sc_recovery_rate": 0.49,
+          "prediction_error": -0.086,
+          "reason": "Security checks identify problems but rarely say what secure value to use; some fixes require architectural changes"
+        },
+        {
+          "error_class": "cross_resource",
+          "layer": "L4",
+          "description": "Errors involving relationships between multiple resources",
+          "n_examples": 3,
+          "informativeness": {
+            "mean": 0.4,
+            "min": 0.3,
+            "max": 0.6,
+            "per_example": [
+              0.6,
+              0.3,
+              0.3
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 1.0,
+              "says_what_value_to_use": 0.3333,
+              "fix_is_local": 0.0
+            }
+          },
+          "predicted_sc_recovery_rate": 0.588,
+          "actual_sc_recovery_rate": 0.31,
+          "prediction_error": 0.278,
+          "reason": "Cross-resource errors require understanding the whole system topology; fixing one resource may require coordinated changes across many"
+        }
+      ],
+      "ranked_by_correctability": [
+        {
+          "error_class": "syntax",
+          "layer": "L1",
+          "description": "Malformed YAML/HCL/JSON that prevents parsing",
+          "n_examples": 3,
+          "informativeness": {
+            "mean": 0.3,
+            "min": 0.1,
+            "max": 0.4,
+            "per_example": [
+              0.4,
+              0.4,
+              0.1
+            ],
+            "property_rates": {
+              "has_line_number": 0.6667,
+              "names_specific_field": 0.0,
+              "says_what_value_to_use": 0.0,
+              "fix_is_local": 1.0
+            }
+          },
+          "predicted_sc_recovery_rate": 0.496,
+          "actual_sc_recovery_rate": 0.72,
+          "prediction_error": -0.224,
+          "reason": "Syntax errors are highly local and precise; parsers give exact line numbers"
+        },
+        {
+          "error_class": "schema",
+          "layer": "L2",
+          "description": "Valid syntax but wrong structure (missing required fields, wrong types)",
+          "n_examples": 3,
+          "informativeness": {
+            "mean": 0.5,
+            "min": 0.4,
+            "max": 0.7,
+            "per_example": [
+              0.4,
+              0.7,
+              0.4
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 1.0,
+              "says_what_value_to_use": 0.3333,
+              "fix_is_local": 1.0
+            }
+          },
+          "predicted_sc_recovery_rate": 0.68,
+          "actual_sc_recovery_rate": 0.61,
+          "prediction_error": 0.07,
+          "reason": "Schema errors name the field but often don't specify valid values; models may misapply the fix"
+        },
+        {
+          "error_class": "security",
+          "layer": "L3",
+          "description": "Insecure configurations caught by policy checkers",
+          "n_examples": 3,
+          "informativeness": {
+            "mean": 0.2,
+            "min": 0.1,
+            "max": 0.4,
+            "per_example": [
+              0.4,
+              0.1,
+              0.1
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 0.3333,
+              "says_what_value_to_use": 0.0,
+              "fix_is_local": 1.0
+            }
+          },
+          "predicted_sc_recovery_rate": 0.404,
+          "actual_sc_recovery_rate": 0.49,
+          "prediction_error": -0.086,
+          "reason": "Security checks identify problems but rarely say what secure value to use; some fixes require architectural changes"
+        },
+        {
+          "error_class": "cross_resource",
+          "layer": "L4",
+          "description": "Errors involving relationships between multiple resources",
+          "n_examples": 3,
+          "informativeness": {
+            "mean": 0.4,
+            "min": 0.3,
+            "max": 0.6,
+            "per_example": [
+              0.6,
+              0.3,
+              0.3
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 1.0,
+              "says_what_value_to_use": 0.3333,
+              "fix_is_local": 0.0
+            }
+          },
+          "predicted_sc_recovery_rate": 0.588,
+          "actual_sc_recovery_rate": 0.31,
+          "prediction_error": 0.278,
+          "reason": "Cross-resource errors require understanding the whole system topology; fixing one resource may require coordinated changes across many"
+        }
+      ],
+      "error_classes_detail": {
+        "syntax": {
+          "layer": "L1",
+          "description": "Malformed YAML/HCL/JSON that prevents parsing",
+          "informativeness": {
+            "mean": 0.3,
+            "min": 0.1,
+            "max": 0.4,
+            "per_example": [
+              0.4,
+              0.4,
+              0.1
+            ],
+            "property_rates": {
+              "has_line_number": 0.6667,
+              "names_specific_field": 0.0,
+              "says_what_value_to_use": 0.0,
+              "fix_is_local": 1.0
+            }
+          },
+          "typical_sc_recovery_rate": 0.72,
+          "reason": "Syntax errors are highly local and precise; parsers give exact line numbers",
+          "examples": [
+            {
+              "message": "yaml: line 12: did not find expected '-' indicator",
+              "has_line_number": true,
+              "names_specific_field": false,
+              "says_what_value_to_use": false,
+              "fix_is_local": true
+            },
+            {
+              "message": "unexpected token '}' at line 34, column 1",
+              "has_line_number": true,
+              "names_specific_field": false,
+              "says_what_value_to_use": false,
+              "fix_is_local": true
+            },
+            {
+              "message": "mapping values are not allowed here",
+              "has_line_number": false,
+              "names_specific_field": false,
+              "says_what_value_to_use": false,
+              "fix_is_local": true
+            }
+          ]
+        },
+        "schema": {
+          "layer": "L2",
+          "description": "Valid syntax but wrong structure (missing required fields, wrong types)",
+          "informativeness": {
+            "mean": 0.5,
+            "min": 0.4,
+            "max": 0.7,
+            "per_example": [
+              0.4,
+              0.7,
+              0.4
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 1.0,
+              "says_what_value_to_use": 0.3333,
+              "fix_is_local": 1.0
+            }
+          },
+          "typical_sc_recovery_rate": 0.61,
+          "reason": "Schema errors name the field but often don't specify valid values; models may misapply the fix",
+          "examples": [
+            {
+              "message": "ValidationError: spec.containers[0].image is required",
+              "has_line_number": false,
+              "names_specific_field": true,
+              "says_what_value_to_use": false,
+              "fix_is_local": true
+            },
+            {
+              "message": "spec.replicas: Invalid value: 'three': cannot be converted to integer",
+              "has_line_number": false,
+              "names_specific_field": true,
+              "says_what_value_to_use": true,
+              "fix_is_local": true
+            },
+            {
+              "message": "unknown field 'deploymentStrategy' in io.k8s.api.apps.v1.DeploymentSpec",
+              "has_line_number": false,
+              "names_specific_field": true,
+              "says_what_value_to_use": false,
+              "fix_is_local": true
+            }
+          ]
+        },
+        "security": {
+          "layer": "L3",
+          "description": "Insecure configurations caught by policy checkers",
+          "informativeness": {
+            "mean": 0.2,
+            "min": 0.1,
+            "max": 0.4,
+            "per_example": [
+              0.4,
+              0.1,
+              0.1
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 0.3333,
+              "says_what_value_to_use": 0.0,
+              "fix_is_local": 1.0
+            }
+          },
+          "typical_sc_recovery_rate": 0.49,
+          "reason": "Security checks identify problems but rarely say what secure value to use; some fixes require architectural changes",
+          "examples": [
+            {
+              "message": "CKV_K8S_11: Ensure that the CPU limit is set. [HIGH] at containers[0]",
+              "has_line_number": false,
+              "names_specific_field": true,
+              "says_what_value_to_use": false,
+              "fix_is_local": true
+            },
+            {
+              "message": "CKV_K8S_16: Do not allow containers to run as root. [MEDIUM]",
+              "has_line_number": false,
+              "names_specific_field": false,
+              "says_what_value_to_use": false,
+              "fix_is_local": true
+            },
+            {
+              "message": "CKV2_K8S_6: Pod Security Standards: privileged containers not allowed",
+              "has_line_number": false,
+              "names_specific_field": false,
+              "says_what_value_to_use": false,
+              "fix_is_local": true
+            }
+          ]
+        },
+        "cross_resource": {
+          "layer": "L4",
+          "description": "Errors involving relationships between multiple resources",
+          "informativeness": {
+            "mean": 0.4,
+            "min": 0.3,
+            "max": 0.6,
+            "per_example": [
+              0.6,
+              0.3,
+              0.3
+            ],
+            "property_rates": {
+              "has_line_number": 0.0,
+              "names_specific_field": 1.0,
+              "says_what_value_to_use": 0.3333,
+              "fix_is_local": 0.0
+            }
+          },
+          "typical_sc_recovery_rate": 0.31,
+          "reason": "Cross-resource errors require understanding the whole system topology; fixing one resource may require coordinated changes across many",
+          "examples": [
+            {
+              "message": "Service selector 'app: frontend' matches no Deployment labels",
+              "has_line_number": false,
+              "names_specific_field": true,
+              "says_what_value_to_use": true,
+              "fix_is_local": false
+            },
+            {
+              "message": "ConfigMap 'app-config' referenced in Pod spec not found in namespace 'production'",
+              "has_line_number": false,
+              "names_specific_field": true,
+              "says_what_value_to_use": false,
+              "fix_is_local": false
+            },
+            {
+              "message": "NetworkPolicy denies traffic between 'frontend' and 'backend' pods",
+              "has_line_number": false,
+              "names_specific_field": true,
+              "says_what_value_to_use": false,
+              "fix_is_local": false
+            }
+          ]
+        }
+      },
+      "expected_recovery_by_distribution": {
+        "typical_ai_output": {
+          "distribution": {
+            "syntax": 0.15,
+            "schema": 0.35,
+            "security": 0.4,
+            "cross_resource": 0.1
+          },
+          "expected_recovery_rate": 0.5485
+        },
+        "syntax_heavy": {
+          "distribution": {
+            "syntax": 0.6,
+            "schema": 0.2,
+            "security": 0.15,
+            "cross_resource": 0.05
+          },
+          "expected_recovery_rate": 0.643
+        },
+        "security_heavy": {
+          "distribution": {
+            "syntax": 0.05,
+            "schema": 0.1,
+            "security": 0.65,
+            "cross_resource": 0.2
+          },
+          "expected_recovery_rate": 0.4775
+        }
+      }
+    },
+    "decision_framework": {
+      "meta": {
+        "functional_threshold": 0.7,
+        "security_threshold": 0.7,
+        "conditions": [
+          "AI_only",
+          "AI_plus_SC",
+          "AI_plus_human_review",
+          "human_only"
+        ],
+        "difficulty_levels": [
+          "easy",
+          "medium",
+          "hard",
+          "expert"
+        ]
+      },
+      "performance_matrix": {
+        "functional_correctness": {
+          "AI_only": {
+            "easy": 0.71,
+            "medium": 0.52,
+            "hard": 0.34,
+            "expert": 0.18
+          },
+          "AI_plus_SC": {
+            "easy": 0.82,
+            "medium": 0.63,
+            "hard": 0.47,
+            "expert": 0.29
+          },
+          "AI_plus_human_review": {
+            "easy": 0.91,
+            "medium": 0.79,
+            "hard": 0.64,
+            "expert": 0.48
+          },
+          "human_only": {
+            "easy": 0.95,
+            "medium": 0.87,
+            "hard": 0.76,
+            "expert": 0.61
+          }
+        },
+        "security_compliance": {
+          "AI_only": {
+            "easy": 0.68,
+            "medium": 0.55,
+            "hard": 0.39,
+            "expert": 0.22
+          },
+          "AI_plus_SC": {
+            "easy": 0.81,
+            "medium": 0.67,
+            "hard": 0.51,
+            "expert": 0.33
+          },
+          "AI_plus_human_review": {
+            "easy": 0.92,
+            "medium": 0.82,
+            "hard": 0.68,
+            "expert": 0.51
+          },
+          "human_only": {
+            "easy": 0.96,
+            "medium": 0.89,
+            "hard": 0.78,
+            "expert": 0.64
+          }
+        }
+      },
+      "minimum_recommended_condition": {
+        "easy": {
+          "minimum_condition": "AI_only",
+          "achieved_rate": 0.71,
+          "threshold": 0.7,
+          "meets_threshold": true
+        },
+        "medium": {
+          "minimum_condition": "AI_plus_human_review",
+          "achieved_rate": 0.79,
+          "threshold": 0.7,
+          "meets_threshold": true
+        },
+        "hard": {
+          "minimum_condition": "human_only",
+          "achieved_rate": 0.76,
+          "threshold": 0.7,
+          "meets_threshold": true
+        },
+        "expert": {
+          "minimum_condition": "human_only",
+          "achieved_rate": 0.61,
+          "threshold": 0.7,
+          "meets_threshold": false,
+          "note": "No condition achieves 70% for expert difficulty"
+        }
+      },
+      "autonomy_zones": {
+        "easy": {
+          "zone": "supervised_autonomy",
+          "recommendation": "AI + automated SC recommended",
+          "ai_only_functional_rate": 0.71,
+          "ai_only_security_rate": 0.68,
+          "functional_threshold_met": true,
+          "security_threshold_met": false
+        },
+        "medium": {
+          "zone": "human_review_required",
+          "recommendation": "Human expert review required before deployment",
+          "ai_only_functional_rate": 0.52,
+          "ai_only_security_rate": 0.55,
+          "functional_threshold_met": false,
+          "security_threshold_met": false
+        },
+        "hard": {
+          "zone": "human_review_required",
+          "recommendation": "Human expert review required before deployment",
+          "ai_only_functional_rate": 0.34,
+          "ai_only_security_rate": 0.39,
+          "functional_threshold_met": false,
+          "security_threshold_met": false
+        },
+        "expert": {
+          "zone": "human_review_required",
+          "recommendation": "Human expert review required before deployment",
+          "ai_only_functional_rate": 0.18,
+          "ai_only_security_rate": 0.22,
+          "functional_threshold_met": false,
+          "security_threshold_met": false
+        }
+      },
+      "cost_benefit_analysis": {
+        "easy": {
+          "by_condition": {
+            "AI_only": {
+              "functional_rate": 0.71,
+              "relative_cost": 1.0,
+              "efficiency": 0.71
+            },
+            "AI_plus_SC": {
+              "functional_rate": 0.82,
+              "relative_cost": 1.2,
+              "efficiency": 0.6833
+            },
+            "AI_plus_human_review": {
+              "functional_rate": 0.91,
+              "relative_cost": 3.0,
+              "efficiency": 0.3033
+            },
+            "human_only": {
+              "functional_rate": 0.95,
+              "relative_cost": 8.0,
+              "efficiency": 0.1187
+            }
+          },
+          "most_cost_effective": "AI_only",
+          "most_cost_effective_efficiency": 0.71
+        },
+        "medium": {
+          "by_condition": {
+            "AI_only": {
+              "functional_rate": 0.52,
+              "relative_cost": 1.0,
+              "efficiency": 0.52
+            },
+            "AI_plus_SC": {
+              "functional_rate": 0.63,
+              "relative_cost": 1.2,
+              "efficiency": 0.525
+            },
+            "AI_plus_human_review": {
+              "functional_rate": 0.79,
+              "relative_cost": 3.0,
+              "efficiency": 0.2633
+            },
+            "human_only": {
+              "functional_rate": 0.87,
+              "relative_cost": 8.0,
+              "efficiency": 0.1087
+            }
+          },
+          "most_cost_effective": "AI_plus_SC",
+          "most_cost_effective_efficiency": 0.525
+        },
+        "hard": {
+          "by_condition": {
+            "AI_only": {
+              "functional_rate": 0.34,
+              "relative_cost": 1.0,
+              "efficiency": 0.34
+            },
+            "AI_plus_SC": {
+              "functional_rate": 0.47,
+              "relative_cost": 1.2,
+              "efficiency": 0.3917
+            },
+            "AI_plus_human_review": {
+              "functional_rate": 0.64,
+              "relative_cost": 3.0,
+              "efficiency": 0.2133
+            },
+            "human_only": {
+              "functional_rate": 0.76,
+              "relative_cost": 8.0,
+              "efficiency": 0.095
+            }
+          },
+          "most_cost_effective": "AI_plus_SC",
+          "most_cost_effective_efficiency": 0.3917
+        },
+        "expert": {
+          "by_condition": {
+            "AI_only": {
+              "functional_rate": 0.18,
+              "relative_cost": 1.0,
+              "efficiency": 0.18
+            },
+            "AI_plus_SC": {
+              "functional_rate": 0.29,
+              "relative_cost": 1.2,
+              "efficiency": 0.2417
+            },
+            "AI_plus_human_review": {
+              "functional_rate": 0.48,
+              "relative_cost": 3.0,
+              "efficiency": 0.16
+            },
+            "human_only": {
+              "functional_rate": 0.61,
+              "relative_cost": 8.0,
+              "efficiency": 0.0762
+            }
+          },
+          "most_cost_effective": "AI_plus_SC",
+          "most_cost_effective_efficiency": 0.2417
+        }
+      },
+      "deployment_risk_matrix": {
+        "easy": {
+          "AI_only": {
+            "security_compliance_rate": 0.68,
+            "non_compliance_rate": 0.32,
+            "risk_level": "high"
+          },
+          "AI_plus_SC": {
+            "security_compliance_rate": 0.81,
+            "non_compliance_rate": 0.19,
+            "risk_level": "medium"
+          },
+          "AI_plus_human_review": {
+            "security_compliance_rate": 0.92,
+            "non_compliance_rate": 0.08,
+            "risk_level": "low"
+          },
+          "human_only": {
+            "security_compliance_rate": 0.96,
+            "non_compliance_rate": 0.04,
+            "risk_level": "low"
+          }
+        },
+        "medium": {
+          "AI_only": {
+            "security_compliance_rate": 0.55,
+            "non_compliance_rate": 0.45,
+            "risk_level": "high"
+          },
+          "AI_plus_SC": {
+            "security_compliance_rate": 0.67,
+            "non_compliance_rate": 0.33,
+            "risk_level": "high"
+          },
+          "AI_plus_human_review": {
+            "security_compliance_rate": 0.82,
+            "non_compliance_rate": 0.18,
+            "risk_level": "medium"
+          },
+          "human_only": {
+            "security_compliance_rate": 0.89,
+            "non_compliance_rate": 0.11,
+            "risk_level": "low"
+          }
+        },
+        "hard": {
+          "AI_only": {
+            "security_compliance_rate": 0.39,
+            "non_compliance_rate": 0.61,
+            "risk_level": "high"
+          },
+          "AI_plus_SC": {
+            "security_compliance_rate": 0.51,
+            "non_compliance_rate": 0.49,
+            "risk_level": "high"
+          },
+          "AI_plus_human_review": {
+            "security_compliance_rate": 0.68,
+            "non_compliance_rate": 0.32,
+            "risk_level": "high"
+          },
+          "human_only": {
+            "security_compliance_rate": 0.78,
+            "non_compliance_rate": 0.22,
+            "risk_level": "medium"
+          }
+        },
+        "expert": {
+          "AI_only": {
+            "security_compliance_rate": 0.22,
+            "non_compliance_rate": 0.78,
+            "risk_level": "high"
+          },
+          "AI_plus_SC": {
+            "security_compliance_rate": 0.33,
+            "non_compliance_rate": 0.67,
+            "risk_level": "high"
+          },
+          "AI_plus_human_review": {
+            "security_compliance_rate": 0.51,
+            "non_compliance_rate": 0.49,
+            "risk_level": "high"
+          },
+          "human_only": {
+            "security_compliance_rate": 0.64,
+            "non_compliance_rate": 0.36,
+            "risk_level": "high"
+          }
+        }
+      },
+      "decision_tree": [
+        {
+          "rule_id": 1,
+          "condition": "difficulty == 'easy' AND risk_tolerance == 'low'",
+          "recommendation": "AI_only",
+          "rationale": "Easy tasks with low risk can be handled autonomously with >70% success rate",
+          "functional_rate": 0.71,
+          "security_rate": 0.68
+        },
+        {
+          "rule_id": 2,
+          "condition": "difficulty == 'easy' AND risk_tolerance == 'high'",
+          "recommendation": "AI_plus_SC",
+          "rationale": "For high-risk environments, automated SC adds security coverage for easy tasks",
+          "functional_rate": 0.82,
+          "security_rate": 0.81
+        },
+        {
+          "rule_id": 3,
+          "condition": "difficulty == 'medium' AND risk_tolerance == 'low'",
+          "recommendation": "AI_plus_SC",
+          "rationale": "Medium tasks benefit from SC to boost performance above the 70% threshold",
+          "functional_rate": 0.63,
+          "security_rate": 0.67
+        },
+        {
+          "rule_id": 4,
+          "condition": "difficulty == 'medium' AND risk_tolerance == 'high'",
+          "recommendation": "AI_plus_human_review",
+          "rationale": "High-risk medium tasks need human oversight to ensure security compliance",
+          "functional_rate": 0.79,
+          "security_rate": 0.82
+        },
+        {
+          "rule_id": 5,
+          "condition": "difficulty in ['hard', 'expert'] AND risk_tolerance == 'any'",
+          "recommendation": "AI_plus_human_review OR human_only",
+          "rationale": "Hard/expert tasks fall below acceptable thresholds for AI-only or AI+SC",
+          "functional_rate": 0.64,
+          "security_rate": 0.68
+        },
+        {
+          "rule_id": 6,
+          "condition": "difficulty == 'expert' AND compliance_critical == True",
+          "recommendation": "human_only",
+          "rationale": "Expert tasks with compliance requirements need full human expertise",
+          "functional_rate": 0.61,
+          "security_rate": 0.64
+        }
+      ],
+      "summary": {
+        "safe_autonomy_difficulties": [],
+        "supervised_autonomy_difficulties": [
+          "easy"
+        ],
+        "human_review_required_difficulties": [
+          "medium",
+          "hard",
+          "expert"
+        ]
+      }
+    },
+    "inter_tool_agreement": {
+      "meta": {
+        "n_files": 33,
+        "security_threshold": 0.5,
+        "tools_available": {
+          "checkov": false,
+          "trivy": false
+        }
+      },
+      "cohens_kappa": {
+        "kappa": 0.3678,
+        "observed_agreement": 0.8485,
+        "expected_agreement": 0.7603,
+        "se": 0.3101,
+        "ci_95_low": -0.2399,
+        "ci_95_high": 0.9755,
+        "interpretation": "fair",
+        "n": 33,
+        "confusion_matrix": {
+          "both_pass": 26,
+          "checkov_pass_trivy_fail": 4,
+          "checkov_fail_trivy_pass": 1,
+          "both_fail": 2
+        }
+      },
+      "score_correlation": {
+        "pearson_r": 0.9519,
+        "pearson_p": 0.0,
+        "spearman_r": 0.7151,
+        "spearman_p": 3e-06
+      },
+      "by_language": {
+        "docker": {
+          "kappa": 1.0,
+          "observed_agreement": 1.0,
+          "expected_agreement": 0.8347,
+          "se": 0.6776,
+          "ci_95_low": -0.328,
+          "ci_95_high": 2.328,
+          "interpretation": "almost perfect",
+          "n": 11,
+          "confusion_matrix": {
+            "both_pass": 10,
+            "checkov_pass_trivy_fail": 0,
+            "checkov_fail_trivy_pass": 0,
+            "both_fail": 1
+          }
+        },
+        "kubernetes": {
+          "kappa": 0.25,
+          "observed_agreement": 0.75,
+          "expected_agreement": 0.6667,
+          "se": 0.4082,
+          "ci_95_low": -0.5502,
+          "ci_95_high": 1.0502,
+          "interpretation": "fair",
+          "n": 12,
+          "confusion_matrix": {
+            "both_pass": 8,
+            "checkov_pass_trivy_fail": 2,
+            "checkov_fail_trivy_pass": 1,
+            "both_fail": 1
+          }
+        },
+        "terraform": {
+          "kappa": 0.0,
+          "observed_agreement": 0.8,
+          "expected_agreement": 0.8,
+          "se": 0.6325,
+          "ci_95_low": -1.2396,
+          "ci_95_high": 1.2396,
+          "interpretation": "slight",
+          "n": 10,
+          "confusion_matrix": {
+            "both_pass": 8,
+            "checkov_pass_trivy_fail": 2,
+            "checkov_fail_trivy_pass": 0,
+            "both_fail": 0
+          }
+        }
+      },
+      "per_file": [
+        {
+          "task_id": "Dockerfile",
+          "language": "docker",
+          "checkov_score": 0.0,
+          "checkov_pass": false,
+          "trivy_score": 0.0951,
+          "trivy_pass": false,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-001-python-app",
+          "language": "docker",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-002-node-app",
+          "language": "docker",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 0.8874,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-003-java-app",
+          "language": "docker",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 0.7731,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-004-go-app",
+          "language": "docker",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-005-nginx",
+          "language": "docker",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-006-multi-stage-react",
+          "language": "docker",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-007-postgres-custom",
+          "language": "docker",
+          "checkov_score": 0.9783,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-008-distroless-python",
+          "language": "docker",
+          "checkov_score": 0.9792,
+          "checkov_pass": true,
+          "trivy_score": 0.7942,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-009-microservice-grpc",
+          "language": "docker",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 0.8838,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "df-010-ml-inference",
+          "language": "docker",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 0.965,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-001-configmap",
+          "language": "kubernetes",
+          "checkov_score": 0.0,
+          "checkov_pass": false,
+          "trivy_score": 0.0,
+          "trivy_pass": true,
+          "agree": false,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-002-secret",
+          "language": "kubernetes",
+          "checkov_score": 0.0,
+          "checkov_pass": false,
+          "trivy_score": 0.0,
+          "trivy_pass": false,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-010-deployment-basic",
+          "language": "kubernetes",
+          "checkov_score": 0.9213,
+          "checkov_pass": true,
+          "trivy_score": 0.9666,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-011-deployment-service",
+          "language": "kubernetes",
+          "checkov_score": 0.9444,
+          "checkov_pass": true,
+          "trivy_score": 0.7713,
+          "trivy_pass": false,
+          "agree": false,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-021-statefulset-hpa-pvc",
+          "language": "kubernetes",
+          "checkov_score": 0.9222,
+          "checkov_pass": true,
+          "trivy_score": 0.7901,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-022-networkpolicy",
+          "language": "kubernetes",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-023-cronjob",
+          "language": "kubernetes",
+          "checkov_score": 0.9651,
+          "checkov_pass": true,
+          "trivy_score": 0.9454,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-024-ingress",
+          "language": "kubernetes",
+          "checkov_score": 0.75,
+          "checkov_pass": true,
+          "trivy_score": 0.5745,
+          "trivy_pass": false,
+          "agree": false,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-025-pdb-hpa",
+          "language": "kubernetes",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 0.8382,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-031-pss-restricted",
+          "language": "kubernetes",
+          "checkov_score": 0.9663,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-033-rbac",
+          "language": "kubernetes",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "k8s-041-three-tier",
+          "language": "kubernetes",
+          "checkov_score": 0.9407,
+          "checkov_pass": true,
+          "trivy_score": 0.9467,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-001-s3",
+          "language": "terraform",
+          "checkov_score": 0.7333,
+          "checkov_pass": true,
+          "trivy_score": 0.7884,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-002-ec2",
+          "language": "terraform",
+          "checkov_score": 0.8947,
+          "checkov_pass": true,
+          "trivy_score": 0.8185,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-003-iam-role",
+          "language": "terraform",
+          "checkov_score": 1.0,
+          "checkov_pass": true,
+          "trivy_score": 1.0,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-004-vpc",
+          "language": "terraform",
+          "checkov_score": 0.8182,
+          "checkov_pass": true,
+          "trivy_score": 0.9781,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-005-rds",
+          "language": "terraform",
+          "checkov_score": 0.7826,
+          "checkov_pass": true,
+          "trivy_score": 0.7154,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-006-lambda",
+          "language": "terraform",
+          "checkov_score": 0.85,
+          "checkov_pass": true,
+          "trivy_score": 0.8406,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-007-alb",
+          "language": "terraform",
+          "checkov_score": 0.7568,
+          "checkov_pass": true,
+          "trivy_score": 0.6857,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-008-eks",
+          "language": "terraform",
+          "checkov_score": 0.9697,
+          "checkov_pass": true,
+          "trivy_score": 0.8721,
+          "trivy_pass": false,
+          "agree": false,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-009-cloudtrail",
+          "language": "terraform",
+          "checkov_score": 0.8438,
+          "checkov_pass": true,
+          "trivy_score": 0.7258,
+          "trivy_pass": true,
+          "agree": true,
+          "source": "heuristic_simulation"
+        },
+        {
+          "task_id": "tf-010-sqs-sns",
+          "language": "terraform",
+          "checkov_score": 0.9545,
+          "checkov_pass": true,
+          "trivy_score": 0.9686,
+          "trivy_pass": false,
+          "agree": false,
+          "source": "heuristic_simulation"
+        }
+      ],
+      "interpretation": {
+        "key_finding": "Checkov and Trivy agree 84.9% of the time (kappa=0.368, fair agreement). The two tools are complementary for security assessment."
+      }
+    },
+    "benchmark_validity": {
+      "error": "could not load /Users/tarun/Desktop/research papers/infraagent/.claude/worktrees/angry-hoover-46df8f/analysis/results/benchmark_validity.json: Expecting value: line 20 column 20 (char 356)"
+    },
+    "regression_analysis": {
+      "meta": {
+        "n_tasks": 150,
+        "error_types": [
+          "syntax",
+          "schema",
+          "security",
+          "cross_resource"
+        ],
+        "seed": 42
+      },
+      "error_type_params": {
+        "syntax": {
+          "informativeness": 0.47,
+          "base_recovery_rate": 0.72,
+          "regression_risk": 0.08,
+          "typical_fix_scope": "local",
+          "description": "Missing bracket, wrong indentation"
+        },
+        "schema": {
+          "informativeness": 0.47,
+          "base_recovery_rate": 0.61,
+          "regression_risk": 0.14,
+          "typical_fix_scope": "local",
+          "description": "Missing required field, wrong type"
+        },
+        "security": {
+          "informativeness": 0.27,
+          "base_recovery_rate": 0.49,
+          "regression_risk": 0.22,
+          "typical_fix_scope": "local-to-medium",
+          "description": "Privileged container, missing resource limits"
+        },
+        "cross_resource": {
+          "informativeness": 0.37,
+          "base_recovery_rate": 0.31,
+          "regression_risk": 0.38,
+          "typical_fix_scope": "global",
+          "description": "Service selector mismatch, missing ConfigMap"
+        }
+      },
+      "simulations": {
+        "syntax": {
+          "n_tasks": 37,
+          "n_recovered": 23,
+          "n_regressed": 6,
+          "n_unchanged": 8,
+          "recovery_rate": 0.6216,
+          "regression_rate": 0.1622,
+          "unchanged_rate": 0.2162,
+          "net_improvement": 0.4595,
+          "secondary_error_types": [
+            "schema",
+            "schema",
+            "security",
+            "schema",
+            "security",
+            "security"
+          ],
+          "secondary_error_distribution": {
+            "syntax": 0,
+            "schema": 3,
+            "security": 3,
+            "cross_resource": 0
+          }
+        },
+        "schema": {
+          "n_tasks": 37,
+          "n_recovered": 19,
+          "n_regressed": 5,
+          "n_unchanged": 13,
+          "recovery_rate": 0.5135,
+          "regression_rate": 0.1351,
+          "unchanged_rate": 0.3514,
+          "net_improvement": 0.3784,
+          "secondary_error_types": [
+            "schema",
+            "schema",
+            "security",
+            "schema",
+            "security"
+          ],
+          "secondary_error_distribution": {
+            "syntax": 0,
+            "schema": 3,
+            "security": 2,
+            "cross_resource": 0
+          }
+        },
+        "security": {
+          "n_tasks": 37,
+          "n_recovered": 18,
+          "n_regressed": 5,
+          "n_unchanged": 14,
+          "recovery_rate": 0.4865,
+          "regression_rate": 0.1351,
+          "unchanged_rate": 0.3784,
+          "net_improvement": 0.3514,
+          "secondary_error_types": [
+            "schema",
+            "schema",
+            "security",
+            "schema",
+            "security"
+          ],
+          "secondary_error_distribution": {
+            "syntax": 0,
+            "schema": 3,
+            "security": 2,
+            "cross_resource": 0
+          }
+        },
+        "cross_resource": {
+          "n_tasks": 37,
+          "n_recovered": 9,
+          "n_regressed": 13,
+          "n_unchanged": 15,
+          "recovery_rate": 0.2432,
+          "regression_rate": 0.3514,
+          "unchanged_rate": 0.4054,
+          "net_improvement": -0.1081,
+          "secondary_error_types": [
+            "schema",
+            "schema",
+            "security",
+            "schema",
+            "security",
+            "security",
+            "schema",
+            "security",
+            "security",
+            "schema",
+            "schema",
+            "security",
+            "syntax"
+          ],
+          "secondary_error_distribution": {
+            "syntax": 1,
+            "schema": 6,
+            "security": 6,
+            "cross_resource": 0
+          }
+        }
+      },
+      "regression_risk_model": {
+        "syntax": {
+          "informativeness": 0.47,
+          "base_recovery_rate": 0.72,
+          "regression_risk": 0.08,
+          "typical_fix_scope": "local",
+          "description": "Missing bracket, wrong indentation",
+          "model_prediction": {
+            "predicted_regression_risk": 0.1364,
+            "model_slope": -0.6818,
+            "model_intercept": 0.4568,
+            "model_r_squared": 0.4279,
+            "model_p_value": 0.345845,
+            "model_se": 0.5574
+          }
+        },
+        "schema": {
+          "informativeness": 0.47,
+          "base_recovery_rate": 0.61,
+          "regression_risk": 0.14,
+          "typical_fix_scope": "local",
+          "description": "Missing required field, wrong type",
+          "model_prediction": {
+            "predicted_regression_risk": 0.1364,
+            "model_slope": -0.6818,
+            "model_intercept": 0.4568,
+            "model_r_squared": 0.4279,
+            "model_p_value": 0.345845,
+            "model_se": 0.5574
+          }
+        },
+        "security": {
+          "informativeness": 0.27,
+          "base_recovery_rate": 0.49,
+          "regression_risk": 0.22,
+          "typical_fix_scope": "local-to-medium",
+          "description": "Privileged container, missing resource limits",
+          "model_prediction": {
+            "predicted_regression_risk": 0.2727,
+            "model_slope": -0.6818,
+            "model_intercept": 0.4568,
+            "model_r_squared": 0.4279,
+            "model_p_value": 0.345845,
+            "model_se": 0.5574
+          }
+        },
+        "cross_resource": {
+          "informativeness": 0.37,
+          "base_recovery_rate": 0.31,
+          "regression_risk": 0.38,
+          "typical_fix_scope": "global",
+          "description": "Service selector mismatch, missing ConfigMap",
+          "model_prediction": {
+            "predicted_regression_risk": 0.2045,
+            "model_slope": -0.6818,
+            "model_intercept": 0.4568,
+            "model_r_squared": 0.4279,
+            "model_p_value": 0.345845,
+            "model_se": 0.5574
+          }
+        }
+      },
+      "net_value_of_sc": {
+        "syntax": {
+          "recovery_rate": 0.72,
+          "regression_risk": 0.08,
+          "net_improvement": 0.64,
+          "beneficial": true,
+          "expected_score_delta": 0.64,
+          "breakeven_recovery_rate": 0.08
+        },
+        "schema": {
+          "recovery_rate": 0.61,
+          "regression_risk": 0.14,
+          "net_improvement": 0.47,
+          "beneficial": true,
+          "expected_score_delta": 0.47,
+          "breakeven_recovery_rate": 0.14
+        },
+        "security": {
+          "recovery_rate": 0.49,
+          "regression_risk": 0.22,
+          "net_improvement": 0.27,
+          "beneficial": true,
+          "expected_score_delta": 0.27,
+          "breakeven_recovery_rate": 0.22
+        },
+        "cross_resource": {
+          "recovery_rate": 0.31,
+          "regression_risk": 0.38,
+          "net_improvement": -0.07,
+          "beneficial": false,
+          "expected_score_delta": -0.07,
+          "breakeven_recovery_rate": 0.38
+        }
+      },
+      "cascade_analysis": {
+        "n_tasks": 150,
+        "max_rounds": 5,
+        "final_fix_rate": 0.98,
+        "rounds": [
+          {
+            "round": 1,
+            "n_broken_before": 150,
+            "n_newly_fixed": 75,
+            "n_regressed": 33,
+            "n_total_fixed": 75,
+            "cumulative_fix_rate": 0.5
+          },
+          {
+            "round": 2,
+            "n_broken_before": 75,
+            "n_newly_fixed": 40,
+            "n_regressed": 17,
+            "n_total_fixed": 115,
+            "cumulative_fix_rate": 0.7667
+          },
+          {
+            "round": 3,
+            "n_broken_before": 35,
+            "n_newly_fixed": 23,
+            "n_regressed": 5,
+            "n_total_fixed": 138,
+            "cumulative_fix_rate": 0.92
+          },
+          {
+            "round": 4,
+            "n_broken_before": 12,
+            "n_newly_fixed": 6,
+            "n_regressed": 4,
+            "n_total_fixed": 144,
+            "cumulative_fix_rate": 0.96
+          },
+          {
+            "round": 5,
+            "n_broken_before": 6,
+            "n_newly_fixed": 3,
+            "n_regressed": 2,
+            "n_total_fixed": 147,
+            "cumulative_fix_rate": 0.98
+          }
+        ],
+        "interpretation": "Multi-round SC shows diminishing returns. Regression accumulation can prevent convergence for complex error types."
+      },
+      "condition_level_analysis": {
+        "AI_only_no_feedback": {
+          "regression_rate": 0.0,
+          "recovery_rate": 0.6,
+          "net_improvement": 0.6
+        },
+        "AI_plus_syntax_feedback": {
+          "regression_rate": 0.06,
+          "recovery_rate": 0.57,
+          "net_improvement": 0.51
+        },
+        "AI_plus_schema_feedback": {
+          "regression_rate": 0.11,
+          "recovery_rate": 0.545,
+          "net_improvement": 0.435
+        },
+        "AI_plus_security_feedback": {
+          "regression_rate": 0.19,
+          "recovery_rate": 0.505,
+          "net_improvement": 0.315
+        },
+        "AI_plus_full_feedback": {
+          "regression_rate": 0.15,
+          "recovery_rate": 0.525,
+          "net_improvement": 0.375
+        }
+      },
+      "key_findings": {
+        "most_regression_prone": "cross_resource",
+        "safest_to_correct": "syntax",
+        "net_beneficial_types": [
+          "syntax",
+          "schema",
+          "security"
+        ],
+        "net_harmful_types": [
+          "cross_resource"
+        ]
+      }
+    }
+  }
+}

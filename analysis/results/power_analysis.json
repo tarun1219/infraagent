@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "n_tasks": 150,
+    "alpha_uncorrected": 0.05,
+    "n_comparisons_bonferroni": 10,
+    "alpha_bonferroni": 0.005,
+    "power_target": 0.8,
+    "n_monte_carlo_sims": 10000
+  },
+  "power_by_effect_size": [
+    {
+      "cliff_delta": 0.1,
+      "interpretation": "negligible",
+      "p_x_gt_y": 0.55,
+      "power_mc": 0.236,
+      "power_analytical": 0.2476,
+      "adequately_powered": false
+    },
+    {
+      "cliff_delta": 0.2,
+      "interpretation": "small",
+      "p_x_gt_y": 0.6,
+      "power_mc": 0.9247,
+      "power_analytical": 0.9254,
+      "adequately_powered": true
+    },
+    {
+      "cliff_delta": 0.3,
+      "interpretation": "small",
+      "p_x_gt_y": 0.65,
+      "power_mc": 0.9998,
+      "power_analytical": 0.9998,
+      "adequately_powered": true
+    },
+    {
+      "cliff_delta": 0.4,
+      "interpretation": "medium",
+      "p_x_gt_y": 0.7,
+      "power_mc": 1.0,
+      "power_analytical": 1.0,
+      "adequately_powered": true
+    },
+    {
+      "cliff_delta": 0.5,
+      "interpretation": "large",
+      "p_x_gt_y": 0.75,
+      "power_mc": 1.0,
+      "power_analytical": 1.0,
+      "adequately_powered": true
+    },
+    {
+      "cliff_delta": 0.6,
+      "interpretation": "large",
+      "p_x_gt_y": 0.8,
+      "power_mc": 1.0,
+      "power_analytical": 1.0,
+      "adequately_powered": true
+    },
+    {
+      "cliff_delta": 0.7,
+      "interpretation": "large",
+      "p_x_gt_y": 0.85,
+      "power_mc": 1.0,
+      "power_analytical": 1.0,
+      "adequately_powered": true
+    }
+  ],
+  "reported_effect_sizes": {
+    "functional_correctness": {
+      "cliff_delta": 0.31,
+      "interpretation": "small",
+      "power_mc": 0.9999,
+      "power_analytical": 0.9999,
+      "adequately_powered": true
+    },
+    "security_score": {
+      "cliff_delta": 0.52,
+      "interpretation": "large",
+      "power_mc": 1.0,
+      "power_analytical": 1.0,
+      "adequately_powered": true
+    }
+  },
+  "minimum_detectable_effect": {
+    "at_alpha_bonferroni": {
+      "alpha": 0.005,
+      "n": 150,
+      "power": 0.8,
+      "mde_cliff_delta": 0.1717,
+      "interpretation": "small"
+    },
+    "at_alpha_uncorrected": {
+      "alpha": 0.05,
+      "n": 150,
+      "power": 0.8,
+      "mde_cliff_delta": 0.1318,
+      "interpretation": "negligible"
+    }
+  },
+  "sample_size_sensitivity": {
+    "delta_ref": 0.31,
+    "alpha": 0.005,
+    "results": [
+      {
+        "n": 50,
+        "power_at_delta_0.31": 0.8434,
+        "adequately_powered": true
+      },
+      {
+        "n": 75,
+        "power_at_delta_0.31": 0.9684,
+        "adequately_powered": true
+      },
+      {
+        "n": 100,
+        "power_at_delta_0.31": 0.995,
+        "adequately_powered": true
+      },
+      {
+        "n": 125,
+        "power_at_delta_0.31": 0.9993,
+        "adequately_powered": true
+      },
+      {
+        "n": 150,
+        "power_at_delta_0.31": 0.9999,
+        "adequately_powered": true
+      },
+      {
+        "n": 175,
+        "power_at_delta_0.31": 1.0,
+        "adequately_powered": true
+      },
+      {
+        "n": 200,
+        "power_at_delta_0.31": 1.0,
+        "adequately_powered": true
+      }
+    ]
+  }
+}

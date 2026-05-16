@@ -1,0 +1,417 @@
+{
+  "meta": {
+    "n_files": 33,
+    "security_threshold": 0.5,
+    "tools_available": {
+      "checkov": false,
+      "trivy": false
+    }
+  },
+  "cohens_kappa": {
+    "kappa": 0.3678,
+    "observed_agreement": 0.8485,
+    "expected_agreement": 0.7603,
+    "se": 0.3101,
+    "ci_95_low": -0.2399,
+    "ci_95_high": 0.9755,
+    "interpretation": "fair",
+    "n": 33,
+    "confusion_matrix": {
+      "both_pass": 26,
+      "checkov_pass_trivy_fail": 4,
+      "checkov_fail_trivy_pass": 1,
+      "both_fail": 2
+    }
+  },
+  "score_correlation": {
+    "pearson_r": 0.9519,
+    "pearson_p": 0.0,
+    "spearman_r": 0.7151,
+    "spearman_p": 3e-06
+  },
+  "by_language": {
+    "docker": {
+      "kappa": 1.0,
+      "observed_agreement": 1.0,
+      "expected_agreement": 0.8347,
+      "se": 0.6776,
+      "ci_95_low": -0.328,
+      "ci_95_high": 2.328,
+      "interpretation": "almost perfect",
+      "n": 11,
+      "confusion_matrix": {
+        "both_pass": 10,
+        "checkov_pass_trivy_fail": 0,
+        "checkov_fail_trivy_pass": 0,
+        "both_fail": 1
+      }
+    },
+    "kubernetes": {
+      "kappa": 0.25,
+      "observed_agreement": 0.75,
+      "expected_agreement": 0.6667,
+      "se": 0.4082,
+      "ci_95_low": -0.5502,
+      "ci_95_high": 1.0502,
+      "interpretation": "fair",
+      "n": 12,
+      "confusion_matrix": {
+        "both_pass": 8,
+        "checkov_pass_trivy_fail": 2,
+        "checkov_fail_trivy_pass": 1,
+        "both_fail": 1
+      }
+    },
+    "terraform": {
+      "kappa": 0.0,
+      "observed_agreement": 0.8,
+      "expected_agreement": 0.8,
+      "se": 0.6325,
+      "ci_95_low": -1.2396,
+      "ci_95_high": 1.2396,
+      "interpretation": "slight",
+      "n": 10,
+      "confusion_matrix": {
+        "both_pass": 8,
+        "checkov_pass_trivy_fail": 2,
+        "checkov_fail_trivy_pass": 0,
+        "both_fail": 0
+      }
+    }
+  },
+  "per_file": [
+    {
+      "task_id": "Dockerfile",
+      "language": "docker",
+      "checkov_score": 0.0,
+      "checkov_pass": false,
+      "trivy_score": 0.0951,
+      "trivy_pass": false,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-001-python-app",
+      "language": "docker",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-002-node-app",
+      "language": "docker",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 0.8874,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-003-java-app",
+      "language": "docker",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 0.7731,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-004-go-app",
+      "language": "docker",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-005-nginx",
+      "language": "docker",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-006-multi-stage-react",
+      "language": "docker",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-007-postgres-custom",
+      "language": "docker",
+      "checkov_score": 0.9783,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-008-distroless-python",
+      "language": "docker",
+      "checkov_score": 0.9792,
+      "checkov_pass": true,
+      "trivy_score": 0.7942,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-009-microservice-grpc",
+      "language": "docker",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 0.8838,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "df-010-ml-inference",
+      "language": "docker",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 0.965,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-001-configmap",
+      "language": "kubernetes",
+      "checkov_score": 0.0,
+      "checkov_pass": false,
+      "trivy_score": 0.0,
+      "trivy_pass": true,
+      "agree": false,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-002-secret",
+      "language": "kubernetes",
+      "checkov_score": 0.0,
+      "checkov_pass": false,
+      "trivy_score": 0.0,
+      "trivy_pass": false,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-010-deployment-basic",
+      "language": "kubernetes",
+      "checkov_score": 0.9213,
+      "checkov_pass": true,
+      "trivy_score": 0.9666,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-011-deployment-service",
+      "language": "kubernetes",
+      "checkov_score": 0.9444,
+      "checkov_pass": true,
+      "trivy_score": 0.7713,
+      "trivy_pass": false,
+      "agree": false,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-021-statefulset-hpa-pvc",
+      "language": "kubernetes",
+      "checkov_score": 0.9222,
+      "checkov_pass": true,
+      "trivy_score": 0.7901,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-022-networkpolicy",
+      "language": "kubernetes",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-023-cronjob",
+      "language": "kubernetes",
+      "checkov_score": 0.9651,
+      "checkov_pass": true,
+      "trivy_score": 0.9454,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-024-ingress",
+      "language": "kubernetes",
+      "checkov_score": 0.75,
+      "checkov_pass": true,
+      "trivy_score": 0.5745,
+      "trivy_pass": false,
+      "agree": false,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-025-pdb-hpa",
+      "language": "kubernetes",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 0.8382,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-031-pss-restricted",
+      "language": "kubernetes",
+      "checkov_score": 0.9663,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-033-rbac",
+      "language": "kubernetes",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "k8s-041-three-tier",
+      "language": "kubernetes",
+      "checkov_score": 0.9407,
+      "checkov_pass": true,
+      "trivy_score": 0.9467,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-001-s3",
+      "language": "terraform",
+      "checkov_score": 0.7333,
+      "checkov_pass": true,
+      "trivy_score": 0.7884,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-002-ec2",
+      "language": "terraform",
+      "checkov_score": 0.8947,
+      "checkov_pass": true,
+      "trivy_score": 0.8185,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-003-iam-role",
+      "language": "terraform",
+      "checkov_score": 1.0,
+      "checkov_pass": true,
+      "trivy_score": 1.0,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-004-vpc",
+      "language": "terraform",
+      "checkov_score": 0.8182,
+      "checkov_pass": true,
+      "trivy_score": 0.9781,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-005-rds",
+      "language": "terraform",
+      "checkov_score": 0.7826,
+      "checkov_pass": true,
+      "trivy_score": 0.7154,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-006-lambda",
+      "language": "terraform",
+      "checkov_score": 0.85,
+      "checkov_pass": true,
+      "trivy_score": 0.8406,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-007-alb",
+      "language": "terraform",
+      "checkov_score": 0.7568,
+      "checkov_pass": true,
+      "trivy_score": 0.6857,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-008-eks",
+      "language": "terraform",
+      "checkov_score": 0.9697,
+      "checkov_pass": true,
+      "trivy_score": 0.8721,
+      "trivy_pass": false,
+      "agree": false,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-009-cloudtrail",
+      "language": "terraform",
+      "checkov_score": 0.8438,
+      "checkov_pass": true,
+      "trivy_score": 0.7258,
+      "trivy_pass": true,
+      "agree": true,
+      "source": "heuristic_simulation"
+    },
+    {
+      "task_id": "tf-010-sqs-sns",
+      "language": "terraform",
+      "checkov_score": 0.9545,
+      "checkov_pass": true,
+      "trivy_score": 0.9686,
+      "trivy_pass": false,
+      "agree": false,
+      "source": "heuristic_simulation"
+    }
+  ],
+  "interpretation": {
+    "key_finding": "Checkov and Trivy agree 84.9% of the time (kappa=0.368, fair agreement). The two tools are complementary for security assessment."
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "n_tasks": 150,
+    "error_types": [
+      "syntax",
+      "schema",
+      "security",
+      "cross_resource"
+    ],
+    "seed": 42
+  },
+  "error_type_params": {
+    "syntax": {
+      "informativeness": 0.47,
+      "base_recovery_rate": 0.72,
+      "regression_risk": 0.08,
+      "typical_fix_scope": "local",
+      "description": "Missing bracket, wrong indentation"
+    },
+    "schema": {
+      "informativeness": 0.47,
+      "base_recovery_rate": 0.61,
+      "regression_risk": 0.14,
+      "typical_fix_scope": "local",
+      "description": "Missing required field, wrong type"
+    },
+    "security": {
+      "informativeness": 0.27,
+      "base_recovery_rate": 0.49,
+      "regression_risk": 0.22,
+      "typical_fix_scope": "local-to-medium",
+      "description": "Privileged container, missing resource limits"
+    },
+    "cross_resource": {
+      "informativeness": 0.37,
+      "base_recovery_rate": 0.31,
+      "regression_risk": 0.38,
+      "typical_fix_scope": "global",
+      "description": "Service selector mismatch, missing ConfigMap"
+    }
+  },
+  "simulations": {
+    "syntax": {
+      "n_tasks": 37,
+      "n_recovered": 23,
+      "n_regressed": 6,
+      "n_unchanged": 8,
+      "recovery_rate": 0.6216,
+      "regression_rate": 0.1622,
+      "unchanged_rate": 0.2162,
+      "net_improvement": 0.4595,
+      "secondary_error_types": [
+        "schema",
+        "schema",
+        "security",
+        "schema",
+        "security",
+        "security"
+      ],
+      "secondary_error_distribution": {
+        "syntax": 0,
+        "schema": 3,
+        "security": 3,
+        "cross_resource": 0
+      }
+    },
+    "schema": {
+      "n_tasks": 37,
+      "n_recovered": 19,
+      "n_regressed": 5,
+      "n_unchanged": 13,
+      "recovery_rate": 0.5135,
+      "regression_rate": 0.1351,
+      "unchanged_rate": 0.3514,
+      "net_improvement": 0.3784,
+      "secondary_error_types": [
+        "schema",
+        "schema",
+        "security",
+        "schema",
+        "security"
+      ],
+      "secondary_error_distribution": {
+        "syntax": 0,
+        "schema": 3,
+        "security": 2,
+        "cross_resource": 0
+      }
+    },
+    "security": {
+      "n_tasks": 37,
+      "n_recovered": 18,
+      "n_regressed": 5,
+      "n_unchanged": 14,
+      "recovery_rate": 0.4865,
+      "regression_rate": 0.1351,
+      "unchanged_rate": 0.3784,
+      "net_improvement": 0.3514,
+      "secondary_error_types": [
+        "schema",
+        "schema",
+        "security",
+        "schema",
+        "security"
+      ],
+      "secondary_error_distribution": {
+        "syntax": 0,
+        "schema": 3,
+        "security": 2,
+        "cross_resource": 0
+      }
+    },
+    "cross_resource": {
+      "n_tasks": 37,
+      "n_recovered": 9,
+      "n_regressed": 13,
+      "n_unchanged": 15,
+      "recovery_rate": 0.2432,
+      "regression_rate": 0.3514,
+      "unchanged_rate": 0.4054,
+      "net_improvement": -0.1081,
+      "secondary_error_types": [
+        "schema",
+        "schema",
+        "security",
+        "schema",
+        "security",
+        "security",
+        "schema",
+        "security",
+        "security",
+        "schema",
+        "schema",
+        "security",
+        "syntax"
+      ],
+      "secondary_error_distribution": {
+        "syntax": 1,
+        "schema": 6,
+        "security": 6,
+        "cross_resource": 0
+      }
+    }
+  },
+  "regression_risk_model": {
+    "syntax": {
+      "informativeness": 0.47,
+      "base_recovery_rate": 0.72,
+      "regression_risk": 0.08,
+      "typical_fix_scope": "local",
+      "description": "Missing bracket, wrong indentation",
+      "model_prediction": {
+        "predicted_regression_risk": 0.1364,
+        "model_slope": -0.6818,
+        "model_intercept": 0.4568,
+        "model_r_squared": 0.4279,
+        "model_p_value": 0.345845,
+        "model_se": 0.5574
+      }
+    },
+    "schema": {
+      "informativeness": 0.47,
+      "base_recovery_rate": 0.61,
+      "regression_risk": 0.14,
+      "typical_fix_scope": "local",
+      "description": "Missing required field, wrong type",
+      "model_prediction": {
+        "predicted_regression_risk": 0.1364,
+        "model_slope": -0.6818,
+        "model_intercept": 0.4568,
+        "model_r_squared": 0.4279,
+        "model_p_value": 0.345845,
+        "model_se": 0.5574
+      }
+    },
+    "security": {
+      "informativeness": 0.27,
+      "base_recovery_rate": 0.49,
+      "regression_risk": 0.22,
+      "typical_fix_scope": "local-to-medium",
+      "description": "Privileged container, missing resource limits",
+      "model_prediction": {
+        "predicted_regression_risk": 0.2727,
+        "model_slope": -0.6818,
+        "model_intercept": 0.4568,
+        "model_r_squared": 0.4279,
+        "model_p_value": 0.345845,
+        "model_se": 0.5574
+      }
+    },
+    "cross_resource": {
+      "informativeness": 0.37,
+      "base_recovery_rate": 0.31,
+      "regression_risk": 0.38,
+      "typical_fix_scope": "global",
+      "description": "Service selector mismatch, missing ConfigMap",
+      "model_prediction": {
+        "predicted_regression_risk": 0.2045,
+        "model_slope": -0.6818,
+        "model_intercept": 0.4568,
+        "model_r_squared": 0.4279,
+        "model_p_value": 0.345845,
+        "model_se": 0.5574
+      }
+    }
+  },
+  "net_value_of_sc": {
+    "syntax": {
+      "recovery_rate": 0.72,
+      "regression_risk": 0.08,
+      "net_improvement": 0.64,
+      "beneficial": true,
+      "expected_score_delta": 0.64,
+      "breakeven_recovery_rate": 0.08
+    },
+    "schema": {
+      "recovery_rate": 0.61,
+      "regression_risk": 0.14,
+      "net_improvement": 0.47,
+      "beneficial": true,
+      "expected_score_delta": 0.47,
+      "breakeven_recovery_rate": 0.14
+    },
+    "security": {
+      "recovery_rate": 0.49,
+      "regression_risk": 0.22,
+      "net_improvement": 0.27,
+      "beneficial": true,
+      "expected_score_delta": 0.27,
+      "breakeven_recovery_rate": 0.22
+    },
+    "cross_resource": {
+      "recovery_rate": 0.31,
+      "regression_risk": 0.38,
+      "net_improvement": -0.07,
+      "beneficial": false,
+      "expected_score_delta": -0.07,
+      "breakeven_recovery_rate": 0.38
+    }
+  },
+  "cascade_analysis": {
+    "n_tasks": 150,
+    "max_rounds": 5,
+    "final_fix_rate": 0.98,
+    "rounds": [
+      {
+        "round": 1,
+        "n_broken_before": 150,
+        "n_newly_fixed": 75,
+        "n_regressed": 33,
+        "n_total_fixed": 75,
+        "cumulative_fix_rate": 0.5
+      },
+      {
+        "round": 2,
+        "n_broken_before": 75,
+        "n_newly_fixed": 40,
+        "n_regressed": 17,
+        "n_total_fixed": 115,
+        "cumulative_fix_rate": 0.7667
+      },
+      {
+        "round": 3,
+        "n_broken_before": 35,
+        "n_newly_fixed": 23,
+        "n_regressed": 5,
+        "n_total_fixed": 138,
+        "cumulative_fix_rate": 0.92
+      },
+      {
+        "round": 4,
+        "n_broken_before": 12,
+        "n_newly_fixed": 6,
+        "n_regressed": 4,
+        "n_total_fixed": 144,
+        "cumulative_fix_rate": 0.96
+      },
+      {
+        "round": 5,
+        "n_broken_before": 6,
+        "n_newly_fixed": 3,
+        "n_regressed": 2,
+        "n_total_fixed": 147,
+        "cumulative_fix_rate": 0.98
+      }
+    ],
+    "interpretation": "Multi-round SC shows diminishing returns. Regression accumulation can prevent convergence for complex error types."
+  },
+  "condition_level_analysis": {
+    "AI_only_no_feedback": {
+      "regression_rate": 0.0,
+      "recovery_rate": 0.6,
+      "net_improvement": 0.6
+    },
+    "AI_plus_syntax_feedback": {
+      "regression_rate": 0.06,
+      "recovery_rate": 0.57,
+      "net_improvement": 0.51
+    },
+    "AI_plus_schema_feedback": {
+      "regression_rate": 0.11,
+      "recovery_rate": 0.545,
+      "net_improvement": 0.435
+    },
+    "AI_plus_security_feedback": {
+      "regression_rate": 0.19,
+      "recovery_rate": 0.505,
+      "net_improvement": 0.315
+    },
+    "AI_plus_full_feedback": {
+      "regression_rate": 0.15,
+      "recovery_rate": 0.525,
+      "net_improvement": 0.375
+    }
+  },
+  "key_findings": {
+    "most_regression_prone": "cross_resource",
+    "safest_to_correct": "syntax",
+    "net_beneficial_types": [
+      "syntax",
+      "schema",
+      "security"
+    ],
+    "net_harmful_types": [
+      "cross_resource"
+    ]
+  }
+}

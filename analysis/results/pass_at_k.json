@@ -1,0 +1,447 @@
+{
+  "meta": {
+    "n_tasks": 33,
+    "k_values": [
+      1,
+      2,
+      3,
+      5,
+      10
+    ],
+    "n_simulation_bootstrap": 1000,
+    "conditions": [
+      "human_reference",
+      "AI_only",
+      "AI_plus_SC",
+      "human_in_loop"
+    ]
+  },
+  "by_condition": {
+    "human_reference": {
+      "distribution": {
+        "mean": 0.82,
+        "std": 0.12,
+        "beta_alpha": 7.585,
+        "beta_beta": 1.665
+      },
+      "pass_at_k": {
+        "pass@1": {
+          "mean": 0.8036,
+          "std": 0.0875,
+          "ci_95_low": 0.7747,
+          "ci_95_high": 0.8328
+        },
+        "pass@2": {
+          "mean": 0.9538,
+          "std": 0.0341,
+          "ci_95_low": 0.9421,
+          "ci_95_high": 0.9654,
+          "gain_over_pass_at_1": 0.1502,
+          "relative_gain_pct": 18.69
+        },
+        "pass@3": {
+          "mean": 0.988,
+          "std": 0.0116,
+          "ci_95_low": 0.9839,
+          "ci_95_high": 0.9917,
+          "gain_over_pass_at_1": 0.1844,
+          "relative_gain_pct": 22.95
+        },
+        "pass@5": {
+          "mean": 0.9991,
+          "std": 0.0013,
+          "ci_95_low": 0.9986,
+          "ci_95_high": 0.9995,
+          "gain_over_pass_at_1": 0.1955,
+          "relative_gain_pct": 24.33
+        },
+        "pass@10": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci_95_low": 1.0,
+          "ci_95_high": 1.0,
+          "gain_over_pass_at_1": 0.1964,
+          "relative_gain_pct": 24.44
+        }
+      }
+    },
+    "AI_only": {
+      "distribution": {
+        "mean": 0.41,
+        "std": 0.18,
+        "beta_alpha": 2.6511,
+        "beta_beta": 3.815
+      },
+      "pass_at_k": {
+        "pass@1": {
+          "mean": 0.4425,
+          "std": 0.1432,
+          "ci_95_low": 0.394,
+          "ci_95_high": 0.4893
+        },
+        "pass@2": {
+          "mean": 0.6687,
+          "std": 0.1563,
+          "ci_95_low": 0.617,
+          "ci_95_high": 0.7217,
+          "gain_over_pass_at_1": 0.2262,
+          "relative_gain_pct": 51.12
+        },
+        "pass@3": {
+          "mean": 0.7931,
+          "std": 0.1367,
+          "ci_95_low": 0.744,
+          "ci_95_high": 0.8379,
+          "gain_over_pass_at_1": 0.3506,
+          "relative_gain_pct": 79.23
+        },
+        "pass@5": {
+          "mean": 0.9103,
+          "std": 0.0891,
+          "ci_95_low": 0.8778,
+          "ci_95_high": 0.9392,
+          "gain_over_pass_at_1": 0.4678,
+          "relative_gain_pct": 105.72
+        },
+        "pass@10": {
+          "mean": 0.984,
+          "std": 0.0276,
+          "ci_95_low": 0.9736,
+          "ci_95_high": 0.9922,
+          "gain_over_pass_at_1": 0.5415,
+          "relative_gain_pct": 122.37
+        }
+      }
+    },
+    "AI_plus_SC": {
+      "distribution": {
+        "mean": 0.58,
+        "std": 0.16,
+        "beta_alpha": 4.9391,
+        "beta_beta": 3.5766
+      },
+      "pass_at_k": {
+        "pass@1": {
+          "mean": 0.6176,
+          "std": 0.1195,
+          "ci_95_low": 0.5785,
+          "ci_95_high": 0.6577
+        },
+        "pass@2": {
+          "mean": 0.8395,
+          "std": 0.0936,
+          "ci_95_low": 0.8074,
+          "ci_95_high": 0.8686,
+          "gain_over_pass_at_1": 0.2219,
+          "relative_gain_pct": 35.93
+        },
+        "pass@3": {
+          "mean": 0.9276,
+          "std": 0.0601,
+          "ci_95_low": 0.9061,
+          "ci_95_high": 0.9476,
+          "gain_over_pass_at_1": 0.31,
+          "relative_gain_pct": 50.19
+        },
+        "pass@5": {
+          "mean": 0.9828,
+          "std": 0.0223,
+          "ci_95_low": 0.9745,
+          "ci_95_high": 0.9897,
+          "gain_over_pass_at_1": 0.3652,
+          "relative_gain_pct": 59.13
+        },
+        "pass@10": {
+          "mean": 0.9992,
+          "std": 0.002,
+          "ci_95_low": 0.9984,
+          "ci_95_high": 0.9997,
+          "gain_over_pass_at_1": 0.3816,
+          "relative_gain_pct": 61.79
+        }
+      }
+    },
+    "human_in_loop": {
+      "distribution": {
+        "mean": 0.74,
+        "std": 0.13,
+        "beta_alpha": 7.6846,
+        "beta_beta": 2.7
+      },
+      "pass_at_k": {
+        "pass@1": {
+          "mean": 0.7139,
+          "std": 0.0963,
+          "ci_95_low": 0.6816,
+          "ci_95_high": 0.7465
+        },
+        "pass@2": {
+          "mean": 0.9089,
+          "std": 0.0531,
+          "ci_95_low": 0.8907,
+          "ci_95_high": 0.9281,
+          "gain_over_pass_at_1": 0.195,
+          "relative_gain_pct": 27.31
+        },
+        "pass@3": {
+          "mean": 0.9689,
+          "std": 0.0245,
+          "ci_95_low": 0.9603,
+          "ci_95_high": 0.9769,
+          "gain_over_pass_at_1": 0.255,
+          "relative_gain_pct": 35.72
+        },
+        "pass@5": {
+          "mean": 0.9959,
+          "std": 0.0046,
+          "ci_95_low": 0.9942,
+          "ci_95_high": 0.9973,
+          "gain_over_pass_at_1": 0.282,
+          "relative_gain_pct": 39.5
+        },
+        "pass@10": {
+          "mean": 1.0,
+          "std": 0.0001,
+          "ci_95_low": 0.9999,
+          "ci_95_high": 1.0,
+          "gain_over_pass_at_1": 0.2861,
+          "relative_gain_pct": 40.08
+        }
+      }
+    },
+    "empirical_human_baseline": {
+      "source": "human_baseline_calibrated",
+      "empirical_mean": 0.7879,
+      "empirical_std": 0.4088,
+      "beta_alpha": 0.01,
+      "beta_beta": 0.01,
+      "pass_at_k": {
+        "pass@1": {
+          "mean": 0.5759,
+          "std": 0.4921,
+          "ci_95_low": 0.4218,
+          "ci_95_high": 0.7274
+        },
+        "pass@2": {
+          "mean": 0.578,
+          "std": 0.4917,
+          "ci_95_low": 0.4242,
+          "ci_95_high": 0.7575,
+          "gain_over_pass_at_1": 0.0021,
+          "relative_gain_pct": 0.36
+        },
+        "pass@3": {
+          "mean": 0.5791,
+          "std": 0.4907,
+          "ci_95_low": 0.404,
+          "ci_95_high": 0.7576,
+          "gain_over_pass_at_1": 0.0032,
+          "relative_gain_pct": 0.56
+        },
+        "pass@5": {
+          "mean": 0.5811,
+          "std": 0.4889,
+          "ci_95_low": 0.4242,
+          "ci_95_high": 0.7576,
+          "gain_over_pass_at_1": 0.0052,
+          "relative_gain_pct": 0.9
+        },
+        "pass@10": {
+          "mean": 0.5856,
+          "std": 0.4858,
+          "ci_95_low": 0.4038,
+          "ci_95_high": 0.7371,
+          "gain_over_pass_at_1": 0.0097,
+          "relative_gain_pct": 1.68
+        }
+      }
+    }
+  },
+  "theoretical_curves": {
+    "0.1": {
+      "pass@1": 0.1,
+      "pass@2": 0.19,
+      "pass@3": 0.271,
+      "pass@5": 0.4095,
+      "pass@10": 0.6513
+    },
+    "0.2": {
+      "pass@1": 0.2,
+      "pass@2": 0.36,
+      "pass@3": 0.488,
+      "pass@5": 0.6723,
+      "pass@10": 0.8926
+    },
+    "0.3": {
+      "pass@1": 0.3,
+      "pass@2": 0.51,
+      "pass@3": 0.657,
+      "pass@5": 0.8319,
+      "pass@10": 0.9718
+    },
+    "0.4": {
+      "pass@1": 0.4,
+      "pass@2": 0.64,
+      "pass@3": 0.784,
+      "pass@5": 0.9222,
+      "pass@10": 0.994
+    },
+    "0.5": {
+      "pass@1": 0.5,
+      "pass@2": 0.75,
+      "pass@3": 0.875,
+      "pass@5": 0.9688,
+      "pass@10": 0.999
+    },
+    "0.6": {
+      "pass@1": 0.6,
+      "pass@2": 0.84,
+      "pass@3": 0.936,
+      "pass@5": 0.9898,
+      "pass@10": 0.9999
+    },
+    "0.7": {
+      "pass@1": 0.7,
+      "pass@2": 0.91,
+      "pass@3": 0.973,
+      "pass@5": 0.9976,
+      "pass@10": 1.0
+    },
+    "0.8": {
+      "pass@1": 0.8,
+      "pass@2": 0.96,
+      "pass@3": 0.992,
+      "pass@5": 0.9997,
+      "pass@10": 1.0
+    },
+    "0.9": {
+      "pass@1": 0.9,
+      "pass@2": 0.99,
+      "pass@3": 0.999,
+      "pass@5": 1.0,
+      "pass@10": 1.0
+    }
+  },
+  "diminishing_returns": {
+    "human_reference": [
+      {
+        "from_k": 1,
+        "to_k": 2,
+        "gain": 0.1502,
+        "marginal_cost": 1,
+        "efficiency": 0.1502
+      },
+      {
+        "from_k": 2,
+        "to_k": 3,
+        "gain": 0.0342,
+        "marginal_cost": 1,
+        "efficiency": 0.0342
+      },
+      {
+        "from_k": 3,
+        "to_k": 5,
+        "gain": 0.0111,
+        "marginal_cost": 2,
+        "efficiency": 0.0055
+      },
+      {
+        "from_k": 5,
+        "to_k": 10,
+        "gain": 0.0009,
+        "marginal_cost": 5,
+        "efficiency": 0.0002
+      }
+    ],
+    "AI_only": [
+      {
+        "from_k": 1,
+        "to_k": 2,
+        "gain": 0.2262,
+        "marginal_cost": 1,
+        "efficiency": 0.2262
+      },
+      {
+        "from_k": 2,
+        "to_k": 3,
+        "gain": 0.1244,
+        "marginal_cost": 1,
+        "efficiency": 0.1244
+      },
+      {
+        "from_k": 3,
+        "to_k": 5,
+        "gain": 0.1172,
+        "marginal_cost": 2,
+        "efficiency": 0.0586
+      },
+      {
+        "from_k": 5,
+        "to_k": 10,
+        "gain": 0.0737,
+        "marginal_cost": 5,
+        "efficiency": 0.0147
+      }
+    ],
+    "AI_plus_SC": [
+      {
+        "from_k": 1,
+        "to_k": 2,
+        "gain": 0.2219,
+        "marginal_cost": 1,
+        "efficiency": 0.2219
+      },
+      {
+        "from_k": 2,
+        "to_k": 3,
+        "gain": 0.0881,
+        "marginal_cost": 1,
+        "efficiency": 0.0881
+      },
+      {
+        "from_k": 3,
+        "to_k": 5,
+        "gain": 0.0552,
+        "marginal_cost": 2,
+        "efficiency": 0.0276
+      },
+      {
+        "from_k": 5,
+        "to_k": 10,
+        "gain": 0.0164,
+        "marginal_cost": 5,
+        "efficiency": 0.0033
+      }
+    ],
+    "human_in_loop": [
+      {
+        "from_k": 1,
+        "to_k": 2,
+        "gain": 0.195,
+        "marginal_cost": 1,
+        "efficiency": 0.195
+      },
+      {
+        "from_k": 2,
+        "to_k": 3,
+        "gain": 0.06,
+        "marginal_cost": 1,
+        "efficiency": 0.06
+      },
+      {
+        "from_k": 3,
+        "to_k": 5,
+        "gain": 0.027,
+        "marginal_cost": 2,
+        "efficiency": 0.0135
+      },
+      {
+        "from_k": 5,
+        "to_k": 10,
+        "gain": 0.0041,
+        "marginal_cost": 5,
+        "efficiency": 0.0008
+      }
+    ]
+  }
+}

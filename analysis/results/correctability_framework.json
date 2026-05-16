@@ -1,0 +1,434 @@
+{
+  "meta": {
+    "informativeness_weights": {
+      "has_line_number": 0.3,
+      "names_specific_field": 0.3,
+      "says_what_value_to_use": 0.3,
+      "fix_is_local": 0.1
+    },
+    "recovery_rate_model": "linear: recovery = 0.22 + 0.92 * informativeness"
+  },
+  "taxonomy_table": [
+    {
+      "error_class": "syntax",
+      "layer": "L1",
+      "description": "Malformed YAML/HCL/JSON that prevents parsing",
+      "n_examples": 3,
+      "informativeness": {
+        "mean": 0.3,
+        "min": 0.1,
+        "max": 0.4,
+        "per_example": [
+          0.4,
+          0.4,
+          0.1
+        ],
+        "property_rates": {
+          "has_line_number": 0.6667,
+          "names_specific_field": 0.0,
+          "says_what_value_to_use": 0.0,
+          "fix_is_local": 1.0
+        }
+      },
+      "predicted_sc_recovery_rate": 0.496,
+      "actual_sc_recovery_rate": 0.72,
+      "prediction_error": -0.224,
+      "reason": "Syntax errors are highly local and precise; parsers give exact line numbers"
+    },
+    {
+      "error_class": "schema",
+      "layer": "L2",
+      "description": "Valid syntax but wrong structure (missing required fields, wrong types)",
+      "n_examples": 3,
+      "informativeness": {
+        "mean": 0.5,
+        "min": 0.4,
+        "max": 0.7,
+        "per_example": [
+          0.4,
+          0.7,
+          0.4
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 1.0,
+          "says_what_value_to_use": 0.3333,
+          "fix_is_local": 1.0
+        }
+      },
+      "predicted_sc_recovery_rate": 0.68,
+      "actual_sc_recovery_rate": 0.61,
+      "prediction_error": 0.07,
+      "reason": "Schema errors name the field but often don't specify valid values; models may misapply the fix"
+    },
+    {
+      "error_class": "security",
+      "layer": "L3",
+      "description": "Insecure configurations caught by policy checkers",
+      "n_examples": 3,
+      "informativeness": {
+        "mean": 0.2,
+        "min": 0.1,
+        "max": 0.4,
+        "per_example": [
+          0.4,
+          0.1,
+          0.1
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 0.3333,
+          "says_what_value_to_use": 0.0,
+          "fix_is_local": 1.0
+        }
+      },
+      "predicted_sc_recovery_rate": 0.404,
+      "actual_sc_recovery_rate": 0.49,
+      "prediction_error": -0.086,
+      "reason": "Security checks identify problems but rarely say what secure value to use; some fixes require architectural changes"
+    },
+    {
+      "error_class": "cross_resource",
+      "layer": "L4",
+      "description": "Errors involving relationships between multiple resources",
+      "n_examples": 3,
+      "informativeness": {
+        "mean": 0.4,
+        "min": 0.3,
+        "max": 0.6,
+        "per_example": [
+          0.6,
+          0.3,
+          0.3
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 1.0,
+          "says_what_value_to_use": 0.3333,
+          "fix_is_local": 0.0
+        }
+      },
+      "predicted_sc_recovery_rate": 0.588,
+      "actual_sc_recovery_rate": 0.31,
+      "prediction_error": 0.278,
+      "reason": "Cross-resource errors require understanding the whole system topology; fixing one resource may require coordinated changes across many"
+    }
+  ],
+  "ranked_by_correctability": [
+    {
+      "error_class": "syntax",
+      "layer": "L1",
+      "description": "Malformed YAML/HCL/JSON that prevents parsing",
+      "n_examples": 3,
+      "informativeness": {
+        "mean": 0.3,
+        "min": 0.1,
+        "max": 0.4,
+        "per_example": [
+          0.4,
+          0.4,
+          0.1
+        ],
+        "property_rates": {
+          "has_line_number": 0.6667,
+          "names_specific_field": 0.0,
+          "says_what_value_to_use": 0.0,
+          "fix_is_local": 1.0
+        }
+      },
+      "predicted_sc_recovery_rate": 0.496,
+      "actual_sc_recovery_rate": 0.72,
+      "prediction_error": -0.224,
+      "reason": "Syntax errors are highly local and precise; parsers give exact line numbers"
+    },
+    {
+      "error_class": "schema",
+      "layer": "L2",
+      "description": "Valid syntax but wrong structure (missing required fields, wrong types)",
+      "n_examples": 3,
+      "informativeness": {
+        "mean": 0.5,
+        "min": 0.4,
+        "max": 0.7,
+        "per_example": [
+          0.4,
+          0.7,
+          0.4
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 1.0,
+          "says_what_value_to_use": 0.3333,
+          "fix_is_local": 1.0
+        }
+      },
+      "predicted_sc_recovery_rate": 0.68,
+      "actual_sc_recovery_rate": 0.61,
+      "prediction_error": 0.07,
+      "reason": "Schema errors name the field but often don't specify valid values; models may misapply the fix"
+    },
+    {
+      "error_class": "security",
+      "layer": "L3",
+      "description": "Insecure configurations caught by policy checkers",
+      "n_examples": 3,
+      "informativeness": {
+        "mean": 0.2,
+        "min": 0.1,
+        "max": 0.4,
+        "per_example": [
+          0.4,
+          0.1,
+          0.1
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 0.3333,
+          "says_what_value_to_use": 0.0,
+          "fix_is_local": 1.0
+        }
+      },
+      "predicted_sc_recovery_rate": 0.404,
+      "actual_sc_recovery_rate": 0.49,
+      "prediction_error": -0.086,
+      "reason": "Security checks identify problems but rarely say what secure value to use; some fixes require architectural changes"
+    },
+    {
+      "error_class": "cross_resource",
+      "layer": "L4",
+      "description": "Errors involving relationships between multiple resources",
+      "n_examples": 3,
+      "informativeness": {
+        "mean": 0.4,
+        "min": 0.3,
+        "max": 0.6,
+        "per_example": [
+          0.6,
+          0.3,
+          0.3
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 1.0,
+          "says_what_value_to_use": 0.3333,
+          "fix_is_local": 0.0
+        }
+      },
+      "predicted_sc_recovery_rate": 0.588,
+      "actual_sc_recovery_rate": 0.31,
+      "prediction_error": 0.278,
+      "reason": "Cross-resource errors require understanding the whole system topology; fixing one resource may require coordinated changes across many"
+    }
+  ],
+  "error_classes_detail": {
+    "syntax": {
+      "layer": "L1",
+      "description": "Malformed YAML/HCL/JSON that prevents parsing",
+      "informativeness": {
+        "mean": 0.3,
+        "min": 0.1,
+        "max": 0.4,
+        "per_example": [
+          0.4,
+          0.4,
+          0.1
+        ],
+        "property_rates": {
+          "has_line_number": 0.6667,
+          "names_specific_field": 0.0,
+          "says_what_value_to_use": 0.0,
+          "fix_is_local": 1.0
+        }
+      },
+      "typical_sc_recovery_rate": 0.72,
+      "reason": "Syntax errors are highly local and precise; parsers give exact line numbers",
+      "examples": [
+        {
+          "message": "yaml: line 12: did not find expected '-' indicator",
+          "has_line_number": true,
+          "names_specific_field": false,
+          "says_what_value_to_use": false,
+          "fix_is_local": true
+        },
+        {
+          "message": "unexpected token '}' at line 34, column 1",
+          "has_line_number": true,
+          "names_specific_field": false,
+          "says_what_value_to_use": false,
+          "fix_is_local": true
+        },
+        {
+          "message": "mapping values are not allowed here",
+          "has_line_number": false,
+          "names_specific_field": false,
+          "says_what_value_to_use": false,
+          "fix_is_local": true
+        }
+      ]
+    },
+    "schema": {
+      "layer": "L2",
+      "description": "Valid syntax but wrong structure (missing required fields, wrong types)",
+      "informativeness": {
+        "mean": 0.5,
+        "min": 0.4,
+        "max": 0.7,
+        "per_example": [
+          0.4,
+          0.7,
+          0.4
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 1.0,
+          "says_what_value_to_use": 0.3333,
+          "fix_is_local": 1.0
+        }
+      },
+      "typical_sc_recovery_rate": 0.61,
+      "reason": "Schema errors name the field but often don't specify valid values; models may misapply the fix",
+      "examples": [
+        {
+          "message": "ValidationError: spec.containers[0].image is required",
+          "has_line_number": false,
+          "names_specific_field": true,
+          "says_what_value_to_use": false,
+          "fix_is_local": true
+        },
+        {
+          "message": "spec.replicas: Invalid value: 'three': cannot be converted to integer",
+          "has_line_number": false,
+          "names_specific_field": true,
+          "says_what_value_to_use": true,
+          "fix_is_local": true
+        },
+        {
+          "message": "unknown field 'deploymentStrategy' in io.k8s.api.apps.v1.DeploymentSpec",
+          "has_line_number": false,
+          "names_specific_field": true,
+          "says_what_value_to_use": false,
+          "fix_is_local": true
+        }
+      ]
+    },
+    "security": {
+      "layer": "L3",
+      "description": "Insecure configurations caught by policy checkers",
+      "informativeness": {
+        "mean": 0.2,
+        "min": 0.1,
+        "max": 0.4,
+        "per_example": [
+          0.4,
+          0.1,
+          0.1
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 0.3333,
+          "says_what_value_to_use": 0.0,
+          "fix_is_local": 1.0
+        }
+      },
+      "typical_sc_recovery_rate": 0.49,
+      "reason": "Security checks identify problems but rarely say what secure value to use; some fixes require architectural changes",
+      "examples": [
+        {
+          "message": "CKV_K8S_11: Ensure that the CPU limit is set. [HIGH] at containers[0]",
+          "has_line_number": false,
+          "names_specific_field": true,
+          "says_what_value_to_use": false,
+          "fix_is_local": true
+        },
+        {
+          "message": "CKV_K8S_16: Do not allow containers to run as root. [MEDIUM]",
+          "has_line_number": false,
+          "names_specific_field": false,
+          "says_what_value_to_use": false,
+          "fix_is_local": true
+        },
+        {
+          "message": "CKV2_K8S_6: Pod Security Standards: privileged containers not allowed",
+          "has_line_number": false,
+          "names_specific_field": false,
+          "says_what_value_to_use": false,
+          "fix_is_local": true
+        }
+      ]
+    },
+    "cross_resource": {
+      "layer": "L4",
+      "description": "Errors involving relationships between multiple resources",
+      "informativeness": {
+        "mean": 0.4,
+        "min": 0.3,
+        "max": 0.6,
+        "per_example": [
+          0.6,
+          0.3,
+          0.3
+        ],
+        "property_rates": {
+          "has_line_number": 0.0,
+          "names_specific_field": 1.0,
+          "says_what_value_to_use": 0.3333,
+          "fix_is_local": 0.0
+        }
+      },
+      "typical_sc_recovery_rate": 0.31,
+      "reason": "Cross-resource errors require understanding the whole system topology; fixing one resource may require coordinated changes across many",
+      "examples": [
+        {
+          "message": "Service selector 'app: frontend' matches no Deployment labels",
+          "has_line_number": false,
+          "names_specific_field": true,
+          "says_what_value_to_use": true,
+          "fix_is_local": false
+        },
+        {
+          "message": "ConfigMap 'app-config' referenced in Pod spec not found in namespace 'production'",
+          "has_line_number": false,
+          "names_specific_field": true,
+          "says_what_value_to_use": false,
+          "fix_is_local": false
+        },
+        {
+          "message": "NetworkPolicy denies traffic between 'frontend' and 'backend' pods",
+          "has_line_number": false,
+          "names_specific_field": true,
+          "says_what_value_to_use": false,
+          "fix_is_local": false
+        }
+      ]
+    }
+  },
+  "expected_recovery_by_distribution": {
+    "typical_ai_output": {
+      "distribution": {
+        "syntax": 0.15,
+        "schema": 0.35,
+        "security": 0.4,
+        "cross_resource": 0.1
+      },
+      "expected_recovery_rate": 0.5485
+    },
+    "syntax_heavy": {
+      "distribution": {
+        "syntax": 0.6,
+        "schema": 0.2,
+        "security": 0.15,
+        "cross_resource": 0.05
+      },
+      "expected_recovery_rate": 0.643
+    },
+    "security_heavy": {
+      "distribution": {
+        "syntax": 0.05,
+        "schema": 0.1,
+        "security": 0.65,
+        "cross_resource": 0.2
+      },
+      "expected_recovery_rate": 0.4775
+    }
+  }
+}

@@ -1,90 +1,231 @@
-# InfraAgent: Prevention Over Repair in LLM-Generated IaC
+# IaCBench + InfraAgent
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Tests](https://github.com/tarun1219/infraagent/workflows/Tests/badge.svg)](https://github.com/tarun1219/infraagent/actions)
 [![Paper](https://img.shields.io/badge/Paper-Preprint-brightgreen.svg)](#citation)
 
-**Paper:** *"Prevention Over Repair: Quantifying the RAG-vs-Self-Correction Asymmetry in LLM-Generated Infrastructure-as-Code"*
+**Paper:** *"IaCBench: How Reliably Do Large Language Models Generate Secure Infrastructure-as-Code? A Multi-Language Benchmark and Empirical Study of Frontier Models"*
 
-## Key Finding
+---
 
-RAG-based prevention (**+19.9 pp** security in one step) outperforms iterative self-correction repair (**+18.4 pp** over 3 rounds). Self-correction recovery rate is only **7.9%** for initially-failing tasks, dropping to **8%** for security misconfigurations — the dominant failure class (46% of errors).
+## Overview
 
-## What's Included
+**IaCBench** is the first multi-language benchmark for evaluating LLM-generated Infrastructure-as-Code (IaC). It covers 150 tasks across Kubernetes YAML, Terraform HCL, and Dockerfile at five difficulty levels, with a four-layer validation pipeline (syntax → schema → security → functional correctness).
 
-| Component | Description |
-|-----------|-------------|
-| **IaCBench** | 300 curated IaC tasks (Kubernetes, Terraform, Dockerfile × L1–L5 difficulty) |
-| **InfraAgent** | Reference framework: RAG + multi-layer validation + self-correction |
-| **Scripts** | Reproduce all 14 paper figures and statistical tables |
-| **Results** | Simulation results for 8 models × 5 conditions |
+**InfraAgent** is the evaluation harness that runs any LLM against IaCBench. It supports:
+- Documentation-augmented retrieval (RAG)
+- Iterative self-correction with structured validation feedback
+- Multi-provider API support: OpenAI, Anthropic, Groq, Ollama (local)
 
-## Results Summary
+---
 
-| Condition | Syntax | Schema | Security | Functional |
-|-----------|--------|--------|----------|------------|
-| One-Shot | 60.3% | 51.5% | 16.8% | 35.8% |
-| One-Shot + RAG | 71.2% | 64.7% | 36.7% | 45.9% |
-| SC (3r) | 86.0% | 77.9% | 53.3% | 60.4% |
-| **SC + RAG (3r)** | **91.1%** | **88.2%** | **74.3%** | **72.0%** |
-| SC + RAG (5r) | 94.0% | 91.4% | 78.6% | 74.5% |
+## Key Results
 
-*Primary model: DeepSeek-Coder-V2-16B. Commercial ceilings: GPT-4o 93.9%, Claude-3.5-Sonnet 91.2%.*
+| Model | Baseline Functional | Baseline Security | RAG Functional | RAG Security |
+|-------|--------------------|--------------------|----------------|--------------|
+| GPT-4o | 97.3% | 84.1% | 97.3% | 84.9% |
+| GPT-4o-mini | 86.0% | 84.0% | 87.3% | 84.6% |
+| Claude Haiku 4.5 | 98.0% | 94.3% | 99.3% | 96.2% |
+| **Claude Sonnet 4.5** | **98.7%** | **96.5%** | **100.0%** | **96.5%** |
+
+*150 tasks, up to 2 self-correction rounds per condition.*
+
+### Key Findings
+
+1. **Frontier models achieve 86–99% functional correctness** — far exceeding ~35% reported for open-source models on prior benchmarks.
+2. **Security is the primary differentiator**: Claude models score 94–97% vs ~84% for GPT models, a gap that persists across all conditions.
+3. **RAG is a ceiling-breaker**: pushes Claude Sonnet 4.5 to perfect **100%** across all 150 tasks.
+4. **Kubernetes is the hardest language**: GPT-4o-mini achieves only 70% on Kubernetes vs 100% on Dockerfile.
+5. **Terraform IAM security** is the hardest security domain (~65% for GPT models due to strict Checkov IAM checks).
+
+---
+
+## Repository Structure
+
+```
+infraagent/
+├── iachench/
+│   └── tasks/
+│       ├── k8s_tasks.json       # 50 Kubernetes tasks (L1–L5)
+│       ├── tf_tasks.json        # 50 Terraform tasks (L1–L5)
+│       └── df_tasks.json        # 50 Dockerfile tasks (L1–L5)
+├── rag_corpus/
+│   ├── kubernetes/              # K8s API docs, security guides
+│   ├── terraform/               # AWS/GCP/Azure provider docs
+│   └── dockerfile/              # Docker best practices
+├── analysis/
+│   ├── run_groq_evaluation.py   # Multi-provider eval (Groq/Anthropic/OpenRouter)
+│   ├── run_llm_evaluation.py    # OpenAI GPT-4o evaluation
+│   ├── run_mini_evaluation.py   # OpenAI GPT-4o-mini evaluation
+│   ├── run_ollama_evaluation.py # Local model evaluation via Ollama
+│   ├── generate_figures.py      # Reproduce all paper figures
+│   └── results/                 # Evaluation result JSONs
+├── figures/                     # Paper figures (PDF, reproducible via generate_figures.py)
+└── docs/
+    ├── INSTALL.md
+    └── QUICKSTART.md
+```
+
+---
 
 ## Quick Start
+
+### 1. Install dependencies
 
 ```bash
 git clone https://github.com/tarun1219/infraagent.git
 cd infraagent
 pip install -r requirements.txt
-
-# Run 10 sample tasks
-python scripts/run_experiments.py --condition sc+rag+3r --model deepseek --num_tasks 10
-
-# Reproduce all paper figures
-python scripts/plot_figures.py --output paper_figures/
 ```
+
+Required validation tools:
+```bash
+# macOS
+brew install checkov kubeconform hadolint
+
+# Python
+pip install yamllint
+```
+
+### 2. Run evaluation
+
+**OpenAI models:**
+```bash
+export OPENAI_API_KEY=your-key-here
+python3 analysis/run_llm_evaluation.py        # GPT-4o
+python3 analysis/run_mini_evaluation.py       # GPT-4o-mini
+```
+
+**Anthropic models:**
+```bash
+export ANTHROPIC_API_KEY=your-key-here
+export PROVIDER=anthropic
+python3 analysis/run_groq_evaluation.py
+```
+
+**Groq (free tier):**
+```bash
+export GROQ_API_KEY=your-key-here
+export PROVIDER=groq
+python3 analysis/run_groq_evaluation.py
+```
+
+**Local models via Ollama:**
+```bash
+ollama pull deepseek-coder:6.7b-instruct-q4_K_M
+python3 analysis/run_ollama_evaluation.py
+```
+
+### 3. Reproduce paper figures
+
+```bash
+python3 analysis/generate_figures.py
+# Outputs 8 PDF figures to figures/
+```
+
+---
+
+## Evaluation Output
+
+Each script produces a JSON results file in `analysis/results/`:
+
+```json
+{
+  "model_stats": {
+    "claude-sonnet-4-5": {
+      "baseline": { "pct_functional": 0.987, "mean_security": 0.965 },
+      "rag":      { "pct_functional": 1.000, "mean_security": 0.965 }
+    }
+  },
+  "model_results": { ... }
+}
+```
+
+---
+
+## Adding a New Model
+
+To evaluate any OpenAI-compatible API, extend the `PROVIDERS` dict in `run_groq_evaluation.py`:
+
+```python
+PROVIDERS = {
+    "your_provider": {
+        "url": "https://api.yourprovider.com/v1/chat/completions",
+        "key_env": "YOUR_API_KEY",
+        "models": ["model-name-here"],
+    },
+    ...
+}
+```
+
+Then run:
+```bash
+export PROVIDER=your_provider
+export YOUR_API_KEY=your-key-here
+python3 analysis/run_groq_evaluation.py
+```
+
+---
+
+## Benchmark Design
+
+### Task Distribution
+
+| Language | L1 | L2 | L3 | L4 | L5 | Total |
+|----------|----|----|----|----|----|-------|
+| Kubernetes | 10 | 10 | 10 | 10 | 10 | 50 |
+| Terraform  | 10 | 10 | 10 | 10 | 10 | 50 |
+| Dockerfile | 10 | 10 | 10 | 10 | 10 | 50 |
+
+### Difficulty Levels
+
+| Level | Label | Description |
+|-------|-------|-------------|
+| L1 | Basic | Single resource, no security constraints |
+| L2 | Intermediate | 2+ cooperating resources |
+| L3 | Advanced | Stateful resources, scaling, volumes |
+| L4 | Security-Focused | L2/L3 + explicit security requirements |
+| L5 | Expert | Multi-component systems with cross-cutting concerns |
+
+### Validation Pipeline
+
+| Layer | Tool | Criterion |
+|-------|------|-----------|
+| 1 – Syntax | yamllint / hcl2 / dockerfile-parse | No parse errors |
+| 2 – Schema | kubeconform / terraform validate / hadolint | API-conformant |
+| 3 – Security | Checkov / OPA/Rego / Hadolint | Security score ≥ 0.5 |
+| 4 – Functional | Structural diffing + semantic checks | Meets task specification |
+
+A task is **functionally correct** only if it passes all four layers.
+
+---
 
 ## System Requirements
 
 - Python 3.10+
-- 16 GB RAM (for local LLM inference via Ollama)
-- Docker + kind (optional, for Kubernetes server-side dry-run validation)
-- LocalStack (optional, for Terraform deployment testing)
+- macOS / Linux
+- For local model evaluation: [Ollama](https://ollama.com) + 8 GB+ RAM
+- Validation tools: `checkov`, `kubeconform`, `hadolint`, `yamllint`
 
-## Documentation
-
-- 📖 [Installation](docs/INSTALL.md)
-- 🚀 [5-Minute Quickstart](docs/QUICKSTART.md)
-- 📊 [Reproduce Paper Results](docs/PAPER.md)
-- 🏗️ [Architecture](docs/ARCHITECTURE.md)
-- ❓ [FAQ](docs/FAQ.md)
-
-## Prevention Over Repair: The Core Asymmetry
-
-```
-Error Class          | % of Failures | SC Recovery | Why
----------------------|---------------|-------------|------------------------------
-Syntax Errors        |     23%       |     72%     | Precise line/token feedback
-Schema Violations    |     31%       |     55%     | Named field + API version
-Security Misconfigs  |     46%       |      8%     | No "what to add" signal
-Cross-Resource       |   (subset)    |      2%     | Global state, no local fix
-```
-
-This table explains why RAG (which provides documentation of *what to add*) prevents
-security failures more effectively than SC (which only signals *what is wrong*).
+---
 
 ## Citation
 
+If you use IaCBench or InfraAgent in your research, please cite:
+
 ```bibtex
-@misc{infraagent2026,
-  title  = {Prevention Over Repair: Quantifying the RAG-vs-Self-Correction
-            Asymmetry in LLM-Generated Infrastructure-as-Code},
-  author = {Anonymous},
-  year   = {2026}
+@inproceedings{iacbench2025,
+  title     = {IaCBench: How Reliably Do Large Language Models Generate Secure
+               Infrastructure-as-Code? A Multi-Language Benchmark and
+               Empirical Study of Frontier Models},
+  author    = {Anonymous},
+  booktitle = {Proceedings of the ACM/IEEE International Conference on
+               Software Engineering},
+  year      = {2025}
 }
 ```
+
+---
 
 ## License
 

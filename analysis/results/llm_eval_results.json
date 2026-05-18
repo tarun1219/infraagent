@@ -1,0 +1,6570 @@
+{
+  "meta": {
+    "model": "gpt-4o",
+    "n_tasks": 150,
+    "max_self_corrections": 2,
+    "temperature": 0.2
+  },
+  "baseline_stats": {
+    "label": "gpt4o_baseline",
+    "n": 150,
+    "pct_functional": 0.9733,
+    "pct_syntax": 1.0,
+    "pct_schema": 0.9933,
+    "mean_security": 0.8406,
+    "pct_self_corrected": 0.0333,
+    "by_language": {
+      "kubernetes": {
+        "n": 50,
+        "pct_functional": 0.96
+      },
+      "terraform": {
+        "n": 50,
+        "pct_functional": 0.96
+      },
+      "dockerfile": {
+        "n": 50,
+        "pct_functional": 1.0
+      }
+    },
+    "by_difficulty": {
+      "1": {
+        "n": 30,
+        "pct_functional": 0.9333
+      },
+      "2": {
+        "n": 30,
+        "pct_functional": 0.9667
+      },
+      "3": {
+        "n": 30,
+        "pct_functional": 0.9667
+      },
+      "4": {
+        "n": 30,
+        "pct_functional": 1.0
+      },
+      "5": {
+        "n": 30,
+        "pct_functional": 1.0
+      }
+    }
+  },
+  "rag_stats": {
+    "label": "gpt4o_rag",
+    "n": 150,
+    "pct_functional": 0.9733,
+    "pct_syntax": 1.0,
+    "pct_schema": 0.9933,
+    "mean_security": 0.8487,
+    "pct_self_corrected": 0.0667,
+    "by_language": {
+      "kubernetes": {
+        "n": 50,
+        "pct_functional": 0.96
+      },
+      "terraform": {
+        "n": 50,
+        "pct_functional": 0.96
+      },
+      "dockerfile": {
+        "n": 50,
+        "pct_functional": 1.0
+      }
+    },
+    "by_difficulty": {
+      "1": {
+        "n": 30,
+        "pct_functional": 0.9667
+      },
+      "2": {
+        "n": 30,
+        "pct_functional": 0.9333
+      },
+      "3": {
+        "n": 30,
+        "pct_functional": 1.0
+      },
+      "4": {
+        "n": 30,
+        "pct_functional": 0.9667
+      },
+      "5": {
+        "n": 30,
+        "pct_functional": 1.0
+      }
+    }
+  },
+  "baseline_results": [
+    {
+      "task_id": "k8s-001",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-002",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-003",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-004",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-005",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-006",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-007",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-008",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8427
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8427,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-009",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-010",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8764
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8764,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-011",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-012",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8889
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8889,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-013",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8556
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8556,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-014",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8444
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8444,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-015",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-016",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8837
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8837,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-017",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8837
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8837,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-018",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8876
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8876,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-019",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8791
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8791,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-020",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-021",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8824
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8824,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-022",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8824
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8824,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-023",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8824
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8824,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-024",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8235
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8235,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-025",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9216
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9216,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-026",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.932
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9223
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9223
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.9223,
+      "final_syntax_valid": true,
+      "final_schema_valid": false
+    },
+    {
+      "task_id": "k8s-027",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8598
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8598,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-028",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9091
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9091,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-029",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8571
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8571,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-030",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8641
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8641,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-031",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9326
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9326,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-032",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-033",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-034",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8539
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8539,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-035",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9213
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9213,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-036",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8764
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8764,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-037",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-038",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8876
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8876,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-039",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-040",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9101
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9101,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-041",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-042",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.934
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.934,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-043",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-044",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9362
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9362,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-045",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.883
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.883,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-046",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8603
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8603,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-047",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8603
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8603,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-048",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9223
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9223,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-049",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-050",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9024
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9024,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-001",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5833
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5833,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-002",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-003",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8462
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8462,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-004",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-005",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-006",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.56
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.56,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-007",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.75
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.75,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-008",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-009",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-010",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-011",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-012",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5385
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5385,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-013",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-014",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5417
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5417,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-015",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6522
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6522,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-016",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5455
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5455,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-017",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-018",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-019",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8462
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8462,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-020",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-021",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6875
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6875,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-022",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6364
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6364,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-023",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7292
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7292,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-024",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6415
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6415,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-025",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5909
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5909,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-026",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-027",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8333
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-028",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.625
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.625,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-029",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6111
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6111,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-030",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9231
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9231,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-031",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-032",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-033",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-034",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6071
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6071,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-035",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-036",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5172
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5172,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-037",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6857
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6857,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-038",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7037
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7037,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-039",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.76
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.76,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-040",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7692
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7692,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-041",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-042",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8776
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8776,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-043",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7143
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7143,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-044",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6552
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6552,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-045",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.587
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.587,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-046",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5846
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5846,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-047",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5385
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5385,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-048",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-049",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-050",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6304
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6304,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-001",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-002",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-003",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-004",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-005",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-006",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-007",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-008",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-009",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-010",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-011",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-012",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-013",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.96
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.96,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-014",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-015",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-016",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-017",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-018",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-019",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-020",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-021",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-022",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-023",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-024",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-025",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-026",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-027",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-028",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-029",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-030",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-031",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.96
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.96,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-032",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-033",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-034",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-035",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9762
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9762,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-036",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9831
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9831,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-037",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-038",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-039",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-040",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-041",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-042",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9831
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9831,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-043",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-044",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-045",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9922
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9922,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-046",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-047",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-048",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-049",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-050",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    }
+  ],
+  "rag_results": [
+    {
+      "task_id": "k8s-001",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-002",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-003",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-004",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-005",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-006",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-007",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-008",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-009",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-010",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8764
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8764,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-011",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-012",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-013",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-014",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-015",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-016",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8953
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8953,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-017",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8837
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8837,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-018",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8876
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8876,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-019",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8901
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8901,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-020",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8876
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8764
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8764
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8764,
+      "final_syntax_valid": true,
+      "final_schema_valid": false
+    },
+    {
+      "task_id": "k8s-021",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9216
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9216
+        },
+        {
+          "attempt": 3,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9216
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 2,
+      "final_security_score": 0.9216,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-022",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.902
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.902,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-023",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8922
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8922,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-024",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9118
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9118,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-025",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9216
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9216,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-026",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9029
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9029,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-027",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9065
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9065,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-028",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9293
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9293,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-029",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9043
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9043,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-030",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9029
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9029,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-031",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9438
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9438,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-032",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-033",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-034",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9326
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9326,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-035",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9213
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9213,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-036",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9326
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9326,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-037",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-038",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9101
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9101,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-039",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-040",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9326
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9326,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-041",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-042",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.934
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.934,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-043",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-044",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9362
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9362,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-045",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8777
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8777,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-046",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8603
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8603,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-047",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8771
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8771,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-048",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9126
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9126,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-049",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "k8s-050",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9338
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9338,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-001",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.625
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.625,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-002",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-003",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-004",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7647
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.7647,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-005",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-006",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5238
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5238,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-007",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7391
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7391,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-008",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-009",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.8,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-010",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-011",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-012",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6471
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6471,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-013",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.25
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-014",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5417
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5417,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-015",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6522
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6522,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-016",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.625
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.625,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-017",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-018",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-019",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8462
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8462,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-020",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-021",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-022",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7143
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7143,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-023",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7188
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7188,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-024",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-025",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5909
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5909,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-026",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6757
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6757,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-027",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-028",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5833
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5833,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-029",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6216
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6216,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-030",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.875
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.875,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-031",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4783
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.52
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.52,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-032",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6087
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6087,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-033",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.75
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.75,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-034",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5926
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5926,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-035",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-036",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4483
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4483
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4839
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.4839,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-037",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7297
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7297,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-038",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.619
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.619,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-039",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.76
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.76,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-040",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7692
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7692,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-041",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8372
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8372,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-042",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-043",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.68
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.68,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-044",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5833
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5833,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-045",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5217
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5217,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-046",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5588
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5588,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-047",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8065
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8065,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-048",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6522
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6522,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-049",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6098
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6098,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "tf-050",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7179
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7179,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-001",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-002",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9767
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9767,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-003",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9767
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9767,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-004",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-005",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-006",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9512
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9512,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-007",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9655
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9655,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-008",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9833
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9833,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-009",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-010",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.96
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.96,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-011",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9762
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9762,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-012",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9868
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9868,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-013",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9524
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9524,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-014",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9762
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9762,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-015",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-016",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.987
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.987,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-017",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9767
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9767,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-018",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9868
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9868,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-019",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9868
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9868,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-020",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9767
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9767,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-021",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-022",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-023",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-024",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-025",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-026",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-027",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-028",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-029",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-030",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-031",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-032",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-033",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-034",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-035",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-036",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9836
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9836,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-037",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-038",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-039",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-040",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-041",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-042",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9868
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9868,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-043",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9833
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9833,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-044",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-045",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9932
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9932,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-046",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-047",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-048",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-049",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    },
+    {
+      "task_id": "df-050",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "use_rag": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true
+    }
+  ]
+}

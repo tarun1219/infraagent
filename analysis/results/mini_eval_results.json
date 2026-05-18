@@ -1,0 +1,7469 @@
+{
+  "meta": {
+    "model": "gpt-4o-mini",
+    "n_tasks": 150,
+    "max_self_corrections": 2
+  },
+  "baseline_stats": {
+    "label": "gpt-4o-mini_baseline",
+    "n": 150,
+    "pct_functional": 0.86,
+    "pct_syntax": 1.0,
+    "mean_security": 0.8402,
+    "pct_self_corrected": 0.2267,
+    "by_language": {
+      "kubernetes": {
+        "n": 50,
+        "pct_functional": 0.7
+      },
+      "terraform": {
+        "n": 50,
+        "pct_functional": 0.88
+      },
+      "dockerfile": {
+        "n": 50,
+        "pct_functional": 1.0
+      }
+    },
+    "by_difficulty": {
+      "1": {
+        "n": 30,
+        "pct_functional": 0.8667
+      },
+      "2": {
+        "n": 30,
+        "pct_functional": 0.8667
+      },
+      "3": {
+        "n": 30,
+        "pct_functional": 0.9667
+      },
+      "4": {
+        "n": 30,
+        "pct_functional": 0.7667
+      },
+      "5": {
+        "n": 30,
+        "pct_functional": 0.8333
+      }
+    }
+  },
+  "rag_stats": {
+    "label": "gpt-4o-mini_rag",
+    "n": 150,
+    "pct_functional": 0.8733,
+    "pct_syntax": 0.9933,
+    "mean_security": 0.846,
+    "pct_self_corrected": 0.2133,
+    "by_language": {
+      "kubernetes": {
+        "n": 50,
+        "pct_functional": 0.7
+      },
+      "terraform": {
+        "n": 50,
+        "pct_functional": 0.92
+      },
+      "dockerfile": {
+        "n": 50,
+        "pct_functional": 1.0
+      }
+    },
+    "by_difficulty": {
+      "1": {
+        "n": 30,
+        "pct_functional": 0.9
+      },
+      "2": {
+        "n": 30,
+        "pct_functional": 0.9333
+      },
+      "3": {
+        "n": 30,
+        "pct_functional": 0.9333
+      },
+      "4": {
+        "n": 30,
+        "pct_functional": 0.7667
+      },
+      "5": {
+        "n": 30,
+        "pct_functional": 0.8333
+      }
+    }
+  },
+  "baseline_results": [
+    {
+      "task_id": "k8s-001",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-002",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-003",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-004",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-005",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-006",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-007",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-008",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8427
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8427,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-009",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-010",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8764
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8764,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-011",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8889
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8889,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-012",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-013",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-014",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8333
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8444
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.8444,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-015",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-016",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8736
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8372
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8372
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8372,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-017",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8372
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8372
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8372
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8372,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-018",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8539
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8202
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.8202,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-019",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8901
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8901,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-020",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-021",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8725
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8725,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-022",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8529
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8571
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8571
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8571,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-023",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8431
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8431,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-024",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8235
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8235,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-025",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8901
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8901,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-026",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8932
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8932,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-027",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8411
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8411,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-028",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.899
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.899,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-029",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8381
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8381,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-030",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8447
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8447,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-031",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8876
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8876
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8876
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8876,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-032",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-033",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-034",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9326
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8539
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.8539,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-035",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.809
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.809
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.809
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.809,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-036",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8652
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8539
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8539
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8539,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-037",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-038",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.7978
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.7978
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.7978
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.7978,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-039",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-040",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8652
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8652
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-041",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-042",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9057
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8774
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8774
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8774,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-043",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-044",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8936
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8936
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8936
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8936,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-045",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8564
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8564,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-046",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8715
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8492
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8045
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8045,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-047",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-048",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9029
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9029
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9029
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.9029,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-049",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "k8s-050",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8392
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8392,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-001",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4545
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4545
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4545
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.4545,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-002",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6842
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6842,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-003",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8571
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8571,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-004",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-005",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4286
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7143
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.7143,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-006",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4667
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.56
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.56,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-007",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6522
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6522,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-008",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.3333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-009",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8125
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.8125,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-010",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-011",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5333
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-012",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5385
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5385,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-013",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-014",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6129
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6129,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-015",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6818
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6818,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-016",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5385
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5385,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-017",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-018",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.3333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-019",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8462
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8462,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-020",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.25
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-021",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-022",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6765
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6765,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-023",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7297
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7297,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-024",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-025",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-026",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-027",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-028",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4839
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.55
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.55,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-029",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6765
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6765,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-030",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7742
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7742,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-031",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-032",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6087
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6087,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-033",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5833
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5833,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-034",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-035",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5333
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-036",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4483
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4483
+        },
+        {
+          "attempt": 3,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5172
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 2,
+      "final_security_score": 0.5172,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-037",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7027
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7027,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-038",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-039",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7692
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7692,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-040",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.2308
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.2308
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.2308
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.2308,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-041",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-042",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-043",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-044",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.65
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.65,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-045",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5532
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5532,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-046",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-047",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7143
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7143,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-048",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-049",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6176
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.6176,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "tf-050",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-001",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-002",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-003",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-004",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-005",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-006",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9756
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9756,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-007",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-008",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-009",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-010",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9167
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9167,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-011",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-012",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-013",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.931
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.931,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-014",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-015",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-016",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-017",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-018",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-019",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-020",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-021",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-022",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-023",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-024",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-025",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9762
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9762,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-026",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-027",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-028",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-029",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-030",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-031",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.96
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.96,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-032",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-033",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-034",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-035",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9831
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9831,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-036",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9831
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9831,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-037",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-038",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-039",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-040",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-041",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-042",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9844
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9844,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-043",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-044",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-045",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9831
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9831,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-046",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9884
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9884,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-047",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-048",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-049",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.994
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.994,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    },
+    {
+      "task_id": "df-050",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": false
+    }
+  ],
+  "rag_results": [
+    {
+      "task_id": "k8s-001",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-002",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-003",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-004",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-005",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-006",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-007",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-008",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8427
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8427
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.8427,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-009",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-010",
+      "language": "kubernetes",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8764
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8764,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-011",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8889
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8889,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-012",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-013",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8556
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8556,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-014",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8556
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8556,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-015",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-016",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8837
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8736
+        },
+        {
+          "attempt": 3,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8953
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 2,
+      "final_security_score": 0.8953,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-017",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8837
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8372
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8372
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8372,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-018",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8539
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8539
+        },
+        {
+          "attempt": 3,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8539
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 2,
+      "final_security_score": 0.8539,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-019",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8901
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8901,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-020",
+      "language": "kubernetes",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8764
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8764,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-021",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8725
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8529
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8529
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8529,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-022",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8529
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8571
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8571
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8571,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-023",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8431
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8431,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-024",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8235
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8235,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-025",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.902
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.902,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-026",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8544
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8544,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-027",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8411
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8411,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-028",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.899
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.899,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-029",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8571
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8571,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-030",
+      "language": "kubernetes",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8447
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8447,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-031",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8876
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8876
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8876
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8876,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-032",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-033",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-034",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9213
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8539
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.8539,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-035",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.809
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.809
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.809
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.809,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-036",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8652
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8652
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8652
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8652,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-037",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-038",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.7978
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.7978
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.7978
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.7978,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-039",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-040",
+      "language": "kubernetes",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8427
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8427
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8427
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8427,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-041",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8778
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8778,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-042",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.9057
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8868
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8774
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8774,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-043",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-044",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8936
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8936
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.883
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.883,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-045",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8564
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8138
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.8138,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-046",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8715
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8492
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8492
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.8492,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-047",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-048",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9029
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9029,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-049",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "k8s-050",
+      "language": "kubernetes",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": false,
+          "security_score": 0.8741
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 1.0,
+      "final_syntax_valid": false,
+      "final_schema_valid": false,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-001",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4545
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4545
+        },
+        {
+          "attempt": 3,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 2,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-002",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6818
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6818,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-003",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-004",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4444
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4444
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.4444,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-005",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4286
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7143
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.7143,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-006",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-007",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6522
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6522,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-008",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.3333
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.3333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-009",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9474
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.9474,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-010",
+      "language": "terraform",
+      "difficulty": 1,
+      "category": "Single Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-011",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5333
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-012",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5385
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5385,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-013",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-014",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6129
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6129,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-015",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6818
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6818,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-016",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-017",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4286
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5385
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.5385,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-018",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-019",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8462
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8462,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-020",
+      "language": "terraform",
+      "difficulty": 2,
+      "category": "Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.25
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.0909
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.0909,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-021",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7333
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-022",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6471
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6471,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-023",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7105
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7105,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-024",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": false,
+          "schema_valid": false,
+          "security_score": 1.0
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7429
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.7429,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-025",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.575
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.575,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-026",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5862
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5862,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-027",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.8214
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.8214,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-028",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.4839
+        },
+        {
+          "attempt": 2,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.55
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 1,
+      "final_security_score": 0.55,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-029",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5833
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5833,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-030",
+      "language": "terraform",
+      "difficulty": 3,
+      "category": "Complex Multi-Resource",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7742
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7742,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-031",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5417
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5417,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-032",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6087
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6087,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-033",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6842
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6842,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-034",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-035",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5333
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-036",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5333
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5333,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-037",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6486
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6486,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-038",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7391
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7391,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-039",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7692
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7692,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-040",
+      "language": "terraform",
+      "difficulty": 4,
+      "category": "Security-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.2308
+        },
+        {
+          "attempt": 2,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.2308
+        },
+        {
+          "attempt": 3,
+          "functional_correct": false,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.2308
+        }
+      ],
+      "final_functional": false,
+      "self_corrections": 2,
+      "final_security_score": 0.2308,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-041",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-042",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-043",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.7586
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.7586,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-044",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-045",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.5106
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.5106,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-046",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-047",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-048",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.6667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.6667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-049",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "tf-050",
+      "language": "terraform",
+      "difficulty": 5,
+      "category": "Production-Grade",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-001",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-002",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-003",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-004",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-005",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-006",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9756
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9756,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-007",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-008",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-009",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-010",
+      "language": "dockerfile",
+      "difficulty": 1,
+      "category": "Single Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9167
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9167,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-011",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-012",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-013",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.931
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.931,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-014",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-015",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-016",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-017",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-018",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-019",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-020",
+      "language": "dockerfile",
+      "difficulty": 2,
+      "category": "Multi-Stage",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-021",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-022",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-023",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-024",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9714
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9714,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-025",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-026",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-027",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-028",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-029",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-030",
+      "language": "dockerfile",
+      "difficulty": 3,
+      "category": "Optimized Build",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-031",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.96
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.96,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-032",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-033",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-034",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-035",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9762
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9762,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-036",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9833
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9833,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-037",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-038",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-039",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-040",
+      "language": "dockerfile",
+      "difficulty": 4,
+      "category": "Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-041",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-042",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9844
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9844,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-043",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-044",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-045",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9844
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9844,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-046",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9884
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9884,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-047",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-048",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 1.0
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 1.0,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-049",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9944
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9944,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    },
+    {
+      "task_id": "df-050",
+      "language": "dockerfile",
+      "difficulty": 5,
+      "category": "Production-Hardened",
+      "model": "gpt-4o-mini",
+      "attempts": [
+        {
+          "attempt": 1,
+          "functional_correct": true,
+          "syntax_valid": true,
+          "schema_valid": true,
+          "security_score": 0.9667
+        }
+      ],
+      "final_functional": true,
+      "self_corrections": 0,
+      "final_security_score": 0.9667,
+      "final_syntax_valid": true,
+      "final_schema_valid": true,
+      "use_rag": true
+    }
+  ]
+}
